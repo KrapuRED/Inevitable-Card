@@ -14,6 +14,11 @@ public class CardSOEditor : Editor
 
     SerializedProperty defensiveCardType;
 
+    SerializedProperty itemCardType;
+    SerializedProperty useItem;
+    SerializedProperty itemHealAmount;
+    SerializedProperty itemDamage;
+
     SerializedProperty staminaCost;
 
     private void OnEnable()
@@ -25,6 +30,10 @@ public class CardSOEditor : Editor
         offensiveCardType   = serializedObject.FindProperty("offensiveCardType");
         damage              = serializedObject.FindProperty("damage");
         defensiveCardType   = serializedObject.FindProperty("defensiveCardType");
+        itemCardType        = serializedObject.FindProperty("itemCardType");
+        useItem             = serializedObject.FindProperty("useItem");
+        itemHealAmount      = serializedObject.FindProperty("itemHealAmount");
+        itemDamage          = serializedObject.FindProperty("itemDamage");
         staminaCost         = serializedObject.FindProperty("StaminaCost");
     }
 
@@ -47,7 +56,21 @@ public class CardSOEditor : Editor
                 EditorGUILayout.PropertyField(defensiveCardType);
             }
         }
-        EditorGUILayout.PropertyField(staminaCost);
+
+        if (cardType.enumValueIndex == (int)CardType.Item)
+        {
+            EditorGUILayout.PropertyField(itemCardType);
+            EditorGUILayout.PropertyField(useItem);
+            if (itemCardType.enumValueIndex == (int)ItemCardType.HealthPotion)
+            {
+                EditorGUILayout.PropertyField(itemHealAmount);
+            }
+            else if (itemCardType.enumValueIndex == (int)ItemCardType.Offensive)
+            {
+                EditorGUILayout.PropertyField(itemDamage);
+            }
+        }
+            EditorGUILayout.PropertyField(staminaCost);
         serializedObject.ApplyModifiedProperties();
     }
 }

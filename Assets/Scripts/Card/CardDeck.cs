@@ -116,11 +116,9 @@ public class CardDeck : Card
     public override void EndDrag(bool droppedSuccessfully)
     {
         isDragging = false;
-
         DOTween.Kill(transform);
 
         transform.DOMove(defaultPosition, 1f).SetEase(Ease.OutQuad);
-
         _spriteRenderer.sortingOrder = 0;
     }
     #endregion

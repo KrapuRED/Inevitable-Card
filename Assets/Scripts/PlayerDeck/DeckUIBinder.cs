@@ -18,10 +18,17 @@ public class DeckUIBinder : MonoBehaviour
     private void HandelAddedCard(CardSO cardData)
     {
         //Debug.Log("Get Called");
-        GameObject cardGO = cardUIFactory.CreateCardUI(cardData);
-        CardDeck card = cardGO.GetComponent<CardDeck>();
+        if (itemCardViews.TryGetValue(cardData, out CardDeck card))
+        {
+            card.gameObject.SetActive(true);
+            Repositioning();
+            return;
+        }
 
-        itemCardViews.Add(cardData, card);
+        GameObject cardGO = cardUIFactory.CreateCardUI(cardData);
+        CardDeck cardDeck = cardGO.GetComponent<CardDeck>();
+
+        itemCardViews.Add(cardData, cardDeck);
     
         Repositioning();
     }
@@ -31,9 +38,7 @@ public class DeckUIBinder : MonoBehaviour
         if (!itemCardViews.TryGetValue(cardData, out CardDeck card))
             return;
 
-        Destroy(card.gameObject);
-        itemCardViews.Remove(cardData);
-
+        card.gameObject.SetActive(false);
         Repositioning();
     }
 

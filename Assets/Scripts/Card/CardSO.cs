@@ -28,7 +28,14 @@ public enum DefensiveCardType
 }
 #endregion
 
+#region ITEM CARD TYPES
+public enum ItemCardType
+{
+    HealthPotion,
+    Offensive
+}
 
+#endregion
 
 [CreateAssetMenu(fileName = "CardSO", menuName = "Cards/CardDataSO")]
 public class CardSO : ScriptableObject
@@ -37,6 +44,7 @@ public class CardSO : ScriptableObject
     public Sprite cardImage;
     public CardType cardType;
 
+    #region MovementCardType
     public MovementCardType movementCardType;
 
     //Movement Card Offensive Properties
@@ -45,6 +53,19 @@ public class CardSO : ScriptableObject
 
     //Movement Card Defensive Properties
     public DefensiveCardType defensiveCardType;
+
+    #endregion
+
+    #region ItemCardType
+    public ItemCardType itemCardType;
+    public bool useItem;
+
+    //Item Card Healing Properties
+    public float itemHealAmount;
+
+    //item Card Offensive Properties
+    public float itemDamage;
+    #endregion
 
     public float StaminaCost;
 }

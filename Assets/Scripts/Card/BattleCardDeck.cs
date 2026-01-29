@@ -23,7 +23,7 @@ public class BattleCardDeck : Card
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        _boxCollied2D = GetComponent<BoxCollider2D>();
+        _boxCollied2D   = GetComponent<BoxCollider2D>();
     }
 
 
@@ -68,7 +68,7 @@ public class BattleCardDeck : Card
 
         if (isHover || isDragging) return;
 
-        transform.DOScale(scaleEnd, 0.2f).SetEase(Ease.OutBack);
+        transform.DOScaleY(scaleEnd, 0.2f).SetEase(Ease.OutBack);
     }
 
     public override void OnClickCard()
@@ -114,7 +114,7 @@ public class BattleCardDeck : Card
             return;
         }
 
-        gameObject.layer = LayerMask.NameToLayer("DropZone");
+        gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
     }
     #endregion
 
@@ -131,7 +131,10 @@ public class BattleCardDeck : Card
     public void CancelCard()
     {
         isHaveCard = false;
+        cardData = null;
         _boxCollied2D.isTrigger = false;
+        isAbleReiveCard = false;
+        transform.position = orginalPosition;
         _spriteRenderer.color = OutReiveCard;
     }
 

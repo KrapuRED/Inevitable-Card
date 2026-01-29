@@ -18,17 +18,32 @@ public class PlayerDeckManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void AddNewCard(CardSO card)
+    public void AddNewCard(CardSO cardData)
     {
-        switch (card.cardType)
+        switch (cardData.cardType)
         {
             case CardType.Movement:
-                movementDeck.AddCard(card);
+                movementDeck.AddCard(cardData);
                 break;
 
             case CardType.Item:
-                Debug.Log($"card type : {card.cardType}");
-                itemDeck.AddCard(card);
+                //Debug.Log($"cardData type : {cardData.cardType}");
+                itemDeck.AddCard(cardData);
+                break;
+        }
+    }
+
+    public void RemoveCard(CardSO cardData)
+    {
+        switch (cardData.cardType)
+        {
+            case CardType.Movement:
+                movementDeck.RemoveCardFromDeck(cardData);
+                break;
+
+            case CardType.Item:
+                //Debug.Log($"cardData type : {cardData.cardType}");
+                itemDeck.RemoveCardFromDeck(cardData);
                 break;
         }
     }
