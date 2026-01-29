@@ -17,7 +17,7 @@ public class DeckUIBinder : MonoBehaviour
 
     private void HandelAddedCard(CardSO cardData)
     {
-        Debug.Log("Get Called");
+        //Debug.Log("Get Called");
         GameObject cardGO = cardUIFactory.CreateCardUI(cardData);
         Card card = cardGO.GetComponent<Card>();
 

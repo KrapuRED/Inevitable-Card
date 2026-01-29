@@ -25,9 +25,14 @@ public class BattleCardDeck : MonoBehaviour
 
     public void ReceivePlayerCard(Card card)
     {
-        Debug.Log($"{this.name} Succes get the data from {card.name}");
+        //Debug.Log($"{this.name} Succes get the data from {card.name}");
+        if (card == null)
+        {
+            Debug.LogError("card is null");
+        }
         _cardData = card.cardData;
-        Debug.Log("card name : " + _cardData.cardName);
+        ChangeColorCardDeck();
+        //Debug.Log("card name : " + _cardData.cardName);
     }
 
     public void ExitReiveZone()
@@ -35,6 +40,18 @@ public class BattleCardDeck : MonoBehaviour
         if (!isAbleReiveCard) return;
 
         isAbleReiveCard = false;
+        _spriteRenderer.color = OutReiveCard;
+    }
+
+    public void ChangeColorCardDeck()
+    {
+        Debug.Log("get called");
+
+        _spriteRenderer.color = InReiveCard;
+    }
+
+    public void CancleCard()
+    {
         _spriteRenderer.color = OutReiveCard;
     }
 }

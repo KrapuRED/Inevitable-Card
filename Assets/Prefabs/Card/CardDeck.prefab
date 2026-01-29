@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4093187957017341094}
   - component: {fileID: 3438599547552530265}
-  - component: {fileID: 5354901882752279959}
+  - component: {fileID: 1790608016788916524}
   - component: {fileID: 1629702520015224473}
   m_Layer: 7
   m_Name: CardDeck
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5354901882752279959
+--- !u!114 &1790608016788916524
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
