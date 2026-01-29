@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class CardDeck : MonoBehaviour
+public class BattleCardDeck : MonoBehaviour
 {
-    [Header("State CardDeck")]
+    [Header("State battke Card Deck")]
     [SerializeField] private bool isAbleReiveCard;
     public Color InReiveCard;
     public Color OutReiveCard;
@@ -23,7 +23,7 @@ public class CardDeck : MonoBehaviour
         _spriteRenderer.color = InReiveCard;
     }
 
-    public void RecivePlayerCard(Card card)
+    public void ReceivePlayerCard(Card card)
     {
         Debug.Log($"{this.name} Succes get the data from {card.name}");
         _cardData = card.cardData;

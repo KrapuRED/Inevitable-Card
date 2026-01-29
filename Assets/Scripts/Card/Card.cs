@@ -21,17 +21,45 @@ public class Card : MonoBehaviour
     [SerializeField] private float StartPosition;
 
     private SpriteRenderer _spriteRenderer;
+    private BoxCollider2D _boxcollied2D;
     Tween _tween;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _boxcollied2D = GetComponent<BoxCollider2D>();
         defaultPosition = transform.position;
 
         if (cardData != null && cardData.cardImage != null)
         {
             _spriteRenderer.sprite = cardData.cardImage;
         }
+    }
+
+    public void UpdateBoxCollider2D(float visibleWidth)
+    {
+        if (_boxcollied2D == null)
+        {
+            Debug.LogError($"{this.name} is missing a BoxCollider2D");
+            return;
+        }
+
+        Vector2 size = _boxcollied2D.size;
+        size.x = visibleWidth;
+        _boxcollied2D.size = size;
+
+        Vector2 offset = _boxcollied2D.offset;
+        offset.x = visibleWidth * 0.5f;
+        _boxcollied2D.offset = offset;
+    }
+
+    public void InitializerCard(CardSO newCardSO)
+    {
+        cardData = newCardSO;
+    }
+
+    public void UseItem()
+    {
 
     }
 

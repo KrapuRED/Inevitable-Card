@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4093187957017341094}
   - component: {fileID: 3438599547552530265}
-  - component: {fileID: 4310989323548616690}
+  - component: {fileID: 5354901882752279959}
   - component: {fileID: 1629702520015224473}
   m_Layer: 7
   m_Name: CardDeck
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4310989323548616690
+--- !u!114 &5354901882752279959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,11 +98,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 423715864463149661}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f62a0e4be39f35748a85c69ad688019a, type: 3}
+  m_Script: {fileID: 11500000, guid: d90b504f4a3533a469e6bc14c1cc201a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isAbleReiveCard: 0
-  InReiveCard: {r: 0.9622642, g: 0.8612371, b: 0.09531862, a: 1}
+  InReiveCard: {r: 0.9607844, g: 0.86274517, b: 0.09411766, a: 1}
   OutReiveCard: {r: 0.7372549, g: 0.50980395, b: 0.50980395, a: 1}
   _cardData: {fileID: 0}
 --- !u!61 &1629702520015224473

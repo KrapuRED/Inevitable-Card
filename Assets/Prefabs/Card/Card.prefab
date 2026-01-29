@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2139291278838584957}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.188294, y: -4.359486, z: -712.57404}
+  m_LocalPosition: {x: 10.188294, y: -4.359486, z: 0}
   m_LocalScale: {x: 1.99166, y: 2.956955, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -101,14 +101,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdd48e6d458a3264b82165a51fe12468, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 11400000, guid: 529dc89ef39212545979ca3f916d5e1f, type: 2}
+  cardData: {fileID: 0}
   isHover: 0
   isDragging: 0
+  defaultPosition: {x: 0, y: 0}
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 128
   animationTime: 0.5
-  EndPosition: -3
+  EndPosition: -4
   StartPosition: -5.2
 --- !u!61 &5418221180445396088
 BoxCollider2D:
