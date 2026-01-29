@@ -103,6 +103,7 @@ public class CursorCollision2D : MonoBehaviour
         }
 
         #endregion
+
         #region Deck Container
         Collider2D containerHit =
         Physics2D.OverlapPoint(mouseWorldPosition, ContainerDropZoneLayer);
@@ -142,7 +143,7 @@ public class CursorCollision2D : MonoBehaviour
 
             if (hoveredCardDeck != null)
             {
-                hoveredCardDeck.ReceivePlayerCard(draggingCard);
+                hoveredCardDeck.ReceivePlayerCard(draggingCard.Instance);
                 dropped = true;
             }
 
@@ -168,18 +169,15 @@ public class CursorCollision2D : MonoBehaviour
             bool dropped = false;
 
             if (containerDeckCard != null &&
-                containerDeckCard.cardType == draggingBCD.cardData.cardType)
+                draggingBCD.CardInstance != null &&
+                containerDeckCard.cardType == draggingBCD.CardInstance.cardData.cardType)
             {
-                containerDeckCard.AddCard(draggingBCD.cardData);
+                containerDeckCard.AddCard(draggingBCD.CardInstance.cardData);
                 draggingBCD.CancelCard();
                 dropped = true;
             }
-
             draggingBCD.EndDrag(dropped);
             draggingBCD = null;
-
-            hoveredCardDeck?.ExitReceiveZone();
-            hoveredCardDeck = null;
         }
         #endregion
     }

@@ -7,15 +7,15 @@ public class CardUIfFactory : MonoBehaviour
     public Transform movenentDeckUI;
     public Transform itemDeckUI;
 
-    public GameObject CreateCardUI(CardSO cardData)
+    public GameObject CreateCardUI(CardInstance card)
     {
-        Transform container = cardData.cardType == 
+        Transform container = card.cardData.cardType == 
             CardType.Movement ? movenentDeckUI : itemDeckUI;
 
         GameObject cardGO = Instantiate(PrefabCard, container);
 
-        CardDeck card = cardGO.GetComponent<CardDeck>();
-        card.InitializerCard(cardData);
+        CardDeck cardDeck = cardGO.GetComponent<CardDeck>();
+        cardDeck.InitializerCard(card);
 
         return cardGO;
     }

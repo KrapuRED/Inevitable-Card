@@ -5,9 +5,9 @@ public class PlayerDeckManager : MonoBehaviour
     public static PlayerDeckManager instance;
 
     [Header("Player Deck")]
-    public DeckContiner movementDeck;
+    public MovementDeckContainer movementDeck;
     [SerializeField] private int TotalMovementCardDeck;
-    public DeckContiner itemDeck;
+    public ItemDeckContainer itemDeck;
     [SerializeField] private int TotalItemCardDeck;
 
     private void Awake()
@@ -27,28 +27,33 @@ public class PlayerDeckManager : MonoBehaviour
                 break;
 
             case CardType.Item:
-                //Debug.Log($"cardData type : {cardData.cardType}");
+                //Debug.Log($"card type : {card.cardType}");
                 itemDeck.AddCard(cardData);
                 break;
         }
     }
 
-    public void RemoveCard(CardSO cardData)
+    public void RemoveCard(CardInstance card)
     {
-        switch (cardData.cardType)
+        switch (card.cardData.cardType)
         {
             case CardType.Movement:
-                movementDeck.RemoveCardFromDeck(cardData);
+                movementDeck.RemoveCardFromDeck(card);
                 break;
 
             case CardType.Item:
-                //Debug.Log($"cardData type : {cardData.cardType}");
-                itemDeck.RemoveCardFromDeck(cardData);
+                //Debug.Log($"card type : {card.cardType}");
+                itemDeck.RemoveCardFromDeck(card);
                 break;
         }
     }
 
-    public void UsedItem(CardSO cardData)
+    public void HideItemCard(CardInstance card)
+    {
+        itemDeck.HideItemCard(card);
+    }
+
+    public void UsedItem(CardInstance cardData)
     {
         itemDeck.RemoveCardFromDeck(cardData);
     }

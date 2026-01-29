@@ -4,10 +4,12 @@ using UnityEngine;
 public class BattleCardDeck : Card
 {
     [Header("State battke Card Deck")]
+    [SerializeField] private int slotIndex;
     [SerializeField] private bool isAbleReiveCard;
     public Color InReiveCard;
     public Color OutReiveCard;
-    [SerializeField] public  CardSO cardData;
+    [SerializeField] private CardInstance cardInstance;
+    public CardInstance CardInstance => cardInstance;
     [SerializeField] private bool isHaveCard;
     [SerializeField] private bool isHover;
     [SerializeField] private bool isDragging;
@@ -26,6 +28,10 @@ public class BattleCardDeck : Card
         _boxCollied2D   = GetComponent<BoxCollider2D>();
     }
 
+    public void Init(int index)
+    {
+        slotIndex = index;
+    }
 
     #region Receive Section
     public void EnterReceiveZone()
@@ -36,7 +42,7 @@ public class BattleCardDeck : Card
         _spriteRenderer.color = InReiveCard;
     }
 
-    public void ReceivePlayerCard(CardDeck card)
+    public void ReceivePlayerCard(CardInstance card)
     {
         //Debug.Log($"{this.name} Succes get the data from {card.name}");
         if (card == null)
@@ -44,15 +50,15 @@ public class BattleCardDeck : Card
             Debug.LogError("card is null");
         }
         //Debug.Log("card name : " + card.cardData.cardName);
-        cardData = card.cardData;
+        cardInstance = card;
         isHaveCard = true;
+        BattleManager.instance.ChangeDataPlayerBattleDeck(card, slotIndex);
         ChangeStateBattleDeck();
     }
 
     public void ExitReceiveZone()
     {
         if (!isAbleReiveCard) return;
-        if (isHaveCard) return;
 
         isAbleReiveCard = false;
         _spriteRenderer.color = OutReiveCard;
@@ -63,7 +69,7 @@ public class BattleCardDeck : Card
     #region Hovering Secetion
     public override void OnHoverEnter()
     {
-        if (cardData == null)
+        if (cardInstance.cardData == null)
             return;
 
         if (isHover || isDragging) return;
@@ -78,7 +84,7 @@ public class BattleCardDeck : Card
 
     public override void OnHoverExit()
     {
-        if (cardData == null)
+        if (cardInstance.cardData == null)
             return;
 
         if (!isHover || isDragging) return;
@@ -120,7 +126,7 @@ public class BattleCardDeck : Card
 
     public void ChangeStateBattleDeck()
     {
-        if (cardData != null)
+        if (cardInstance.cardData != null)
         {
             gameObject.layer = LayerMask.NameToLayer("Interact");
             _boxCollied2D.isTrigger = true;
@@ -131,7 +137,7 @@ public class BattleCardDeck : Card
     public void CancelCard()
     {
         isHaveCard = false;
-        cardData = null;
+        cardInstance.cardData = null;
         _boxCollied2D.isTrigger = false;
         isAbleReiveCard = false;
         transform.position = orginalPosition;
@@ -140,6 +146,6 @@ public class BattleCardDeck : Card
 
     public bool CanDragging()
     {
-        return isHaveCard && cardData != null;
+        return isHaveCard && cardInstance != null;
     }
 }

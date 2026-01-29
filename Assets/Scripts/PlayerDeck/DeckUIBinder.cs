@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class DeckUIBinder : MonoBehaviour
 {
-    private Dictionary<CardSO, CardDeck> itemCardViews = new();
+    private Dictionary<CardInstance, CardDeck> _cardViews = new();
+
 
     [Header("References")]
     public CardUIfFactory cardUIFactory;
@@ -14,48 +15,51 @@ public class DeckUIBinder : MonoBehaviour
     [Header("Events")]
     public OnAddCardEventSO OnAddCardEvent;
     public OnRemoveCardEventSO OnRemoveCardEvent;
+    public OnHideItemCardEventSO OnHideItemCardEvent;
 
-    private void HandelAddedCard(CardSO cardData)
+    private void HandelAddedCard(CardInstance card)
     {
         //Debug.Log("Get Called");
-        if (itemCardViews.TryGetValue(cardData, out CardDeck card))
-        {
-            card.gameObject.SetActive(true);
-            Repositioning();
-            return;
-        }
-
-        GameObject cardGO = cardUIFactory.CreateCardUI(cardData);
+        GameObject cardGO = cardUIFactory.CreateCardUI(card);
         CardDeck cardDeck = cardGO.GetComponent<CardDeck>();
 
-        itemCardViews.Add(cardData, cardDeck);
+        _cardViews.Add(card, cardDeck);
     
         Repositioning();
     }
 
-    private void HandleRemovedCard(CardSO cardData)
+    public void HandleHideCard(CardInstance card)
     {
-        if (!itemCardViews.TryGetValue(cardData, out CardDeck card))
+
+    }
+
+    private void HandleRemovedCard(CardInstance card)
+    {
+        if (!_cardViews.TryGetValue(card, out CardDeck cardDeck))
             return;
 
-        card.gameObject.SetActive(false);
+        Destroy(cardDeck);
         Repositioning();
     }
 
     private void Repositioning()
     {
-        positionerItemDeck.RepositionCards(itemCardViews.Values.ToList<Card>());
+        var cardDecks = _cardViews.Values.ToList();
+
+        positionerItemDeck.RepositionCards(cardDecks);
     }
 
     private void OnEnable()
     {
         OnAddCardEvent.Register(HandelAddedCard);
         OnRemoveCardEvent.Register(HandleRemovedCard);
+        OnHideItemCardEvent.Register(HandleHideCard);
     }
 
     private void OnDisable()
     {
         OnAddCardEvent.Unregister(HandelAddedCard);
         OnRemoveCardEvent.Unregister(HandleRemovedCard);
+        OnHideItemCardEvent.Unregister(HandleHideCard);
     }
 }

@@ -20,14 +20,20 @@ public class CardDeck : Card
     [SerializeField] private float EndPosition;
     [SerializeField] private float StartPosition;
 
+    public CardInstance Instance { get; private set; }
+
     private SpriteRenderer _spriteRenderer;
     private BoxCollider2D _boxcollied2D;
     Tween _tween;
 
-    private void Start()
+    private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxcollied2D = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
         defaultPosition = transform.position;
 
         if (cardData != null && cardData.cardImage != null)
@@ -53,9 +59,21 @@ public class CardDeck : Card
         _boxcollied2D.offset = offset;
     }
 
-    public override void InitializerCard(CardSO newCardSO)
+    public override void InitializerCard(CardInstance newCardSO)
     {
-        cardData = newCardSO;
+        cardData = newCardSO.cardData;
+        Instance = newCardSO;
+
+       // Debug.Log($"Card Name : {Instance.cardData.cardName} Card ID : {Instance.ID}");
+
+        if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.Offensive)
+        {
+            _spriteRenderer.color = Color.red;
+        }
+        else if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.HealthPotion)
+        {
+            _spriteRenderer.color = Color.green;
+        }
     }
 
     public override void UseItem()

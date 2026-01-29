@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.4248, y: -0.3175, z: 0}
-  m_LocalScale: {x: 1.9532981, y: 2.9, z: 0.9807387}
+  m_LocalScale: {x: 2, y: 2.9, z: 0.9807387}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90b504f4a3533a469e6bc14c1cc201a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotIndex: 0
   isAbleReiveCard: 0
   InReiveCard: {r: 0.9607844, g: 0.86274517, b: 0.09411766, a: 1}
   OutReiveCard: {r: 0.7372549, g: 0.50980395, b: 0.50980395, a: 1}

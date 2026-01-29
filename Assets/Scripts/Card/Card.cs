@@ -9,7 +9,7 @@ public class Card : MonoBehaviour
         
     }
 
-    public virtual void InitializerCard(CardSO newCardSO)
+    public virtual void InitializerCard(CardInstance newCardSO)
     {
        
     }
