@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71876352c55329c4190e0cdf0645c952, type: 3}
-  m_Name: Item card 1
+  m_Name: Medical KiT Item
   m_EditorClassIdentifier: 
-  cardName: Bomb
+  cardName: Medical KiT
   cardImage: {fileID: 0}
   cardType: 1
   movementCardType: 0
   offensiveCardType: 0
   damage: 0
   defensiveCardType: 0
-  itemCardType: 1
+  itemCardType: 0
   useItem: 0
   itemHealAmount: 0
   itemDamage: 0

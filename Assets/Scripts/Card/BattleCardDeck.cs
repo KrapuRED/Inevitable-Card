@@ -13,6 +13,7 @@ public class BattleCardDeck : Card
     [SerializeField] private bool isHaveCard;
     [SerializeField] private bool isHover;
     [SerializeField] private bool isDragging;
+    [SerializeField] private bool isHiddenCard;
 
     [Header("Aniamtion")]
     public float scaleEnd;
@@ -148,4 +149,7 @@ public class BattleCardDeck : Card
     {
         return isHaveCard && cardInstance != null;
     }
+
+    public void SetHiddenCard() => isHiddenCard = true;
+    public bool IsHiddenCard() { return isHiddenCard; }
 }

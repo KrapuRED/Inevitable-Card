@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71876352c55329c4190e0cdf0645c952, type: 3}
-  m_Name: Item card
+  m_Script: {fileID: 11500000, guid: 1e83d96d5d9bf064e91349abda8afff0, type: 3}
+  m_Name: Rouge Tick
   m_EditorClassIdentifier: 
-  cardName: Healling
-  cardImage: {fileID: 0}
-  cardType: 1
-  movementCardType: 0
-  offensiveCardType: 0
-  damage: 0
-  defensiveCardType: 0
-  StaminaCost: 0
+  enemyName: Rouge Tick
+  enemyType: 0
+  damage: 2
+  health: 40
+  hiddenCard: 2
+  isElimination: 0
