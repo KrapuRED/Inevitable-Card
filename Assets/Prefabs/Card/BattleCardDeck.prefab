@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1790608016788916524}
   - component: {fileID: 1629702520015224473}
   m_Layer: 7
-  m_Name: CardDeck
+  m_Name: BattleCardDeck
   m_TagString: CardDeck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

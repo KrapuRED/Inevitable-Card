@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2025134677963233193}
   - component: {fileID: 1237861614236535026}
-  - component: {fileID: 3220211914282309644}
   - component: {fileID: 5418221180445396088}
+  - component: {fileID: 9021114947549791613}
   m_Layer: 6
   m_Name: Card
   m_TagString: Untagged
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  m_Color: {r: 0.5754717, g: 0.371885, b: 0.371885, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -89,28 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3220211914282309644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2139291278838584957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdd48e6d458a3264b82165a51fe12468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
-  isHover: 0
-  isDragging: 0
-  defaultPosition: {x: 0, y: 0}
-  dropZoneLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  animationTime: 0.5
-  EndPosition: -4
-  StartPosition: -5.2
 --- !u!61 &5418221180445396088
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,3 +135,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.95086116, y: 0.965672}
   m_EdgeRadius: 0
+--- !u!114 &9021114947549791613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2139291278838584957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f62a0e4be39f35748a85c69ad688019a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardData: {fileID: 0}
+  isHover: 0
+  isDragging: 0
+  defaultPosition: {x: 0, y: 0}
+  dropZoneLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  animationTime: 0.5
+  EndPosition: -4
+  StartPosition: -5.23

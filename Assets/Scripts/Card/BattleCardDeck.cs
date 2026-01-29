@@ -1,21 +1,34 @@
+using DG.Tweening;
 using UnityEngine;
 
-public class BattleCardDeck : MonoBehaviour
+public class BattleCardDeck : Card
 {
     [Header("State battke Card Deck")]
     [SerializeField] private bool isAbleReiveCard;
     public Color InReiveCard;
     public Color OutReiveCard;
-    [SerializeField] private CardSO _cardData;
+    [SerializeField] public  CardSO cardData;
+    [SerializeField] private bool isHaveCard;
+    [SerializeField] private bool isHover;
+    [SerializeField] private bool isDragging;
+
+    [Header("Aniamtion")]
+    public float scaleEnd;
+    public float scaleStart;
+    private Vector3 orginalPosition;
 
     SpriteRenderer _spriteRenderer;
+    BoxCollider2D _boxCollied2D;
 
-    private void Start()
+    private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _boxCollied2D = GetComponent<BoxCollider2D>();
     }
 
-    public void EnterReiveZone()
+
+    #region Receive Section
+    public void EnterReceiveZone()
     {
         if (isAbleReiveCard) return;
 
@@ -23,35 +36,107 @@ public class BattleCardDeck : MonoBehaviour
         _spriteRenderer.color = InReiveCard;
     }
 
-    public void ReceivePlayerCard(Card card)
+    public void ReceivePlayerCard(CardDeck card)
     {
         //Debug.Log($"{this.name} Succes get the data from {card.name}");
         if (card == null)
         {
             Debug.LogError("card is null");
         }
-        _cardData = card.cardData;
-        ChangeColorCardDeck();
-        //Debug.Log("card name : " + _cardData.cardName);
+        //Debug.Log("card name : " + card.cardData.cardName);
+        cardData = card.cardData;
+        isHaveCard = true;
+        ChangeStateBattleDeck();
     }
 
-    public void ExitReiveZone()
+    public void ExitReceiveZone()
     {
         if (!isAbleReiveCard) return;
+        if (isHaveCard) return;
 
         isAbleReiveCard = false;
         _spriteRenderer.color = OutReiveCard;
     }
 
-    public void ChangeColorCardDeck()
-    {
-        Debug.Log("get called");
+    #endregion
 
-        _spriteRenderer.color = InReiveCard;
+    #region Hovering Secetion
+    public override void OnHoverEnter()
+    {
+        if (cardData == null)
+            return;
+
+        if (isHover || isDragging) return;
+
+        transform.DOScale(scaleEnd, 0.2f).SetEase(Ease.OutBack);
     }
 
-    public void CancleCard()
+    public override void OnClickCard()
     {
+        
+    }
+
+    public override void OnHoverExit()
+    {
+        if (cardData == null)
+            return;
+
+        if (!isHover || isDragging) return;
+
+        transform.DOScale(scaleStart, 0.2f).SetEase(Ease.OutBack);
+    }
+    #endregion
+
+    #region Dragging Section
+    public override void StartDragging(Vector2 mouseWorldPosition)
+    {
+        if (!isHaveCard) return;
+
+        isDragging = true;
+        orginalPosition = transform.position;
+
+        gameObject.layer = LayerMask.NameToLayer("Interact");
+    }
+
+    public override void Drag(Vector2 mouseWorldPosition)
+    {
+        if (!isDragging) return;
+        transform.position = mouseWorldPosition;
+    }
+
+    public override void EndDrag(bool droppedSuccessfully)
+    {
+        isDragging = false;
+
+        if (!droppedSuccessfully)
+        {
+            transform.position = orginalPosition;
+            return;
+        }
+
+        gameObject.layer = LayerMask.NameToLayer("DropZone");
+    }
+    #endregion
+
+    public void ChangeStateBattleDeck()
+    {
+        if (cardData != null)
+        {
+            gameObject.layer = LayerMask.NameToLayer("Interact");
+            _boxCollied2D.isTrigger = true;
+            _spriteRenderer.color = InReiveCard;
+        }
+    }
+
+    public void CancelCard()
+    {
+        isHaveCard = false;
+        _boxCollied2D.isTrigger = false;
         _spriteRenderer.color = OutReiveCard;
+    }
+
+    public bool CanDragging()
+    {
+        return isHaveCard && cardData != null;
     }
 }

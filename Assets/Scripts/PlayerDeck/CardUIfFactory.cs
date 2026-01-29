@@ -14,7 +14,7 @@ public class CardUIfFactory : MonoBehaviour
 
         GameObject cardGO = Instantiate(PrefabCard, container);
 
-        Card card = cardGO.GetComponent<Card>();
+        CardDeck card = cardGO.GetComponent<CardDeck>();
         card.InitializerCard(cardData);
 
         return cardGO;

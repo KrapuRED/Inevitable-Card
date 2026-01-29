@@ -5,12 +5,23 @@ public class CursorCollision2D : MonoBehaviour
 {
     [Header("Config")]
     public LayerMask interactableLayer;
-    public LayerMask dropZoneLayer;
-    [SerializeField] private Card currentCard;
-    [SerializeField] private Card lastCard;
-    [SerializeField] private Card draggingCard;
-    [SerializeField] private BattleCardDeck hoveredCardDeck;
+    public LayerMask BattleDeckDropZoneLayer;
+    public LayerMask ContainerDropZoneLayer;
+
+    [Header("Card Deck")]
+    [SerializeField] private CardDeck currentCard;
+    [SerializeField] private CardDeck lastCard;
+    [SerializeField] private CardDeck draggingCard;
+
+    [Header("Battle Deck Card")]
+    [SerializeField] private BattleCardDeck currentBCD;
+    [SerializeField] private BattleCardDeck lastBCD;
+    [SerializeField] private BattleCardDeck draggingBCD;
     [SerializeField] private Vector2 mousePosition;
+
+    [Header("DropZone")]
+    [SerializeField] private BattleCardDeck hoveredCardDeck;
+    [SerializeField] private DeckContiner containerDeckCard;
 
     [Header("Cursor State")]
     [SerializeField] private bool isDragging;
@@ -34,38 +45,76 @@ public class CursorCollision2D : MonoBehaviour
             return;
         }
 
+        if (draggingBCD != null)
+        {
+            draggingBCD.Drag(mouseWorldPosition);
+            UpdateDropZoneFeedback(mouseWorldPosition);
+            return;
+        }
+
         Collider2D hit = Physics2D.OverlapPoint(mouseWorldPosition, interactableLayer);
 
         if (hit != null)
         {
-            currentCard = hit.GetComponent<Card>();
+            currentCard = hit.GetComponent<CardDeck>();
+            currentBCD = hit.GetComponent<BattleCardDeck>();
+
             if (currentCard != lastCard)
             {
                 lastCard?.OnHoverExit();
                 currentCard?.OnHoverEnter();
                 lastCard = currentCard;
             }
+
+            if (currentBCD != lastBCD)
+            {
+                lastBCD?.OnHoverExit();
+                currentBCD?.OnHoverEnter();
+                lastBCD = currentBCD;
+            }
         }
         else
         {
             lastCard?.OnHoverExit();
+            lastBCD?.OnHoverExit();
             lastCard = null;
             currentCard = null;
+            lastBCD = null;
+            currentBCD = null;
         }
     }
 
     private void UpdateDropZoneFeedback(Vector2 mouseWorldPosition)
     {
-        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPosition, dropZoneLayer);
+        Collider2D hit = Physics2D.OverlapPoint(mouseWorldPosition, BattleDeckDropZoneLayer);
 
-        BattleCardDeck newCardDeck = hit ? hit.GetComponent<BattleCardDeck>() : null;
+        #region Battle Deck Card
+        Collider2D battleHit =
+        Physics2D.OverlapPoint(mouseWorldPosition, BattleDeckDropZoneLayer);
 
-        if (newCardDeck != hoveredCardDeck)
+        BattleCardDeck newBattleDeck =
+            battleHit ? battleHit.GetComponent<BattleCardDeck>() : null;
+
+        if (newBattleDeck != hoveredCardDeck)
         {
-            hoveredCardDeck?.ExitReiveZone();
-            newCardDeck?.EnterReiveZone();
-            hoveredCardDeck = newCardDeck;
+            hoveredCardDeck?.ExitReceiveZone();
+            newBattleDeck?.EnterReceiveZone();
+            hoveredCardDeck = newBattleDeck;
         }
+
+        #endregion
+        #region Deck Container
+        Collider2D containerHit =
+        Physics2D.OverlapPoint(mouseWorldPosition, ContainerDropZoneLayer);
+
+        DeckContiner newContainer =
+            containerHit ? containerHit.GetComponentInParent<DeckContiner>() : null;
+
+        if (newContainer != containerDeckCard)
+        {
+            containerDeckCard = newContainer;
+        }
+        #endregion
     }
 
     public void OnCursorMove(InputAction.CallbackContext context)
@@ -77,7 +126,8 @@ public class CursorCollision2D : MonoBehaviour
     {
         Vector2 mouseWorldPosition =
            _mainCamera.ScreenToWorldPoint(mousePosition);
-        
+
+        #region Card Deck Dragging
         //start dragging
         if (context.started && currentCard != null)
         {
@@ -99,8 +149,38 @@ public class CursorCollision2D : MonoBehaviour
             draggingCard.EndDrag(dropped);
             draggingCard = null;
 
-            hoveredCardDeck?.ExitReiveZone();
+            hoveredCardDeck?.ExitReceiveZone();
             hoveredCardDeck = null;
         }
+        #endregion
+
+        #region Battle Card Dragging
+        //start dragging
+        if (context.started && currentBCD != null && currentBCD.CanDragging())
+        {
+            draggingBCD = currentBCD;
+            draggingBCD.StartDragging(mouseWorldPosition);
+        }
+
+        //End dragging
+        if (context.canceled && draggingBCD != null)
+        {
+            bool dropped = false;
+
+            if (containerDeckCard != null &&
+                containerDeckCard.cardType == draggingBCD.cardData.cardType)
+            {
+                containerDeckCard.AddCard(draggingBCD.cardData);
+                draggingBCD.CancelCard();
+                dropped = true;
+            }
+
+            draggingBCD.EndDrag(dropped);
+            draggingBCD = null;
+
+            hoveredCardDeck?.ExitReceiveZone();
+            hoveredCardDeck = null;
+        }
+        #endregion
     }
 }

@@ -20,8 +20,11 @@ public class DeckContiner : MonoBehaviour
         Debug.Log($"DeckType: {cardType}, CardType: {newCardName.cardType}");
         Debug.Log($"Current: {cards.Count}, Max: {maxCardDeck}");*/
 
-        cards.Add(newCardName);
-        OnAddCardEvent.Raise(newCardName);
+        if (newCardName.cardType != CardType.Item)
+        {
+            cards.Add(newCardName);
+            OnAddCardEvent.Raise(newCardName);
+        }
     }
 
     public void RemoveCardFromDeck(CardSO removeCardName)

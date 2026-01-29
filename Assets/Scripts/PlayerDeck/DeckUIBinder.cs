@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeckUIBinder : MonoBehaviour
 {
-    private Dictionary<CardSO, Card> itemCardViews = new();
+    private Dictionary<CardSO, CardDeck> itemCardViews = new();
 
     [Header("References")]
     public CardUIfFactory cardUIFactory;
@@ -19,7 +19,7 @@ public class DeckUIBinder : MonoBehaviour
     {
         //Debug.Log("Get Called");
         GameObject cardGO = cardUIFactory.CreateCardUI(cardData);
-        Card card = cardGO.GetComponent<Card>();
+        CardDeck card = cardGO.GetComponent<CardDeck>();
 
         itemCardViews.Add(cardData, card);
     
@@ -28,7 +28,7 @@ public class DeckUIBinder : MonoBehaviour
 
     private void HandleRemovedCard(CardSO cardData)
     {
-        if (!itemCardViews.TryGetValue(cardData, out Card card))
+        if (!itemCardViews.TryGetValue(cardData, out CardDeck card))
             return;
 
         Destroy(card.gameObject);
