@@ -2,7 +2,7 @@ using UnityEngine;
 
 public enum EnemyType
 {
-    Prototype,
+    Goon,
     Boss
 }
 
@@ -11,8 +11,8 @@ public class EnemySO : ScriptableObject
 {
     public string enemyName;
     public EnemyType enemyType;
-    public int damage;
-    public int health;
+    public int baseDamage;
+    public int maxHealth;
     public int hiddenCard;
     public bool isElimination;
 }

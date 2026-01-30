@@ -9,12 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e83d96d5d9bf064e91349abda8afff0, type: 3}
-  m_Name: Rouge Tick
+  m_Script: {fileID: 11500000, guid: f7c53ac9afb1d9947b884fe10c3fbeb7, type: 3}
+  m_Name: On Change Enemy Event
   m_EditorClassIdentifier: 
-  enemyName: Rouge Tick
-  enemyType: 0
-  baseDamage: 2
-  maxHealth: 40
-  hiddenCard: 2
-  isElimination: 0

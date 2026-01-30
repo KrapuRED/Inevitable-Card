@@ -20,14 +20,14 @@ public class DeciderManager : MonoBehaviour
           Both run at same times
           RULES:
             CardType.Movement
-              1) Both can deal damage each other
+              1) Both can deal baseDamage each other
               2) Went 1 of them is a MovementCardType.Defensive 
-                 1. Can neglected all damage
-                 2. Can reduce 50% of the damage (roundUP/roundDown the health)
+                 1. Can neglected all baseDamage
+                 2. Can reduce 50% of the baseDamage (roundUP/roundDown the maxHealth)
             
             CardType.Item
-              1) Both can deal damage each other
-              2) Went using the healing potion same as dealing damage
+              1) Both can deal baseDamage each other
+              2) Went using the healing potion same as dealing baseDamage
                  Example : Player daealingDamage, enemy Healing -> Enemy Take Damage then Heal reduce 50%
          */
 
@@ -116,7 +116,7 @@ public class DeciderManager : MonoBehaviour
         if (enemyHealing && enemyCard != null)
             enemyHeal = enemyCard.cardData.itemHealAmount;
 
-        // Healing reduced if also taking damage
+        // Healing reduced if also taking baseDamage
         if (playerHeal > 0 && enemyDamage > 0)
             playerHeal = Mathf.FloorToInt(playerHeal * 0.5f);
 
@@ -125,10 +125,10 @@ public class DeciderManager : MonoBehaviour
         #endregion
 
         if (playerDamage > 0)
-            DamageManager.instance.DealDamageToTarget("player", "enemy", playerDamage);
+            DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage);
 
         if (enemyDamage > 0)
-            DamageManager.instance.DealDamageToTarget("enemy", "player", enemyDamage);
+            DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage);
 
         if (playerHeal > 0)
             DamageManager.instance.HealToTarget("player", playerHeal);

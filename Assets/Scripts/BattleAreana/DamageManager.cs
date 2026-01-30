@@ -4,6 +4,9 @@ public class DamageManager : MonoBehaviour
 {
     public static DamageManager instance;
 
+    [Header("Events")]
+    public OnTakeDamageEventSO onTakeDamage;
+
     private void Awake()
     {
         if (instance == null)
@@ -12,10 +15,9 @@ public class DamageManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void DealDamageToTarget(string sender, string target, int damageValue)
+    public void DealDamageToTarget(TargetType target, int damageValue)
     {
-        Debug.Log($"{sender} dealing damage to {target} with the value of {damageValue}");
-
+        onTakeDamage.OnRaise?.Invoke(target, damageValue);
     }
 
     public void HealToTarget(string target, int damageValue)

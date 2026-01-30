@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Linq;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -16,7 +14,7 @@ public class BattleManager : MonoBehaviour
 
     [Header("State Battle Arena")]
     //Player Script and Data
-    //Enemy Script and Data
+    [SerializeField] private Enemy currentEnemy;
     [SerializeField] private int indexPlayerCard;
     [SerializeField] private int indexEnemyCard;
     private bool isOnGoingBattle;
@@ -25,6 +23,7 @@ public class BattleManager : MonoBehaviour
     public OnShowButtonEventSO OnShowButton;
     public OnHideButtonEventSO OnHideButton;
     public OnEnemyPickingCardEventSO onEnemyPickingCardEvent;
+    public OnChangeEnemyEventSO onChangeEnemy;
 
     private void Awake()
     {
@@ -39,7 +38,6 @@ public class BattleManager : MonoBehaviour
     }
 
     #region SET UP DECK
-
     private void SetupCarDeckForPlayer()
     {
         maxSlots = playerBattleContainer.transform.childCount;
@@ -56,12 +54,12 @@ public class BattleManager : MonoBehaviour
         EnemyBattleDecks = new CardInstance[slots];
     }
 
-    #endregion
-
-    private void Start()
+    private void SetEnemy(Enemy newEnemy)
     {
-        BattleStart();
+        currentEnemy = newEnemy;
     }
+
+    #endregion
 
     private void Update()
     {
@@ -156,6 +154,16 @@ public class BattleManager : MonoBehaviour
     }
 
     public void ResetOnGoingBattle() { isOnGoingBattle = false; }
+
+    private void OnEnable()
+    {
+        onChangeEnemy.Register(SetEnemy);
+    }
+
+    private void OnDisable()
+    {
+        onChangeEnemy.Unregister(SetEnemy);
+    }
 
     #region DEBUGGING AREA
     private void DebugPlayerBattleDeck()
