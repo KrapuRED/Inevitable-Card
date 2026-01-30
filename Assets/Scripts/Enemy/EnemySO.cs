@@ -11,8 +11,8 @@ public class EnemySO : ScriptableObject
 {
     public string enemyName;
     public EnemyType enemyType;
-    public int baseDamage;
-    public int maxHealth;
+    public float baseDamage;
+    public float maxHealth;
     public int hiddenCard;
     public bool isElimination;
 }

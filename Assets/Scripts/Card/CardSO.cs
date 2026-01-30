@@ -67,5 +67,5 @@ public class CardSO : ScriptableObject
     public int itemDamage;
     #endregion
 
-    public float StaminaCost;
+    public int StaminaCost;
 }

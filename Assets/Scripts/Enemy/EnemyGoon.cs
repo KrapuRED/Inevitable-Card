@@ -29,6 +29,11 @@ public class EnemyGoon : Enemy
         SetCurrentEnemy();
     }
 
+    private void Update()
+    {
+        HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
+    }
+
     public void SetCurrentEnemy()
     {
         if (currentEnemyHandler == null)
@@ -44,9 +49,17 @@ public class EnemyGoon : Enemy
     {
         if (targetType == type)
         {
-            Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
+            //Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
             TakeDamage(damageValue);
         }
+    }
+
+    public override void OnDeath()
+    {
+        //tell manager player is win
+        BattleManager.instance.SelectWinner("enemy");
+        //Desycing with battle manager
+        Destroy(gameObject);
     }
 
     private void OnEnable()

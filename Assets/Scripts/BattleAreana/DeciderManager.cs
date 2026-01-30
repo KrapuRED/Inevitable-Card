@@ -90,16 +90,32 @@ public class DeciderManager : MonoBehaviour
         #region Defending Section
         if (playerDefending)
         {
-            if (playerCard.cardData.defensiveCardType == DefensiveCardType.Parry || playerCard.cardData.defensiveCardType == DefensiveCardType.Dodge) // 50% block total
+            if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack && playerCard.cardData.defensiveCardType == DefensiveCardType.Parry)
+            {
+                Debug.Log($"Player Defending using {playerCard.cardData.defensiveCardType} from enemy using {enemyCard.cardData.offensiveCardType}");
                 enemyDamage = 0;
+            }
+            else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack && playerCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
+            {
+                Debug.Log($"Player Defending using {playerCard.cardData.defensiveCardType} from enemy using {enemyCard.cardData.offensiveCardType}");
+                enemyDamage = 0;
+            }
             else
                 enemyDamage = Mathf.CeilToInt(enemyDamage * 0.5f);
         }
 
         if (enemyDefending)
         {
-            if (enemyCard.cardData.defensiveCardType == DefensiveCardType.Parry || enemyCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
+            if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack && enemyCard.cardData.defensiveCardType == DefensiveCardType.Parry)
+            {
+                Debug.Log($"Enemy Defending using {playerCard.cardData.defensiveCardType} from Player using {enemyCard.cardData.offensiveCardType}");
                 playerDamage = 0;
+            }
+            else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack && enemyCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
+            {
+                Debug.Log($"Enemy Defending using {playerCard.cardData.defensiveCardType} from Player using {enemyCard.cardData.offensiveCardType}");
+                playerDamage = 0;
+            }
             else
                 playerDamage = Mathf.CeilToInt(playerDamage * 0.5f);
         }

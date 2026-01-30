@@ -140,16 +140,10 @@ public class EnemyBattleCardDeck :BattleCardDeck
     public override void CancelCard()
     {
         isHaveCard = false;
-        cardInstance.cardData = null;
-        _boxCollied2D.isTrigger = false;
+        cardInstance = null;
+        isHiddenCard = false;
         isAbleReiveCard = false;
-        transform.position = orginalPosition;
         _spriteRenderer.color = OutReiveCard;
-    }
-
-    public bool CanDragging()
-    {
-        return isHaveCard && cardInstance != null;
     }
 
     public void SetHiddenCard() => isHiddenCard = true;

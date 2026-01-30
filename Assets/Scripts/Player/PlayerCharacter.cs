@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-    public int stamina;
+    [SerializeField] private int _maxStamina;
+    public int currentStamina;
     public TargetType type;
     [SerializeField] private CurrentPlayerHandler  _currentPlayerHandler;
 
@@ -12,6 +13,10 @@ public class PlayerCharacter : Character
     private void Start()
     {
         healtPoints = maxHealtPoint;
+        currentStamina = _maxStamina;
+
+        HUDManager.instance.CommitPlayerStamina(currentStamina);
+        HUDManager.instance.UpdatePlayerHealth(healtPoints, maxHealtPoint);
 
         SetCurrentPlayerHandler();
     }
@@ -30,9 +35,14 @@ public class PlayerCharacter : Character
     {
         if (targetType == type)
         {
-            Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
+            //Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
             TakeDamage(damageValue);
         }
+    }
+
+    public void ResetStamina()
+    {
+        currentStamina = _maxStamina;
     }
 
     private void OnEnable()

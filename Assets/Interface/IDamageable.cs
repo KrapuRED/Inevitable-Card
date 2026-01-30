@@ -2,6 +2,6 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    int healtPoints { get; set; }
-    public void TakeDamage(int damage);
+    float healtPoints { get; set; }
+    public void TakeDamage(float damage);
 }

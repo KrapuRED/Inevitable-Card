@@ -20,12 +20,15 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private int _indexPlayerCard;
     [SerializeField] private int _indexEnemyCard;
     [SerializeField] private bool _isOnGoingBattle;
+    private int _totalCostStamina;
 
     [Header("Events")]
     public OnShowButtonEventSO OnShowButton;
     public OnHideButtonEventSO OnHideButton;
     public OnEnemyPickingCardEventSO onEnemyPickingCardEvent;
     public OnChangeEnemyEventSO onChangeEnemy;
+    public OnChangePlayerEventSO onChangePlayer;
+    public OnResetCardDeckSO onResetCardDeck;
 
     private void Awake()
     {
@@ -42,6 +45,9 @@ public class BattleManager : MonoBehaviour
     #region SET UP DECK
     private void SetupCarDeckForPlayer()
     {
+        if (_currentPlayer != null)
+            _currentPlayer.ResetStamina();
+
         maxSlots = playerBattleContainer.transform.childCount;
         _playerBattleCardDecks = playerBattleContainer.GetComponentsInChildren<PlayerBattleCardDeck>();
 
@@ -59,6 +65,11 @@ public class BattleManager : MonoBehaviour
     private void SetEnemy(Enemy newEnemy)
     {
         _currentEnemy = newEnemy;
+    }
+
+    private void SetPayer(PlayerCharacter newPlayer)
+    {
+        _currentPlayer = newPlayer;
     }
 
     #endregion
@@ -81,6 +92,7 @@ public class BattleManager : MonoBehaviour
         _playerBattleDecks[slotIndex] = cardData;
 
         CheckPlayerDeck();
+        CalculateStamina();
 
         //PlayerDeckManager.instance.HideItemCard();
         return true;
@@ -104,6 +116,21 @@ public class BattleManager : MonoBehaviour
         OnShowButton.OnRaiseEvent(UIButtonContext.Battle, hasAnyCard);
     }
 
+    public void CalculateStamina()
+    {
+        _totalCostStamina = 0;
+
+        for (int i = 0; i < _playerBattleDecks.Length; ++i)
+        {
+            if (_playerBattleDecks[i] != null && _playerBattleDecks[i].cardData != null)
+            {
+                _totalCostStamina += _playerBattleDecks[i].cardData.StaminaCost;
+            }
+        }
+
+        HUDManager.instance.UpdatePlayerStaminaPreview(_totalCostStamina);
+    }
+
     public bool ChangeDataEnemyBattleDeck(CardInstance cardData, int slotIndex)
     {
         if (slotIndex < 0 || slotIndex >= maxSlots)
@@ -124,10 +151,18 @@ public class BattleManager : MonoBehaviour
 
     public void ReadyForBattle()
     {
+        int newCurrentStamina = _currentPlayer.currentStamina - _totalCostStamina;
+
+        if (newCurrentStamina < 0)
+        {
+            return;
+        }
+
         Debug.Log("The Battle BEGGUN");
         OnShowButton.OnRaiseEvent(UIButtonContext.Battle, false);
         OnGoingBattle();
 
+        HUDManager.instance.CommitPlayerStamina(newCurrentStamina);
         //StartCoroutine(DelayDebugLog());
     }
 
@@ -168,7 +203,26 @@ public class BattleManager : MonoBehaviour
         }
 
         _isOnGoingBattle = false;
+        onResetCardDeck.OnRaise();
         SetupCarDeckForPlayer();
+    }
+
+    public void SelectWinner(string defeat)
+    {
+        if (defeat != "enemy")
+        {
+            Debug.Log("Player is WIN");
+            _currentEnemy = null;
+        }
+        else
+        {
+            Debug.Log("Enemy is WIN");
+        }
+    }
+
+    public void EyeOfTheSpoiler()
+    {
+        
     }
 
     public void ResetOnGoingBattle() { _isOnGoingBattle = false; }
@@ -176,11 +230,13 @@ public class BattleManager : MonoBehaviour
     private void OnEnable()
     {
         onChangeEnemy.Register(SetEnemy);
+        onChangePlayer.Register(SetPayer);
     }
 
     private void OnDisable()
     {
         onChangeEnemy.Unregister(SetEnemy);
+        onChangePlayer.Unregister(SetPayer);
     }
 
     #region DEBUGGING AREA

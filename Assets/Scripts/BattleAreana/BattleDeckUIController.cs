@@ -9,6 +9,7 @@ public class BattleDeckUIController : MonoBehaviour
 
     [Header("Events")]
     public OnSetEnemyCardDeckEventSO OnSetEnemyCardDeckEvent;
+    public OnResetCardDeckSO OnResetCardDeckEvent;
 
     private void Start()
     {
@@ -23,8 +24,6 @@ public class BattleDeckUIController : MonoBehaviour
 
     public void SetCardDeck(int hiddenCard, CardInstance[] cards)
     {
-        Debug.Log("get called");
-
         if (cards == null || cards.Length == 0) return;
         if (enemyBattleCardDecks == null || enemyBattleCardDecks.Length == 0) return;
 
@@ -66,13 +65,24 @@ public class BattleDeckUIController : MonoBehaviour
 
     }
 
+    public void ResetEnemyBattleCardDeck()
+    {
+        foreach (EnemyBattleCardDeck cardDeck in enemyBattleCardDecks)
+        {
+            cardDeck.CancelCard();
+        }
+        BattleManager.instance.BattleStart();
+    }
+
     private void OnEnable()
     {
         OnSetEnemyCardDeckEvent.Register(SetCardDeck);
+        OnResetCardDeckEvent.Register(ResetEnemyBattleCardDeck);
     }
 
     private void OnDisable()
     {
         OnSetEnemyCardDeckEvent.Unregister(SetCardDeck);
+        OnResetCardDeckEvent.Unregister(ResetEnemyBattleCardDeck);
     }
 }
