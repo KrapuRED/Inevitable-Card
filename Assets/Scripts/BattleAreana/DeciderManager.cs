@@ -14,7 +14,7 @@ public class DeciderManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void DecideCard(CardInstance playerCard, CardInstance enemyCard)
+    public void DecideCard(CardInstance playerCard, CardInstance enemyCard, float baseDamagePlayer, float baseDamageEnemy)
     {
         /*RULE WHAT CARD DO TO ENEMY OR PLAYER
           Both run at same times
@@ -88,37 +88,47 @@ public class DeciderManager : MonoBehaviour
         #endregion
 
         #region Defending Section
-        if (playerDefending)
+
+        if (playerDefending && playerCard?.cardData != null && enemyCard?.cardData != null)
         {
-            if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack && playerCard.cardData.defensiveCardType == DefensiveCardType.Parry)
+            if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack &&
+                playerCard.cardData.defensiveCardType == DefensiveCardType.Parry)
             {
-                Debug.Log($"Player Defending using {playerCard.cardData.defensiveCardType} from enemy using {enemyCard.cardData.offensiveCardType}");
+                Debug.Log($"Player parried Light Attack!");
                 enemyDamage = 0;
             }
-            else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack && playerCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
+            else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack &&
+                     playerCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
             {
-                Debug.Log($"Player Defending using {playerCard.cardData.defensiveCardType} from enemy using {enemyCard.cardData.offensiveCardType}");
+                Debug.Log($"Player dodged Heavy Attack!");
                 enemyDamage = 0;
             }
-            else
+            else if (enemyDamage > 0)
+            {
                 enemyDamage = Mathf.CeilToInt(enemyDamage * 0.5f);
+            }
         }
 
-        if (enemyDefending)
+        if (enemyDefending && enemyCard?.cardData != null && playerCard?.cardData != null)
         {
-            if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack && enemyCard.cardData.defensiveCardType == DefensiveCardType.Parry)
+            if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack &&
+                enemyCard.cardData.defensiveCardType == DefensiveCardType.Parry)
             {
-                Debug.Log($"Enemy Defending using {playerCard.cardData.defensiveCardType} from Player using {enemyCard.cardData.offensiveCardType}");
+                Debug.Log($"Enemy parried Light Attack!");
                 playerDamage = 0;
             }
-            else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack && enemyCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
+            else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack &&
+                     enemyCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
             {
-                Debug.Log($"Enemy Defending using {playerCard.cardData.defensiveCardType} from Player using {enemyCard.cardData.offensiveCardType}");
+                Debug.Log($"Enemy dodged Heavy Attack!");
                 playerDamage = 0;
             }
-            else
+            else if (playerDamage > 0)
+            {
                 playerDamage = Mathf.CeilToInt(playerDamage * 0.5f);
+            }
         }
+
 
         #endregion
 
@@ -141,10 +151,10 @@ public class DeciderManager : MonoBehaviour
         #endregion
 
         if (playerDamage > 0)
-            DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage);
+            DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage + (int)baseDamagePlayer);
 
         if (enemyDamage > 0)
-            DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage);
+            DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage + +(int)baseDamageEnemy);
 
         if (playerHeal > 0)
             DamageManager.instance.HealToTarget("player", playerHeal);

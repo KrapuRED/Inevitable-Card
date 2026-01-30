@@ -183,7 +183,7 @@ public class BattleManager : MonoBehaviour
             CardInstance playerCard = _indexPlayerCard < _playerBattleDecks.Length ? _playerBattleDecks[_indexPlayerCard] : null;
             CardInstance enemyCard = _indexEnemyCard < _EnemyBattleDecks.Length ? _EnemyBattleDecks[_indexEnemyCard] : null;
 
-            DeciderManager.instance.DecideCard(playerCard, enemyCard);
+            DeciderManager.instance.DecideCard(playerCard, enemyCard, _currentPlayer.baseDamage, _currentEnemy.baseDamage);
 
             _indexPlayerCard++;
             _indexEnemyCard++;
