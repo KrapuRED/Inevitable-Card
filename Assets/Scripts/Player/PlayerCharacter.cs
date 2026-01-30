@@ -9,6 +9,7 @@ public class PlayerCharacter : Character
 
     [Header("Events")]
     public OnTakeDamageEventSO onTakeDamageEvent;
+    public OnTakingHealEventSO onTakingHealEvent;
 
     private void Start()
     {
@@ -21,6 +22,11 @@ public class PlayerCharacter : Character
         SetCurrentPlayerHandler();
     }
 
+    private void Update()
+    {
+        HUDManager.instance.UpdatePlayerHealth(healtPoints, maxHealtPoint);
+    }
+
     private void SetCurrentPlayerHandler()
     {
         if (_currentPlayerHandler == null)
@@ -31,7 +37,7 @@ public class PlayerCharacter : Character
         _currentPlayerHandler.SetCurrentPlayer(this);
     }
 
-    public void OnTakeDamage(TargetType targetType, int damageValue)
+    private void OnTakeDamage(TargetType targetType, int damageValue)
     {
         if (targetType == type)
         {
@@ -40,7 +46,15 @@ public class PlayerCharacter : Character
         }
     }
 
-    public void ResetStamina()
+    private void OnTakingHealing(TargetType targetType, int damageValue)
+    {
+        if (targetType == type)
+        {
+            //Debug.Log($"{this.name} with the target type of {targetType} is take heal {damageValue}");
+            TakeHealing(damageValue);
+        }
+    }
+        public void ResetStamina()
     {
         currentStamina = _maxStamina;
     }
@@ -48,10 +62,12 @@ public class PlayerCharacter : Character
     private void OnEnable()
     {
         onTakeDamageEvent.Register(OnTakeDamage);
+        onTakingHealEvent.Register(OnTakingHealing);
     }
 
     private void OnDisable()
     {
         onTakeDamageEvent.Unregister(OnTakeDamage);
+        onTakingHealEvent.Unregister(OnTakingHealing);
     }
 }

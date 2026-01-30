@@ -1,15 +1,8 @@
 using System;
 using UnityEngine;
 
-public enum TargetType
-{
-    Player,
-    Enemy,
-    All
-}
-
-[CreateAssetMenu(fileName = "On Take Damage Event", menuName = "Global Events/OnTakeDamageEvent")]
-public class OnTakeDamageEventSO : ScriptableObject
+[CreateAssetMenu(fileName = "OnTakingHealEventSO", menuName = "Global Events/OnTakingHealEventSO")]
+public class OnTakingHealEventSO : ScriptableObject
 {
     public Action<TargetType, int> OnRaise;
 
@@ -28,3 +21,4 @@ public class OnTakeDamageEventSO : ScriptableObject
         OnRaise -= listener;
     }
 }
+

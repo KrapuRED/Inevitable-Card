@@ -7,6 +7,7 @@ public class EnemyGoon : Enemy
 
     [Header("Events")]
     public OnTakeDamageEventSO onTakeDamageEvent;
+    public OnTakingHealEventSO onTakingHealEvent;
 
     SpriteRenderer _spriteRenderer;
 
@@ -54,6 +55,15 @@ public class EnemyGoon : Enemy
         }
     }
 
+    private void OnTakingHealing(TargetType targetType, int damageValue)
+    {
+        if (targetType == type)
+        {
+            //Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
+            TakeHealing(damageValue);
+        }
+    }
+
     public override void OnDeath()
     {
         //tell manager player is win
@@ -65,10 +75,12 @@ public class EnemyGoon : Enemy
     private void OnEnable()
     {
         onTakeDamageEvent.Register(OnTakeDamage);
+        onTakingHealEvent.Register(OnTakingHealing);
     }
 
     private void OnDisable()
     {
         onTakeDamageEvent.Unregister(OnTakeDamage);
+        onTakingHealEvent.Unregister(OnTakingHealing);
     }
 }

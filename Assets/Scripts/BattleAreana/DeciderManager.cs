@@ -157,9 +157,9 @@ public class DeciderManager : MonoBehaviour
             DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage + +(int)baseDamageEnemy);
 
         if (playerHeal > 0)
-            DamageManager.instance.HealToTarget("player", playerHeal);
+            DamageManager.instance.HealToTarget(TargetType.Player, playerHeal);
 
         if (enemyHeal > 0)
-            DamageManager.instance.HealToTarget("enemy", enemyHeal);
+            DamageManager.instance.HealToTarget(TargetType.Enemy, enemyHeal);
     }
 }

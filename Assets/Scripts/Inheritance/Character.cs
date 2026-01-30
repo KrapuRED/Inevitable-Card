@@ -7,14 +7,17 @@ public class Character : MonoBehaviour, IDamageable
     public float  maxHealtPoint;
     public float  baseDamage;
 
-    [Header("reference")]
-    public HUDBorderCard hudUI;
 
     public float healtPoints { get; set; }
 
     public virtual void DealDamage()
     {
 
+    }
+
+    public void TakeHealing(int healValue)
+    {
+        healtPoints += (float)healValue;
     }
 
     public void TakeDamage(float damage)

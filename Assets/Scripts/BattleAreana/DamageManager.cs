@@ -6,6 +6,7 @@ public class DamageManager : MonoBehaviour
 
     [Header("Events")]
     public OnTakeDamageEventSO onTakeDamage;
+    public OnTakingHealEventSO onTakingHeal;
 
     private void Awake()
     {
@@ -20,8 +21,8 @@ public class DamageManager : MonoBehaviour
         onTakeDamage.OnRaise.Invoke(target, damageValue);
     }
 
-    public void HealToTarget(string target, int damageValue)
+    public void HealToTarget(TargetType target, int healValue)
     {
-        Debug.Log($"Healing for {target} with the value of {damageValue}");
+        onTakingHeal.OnRaise(target, healValue);
     }
 }
