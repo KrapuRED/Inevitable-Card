@@ -186,12 +186,12 @@ MonoBehaviour:
   nameCharacter: 
   maxHealtPoint: 100
   baseDamage: 0
-  hudUI: {fileID: 858993085}
   _maxStamina: 100
   currentStamina: 100
   type: 0
   _currentPlayerHandler: {fileID: 0}
   onTakeDamageEvent: {fileID: 11400000, guid: ecc8461ea53771545a9c316b2bab072e, type: 2}
+  onTakingHealEvent: {fileID: 11400000, guid: ebfe3c6c38eb6ae428b2b3a7f078363e, type: 2}
 --- !u!4 &22235555
 Transform:
   m_ObjectHideFlags: 0
@@ -988,11 +988,11 @@ MonoBehaviour:
   nameCharacter: 
   maxHealtPoint: 0
   baseDamage: 0
-  hudUI: {fileID: 0}
   enemyData: {fileID: 11400000, guid: 0d4a3848d5d6ea64b9b7f3105ca1acda, type: 2}
   currentEnemyHandler: {fileID: 887319393}
   type: 1
   onTakeDamageEvent: {fileID: 11400000, guid: ecc8461ea53771545a9c316b2bab072e, type: 2}
+  onTakingHealEvent: {fileID: 11400000, guid: ebfe3c6c38eb6ae428b2b3a7f078363e, type: 2}
 --- !u!1 &211288792
 GameObject:
   m_ObjectHideFlags: 0
@@ -5477,7 +5477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.21000001}
-  m_AnchoredPosition: {x: 0, y: -0.027999878}
+  m_AnchoredPosition: {x: 0, y: -0.02798462}
   m_SizeDelta: {x: 0, y: 0.24499893}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1907104717
@@ -5694,6 +5694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onTakeDamage: {fileID: 11400000, guid: ecc8461ea53771545a9c316b2bab072e, type: 2}
+  onTakingHeal: {fileID: 11400000, guid: ebfe3c6c38eb6ae428b2b3a7f078363e, type: 2}
 --- !u!1 &2009758393
 GameObject:
   m_ObjectHideFlags: 0
