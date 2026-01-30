@@ -5,7 +5,7 @@ public class BattleDeckUIController : MonoBehaviour
 {
     [SerializeField] private int maxSlots;
     public GameObject EnemyBattleDeck;
-    [SerializeField] private BattleCardDeck[] enemyBattleCardDecks;
+    [SerializeField] private EnemyBattleCardDeck[] enemyBattleCardDecks;
 
     [Header("Events")]
     public OnSetEnemyCardDeckEventSO OnSetEnemyCardDeckEvent;
@@ -13,10 +13,12 @@ public class BattleDeckUIController : MonoBehaviour
     private void Start()
     {
         maxSlots = EnemyBattleDeck.transform.childCount;
-        enemyBattleCardDecks = EnemyBattleDeck.GetComponentsInChildren<BattleCardDeck>();
+        enemyBattleCardDecks = EnemyBattleDeck.GetComponentsInChildren<EnemyBattleCardDeck>();
 
         for (int i = 0; i < enemyBattleCardDecks.Length; i++)
             enemyBattleCardDecks[i].Init(i);
+
+        BattleManager.instance.SetupCarDeckForEnemy(maxSlots);
     }
 
     public void SetCardDeck(int hiddenCard, CardInstance[] cards)
@@ -48,9 +50,6 @@ public class BattleDeckUIController : MonoBehaviour
             workingCards.RemoveAt(randCardIndex);
 
             enemyBattleCardDecks[deckIndex].ReceivePlayerCard(cardHidden);
-
-            // FIX: Send correct card + correct slot index
-            BattleManager.instance.ChangeDataEnemyBattleDeck(cardHidden, deckIndex);
         }
 
         //2. Set the remaning battle cardHidden deck with cards left
@@ -62,8 +61,9 @@ public class BattleDeckUIController : MonoBehaviour
             workingCards.RemoveAt(0);
 
             enemyBattleCardDecks[deckIndex].ReceivePlayerCard(card);
-            BattleManager.instance.ChangeDataEnemyBattleDeck(card, deckIndex);
         }
+
+
     }
 
     private void OnEnable()

@@ -17,6 +17,10 @@ MonoBehaviour:
   cardType: 0
   movementCardType: 0
   offensiveCardType: 1
-  damage: 0
+  damageMovement: 15
   defensiveCardType: 0
-  StaminaCost: 0
+  itemCardType: 0
+  useItem: 0
+  itemHealAmount: 0
+  itemDamage: 0
+  StaminaCost: 5

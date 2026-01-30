@@ -28,7 +28,7 @@ public class CardSOEditor : Editor
         cardType            = serializedObject.FindProperty("cardType");
         movementCardType    = serializedObject.FindProperty("movementCardType");
         offensiveCardType   = serializedObject.FindProperty("offensiveCardType");
-        damage              = serializedObject.FindProperty("damage");
+        damage              = serializedObject.FindProperty("damageMovement");
         defensiveCardType   = serializedObject.FindProperty("defensiveCardType");
         itemCardType        = serializedObject.FindProperty("itemCardType");
         useItem             = serializedObject.FindProperty("useItem");

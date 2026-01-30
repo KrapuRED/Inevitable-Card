@@ -17,10 +17,10 @@ MonoBehaviour:
   cardType: 1
   movementCardType: 0
   offensiveCardType: 0
-  damage: 0
+  damageMovement: 0
   defensiveCardType: 0
   itemCardType: 0
   useItem: 0
-  itemHealAmount: 0
+  itemHealAmount: 15
   itemDamage: 0
   StaminaCost: 0

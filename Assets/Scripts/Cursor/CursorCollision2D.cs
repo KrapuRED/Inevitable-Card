@@ -14,13 +14,13 @@ public class CursorCollision2D : MonoBehaviour
     [SerializeField] private CardDeck draggingCard;
 
     [Header("Battle Deck Card")]
-    [SerializeField] private BattleCardDeck currentBCD;
-    [SerializeField] private BattleCardDeck lastBCD;
-    [SerializeField] private BattleCardDeck draggingBCD;
+    [SerializeField] private PlayerBattleCardDeck currentBCD;
+    [SerializeField] private PlayerBattleCardDeck lastBCD;
+    [SerializeField] private PlayerBattleCardDeck draggingBCD;
     [SerializeField] private Vector2 mousePosition;
 
     [Header("DropZone")]
-    [SerializeField] private BattleCardDeck hoveredCardDeck;
+    [SerializeField] private PlayerBattleCardDeck hoveredCardDeck;
     [SerializeField] private DeckContiner containerDeckCard;
 
     [Header("Cursor State")]
@@ -57,7 +57,7 @@ public class CursorCollision2D : MonoBehaviour
         if (hit != null)
         {
             currentCard = hit.GetComponent<CardDeck>();
-            currentBCD = hit.GetComponent<BattleCardDeck>();
+            currentBCD = hit.GetComponent<PlayerBattleCardDeck>();
 
             if (currentCard != lastCard)
             {
@@ -92,8 +92,8 @@ public class CursorCollision2D : MonoBehaviour
         Collider2D battleHit =
         Physics2D.OverlapPoint(mouseWorldPosition, BattleDeckDropZoneLayer);
 
-        BattleCardDeck newBattleDeck =
-            battleHit ? battleHit.GetComponent<BattleCardDeck>() : null;
+        PlayerBattleCardDeck newBattleDeck =
+            battleHit ? battleHit.GetComponent<PlayerBattleCardDeck>() : null;
 
         if (newBattleDeck != hoveredCardDeck)
         {

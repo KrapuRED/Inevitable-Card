@@ -24,7 +24,7 @@ public enum DefensiveCardType
 {
     Parry,
     Dodge,
-    Guard   //reduce damage taken %50 dmg
+    Guard   //reduce damageMovement taken %50 dmg
 }
 #endregion
 
@@ -49,7 +49,7 @@ public class CardSO : ScriptableObject
 
     //Movement Card Offensive Properties
     public OffensiveCardType offensiveCardType;
-    public float damage;
+    public int damageMovement;
 
     //Movement Card Defensive Properties
     public DefensiveCardType defensiveCardType;
@@ -61,10 +61,10 @@ public class CardSO : ScriptableObject
     public bool useItem;
 
     //Item Card Healing Properties
-    public float itemHealAmount;
+    public int itemHealAmount;
 
     //item Card Offensive Properties
-    public float itemDamage;
+    public int itemDamage;
     #endregion
 
     public float StaminaCost;

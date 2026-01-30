@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8921167724992127944}
   - component: {fileID: 8806891954143999678}
-  - component: {fileID: 5543584401839334738}
+  - component: {fileID: 6668255541515833752}
   m_Layer: 7
   m_Name: Enemy Battle Card Deck
   m_TagString: CardDeck
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5543584401839334738
+--- !u!114 &6668255541515833752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,12 +97,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8642439939639452791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90b504f4a3533a469e6bc14c1cc201a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a5628d1c9e59354686bfa142e3fd1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotIndex: 0
   isAbleReiveCard: 0
-  InReiveCard: {r: 0.9607844, g: 0.86274517, b: 0.09411766, a: 1}
+  InReiveCard: {r: 0.5774444, g: 1, b: 0.24056602, a: 1}
   OutReiveCard: {r: 0.7372549, g: 0.50980395, b: 0.50980395, a: 1}
   cardInstance:
     ID: 0
@@ -110,5 +110,6 @@ MonoBehaviour:
   isHaveCard: 0
   isHover: 0
   isDragging: 0
-  scaleEnd: 2.9
-  scaleStart: 1
+  isHiddenCard: 0
+  scaleEnd: 0
+  scaleStart: 0

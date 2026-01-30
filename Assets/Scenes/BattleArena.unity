@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53215ede545c58349894ca810d5cdebd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 0d4a3848d5d6ea64b9b7f3105ca1acda, type: 2}
   enemyPickCard: {fileID: 1772020380}
   enemyCards: []
   OnSetEnemyCardDeckEvent: {fileID: 11400000, guid: 9b7edb5e0f0b5fd4c86a1a41e4547338, type: 2}
@@ -990,7 +990,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423715864463149661, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_Name
-      value: Battle Card Deck 3
+      value: Player Battle Card Deck 3
       objectReference: {fileID: 0}
     - target: {fileID: 1629702520015224473, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_IsTrigger
@@ -1121,7 +1121,27 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423715864463149661, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_Name
-      value: Battle Card Deck 5
+      value: Player Battle Card Deck 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739586312824440762, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
+      propertyPath: scaleEnd
+      value: 2.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739586312824440762, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
+      propertyPath: scaleStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739586312824440762, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
+      propertyPath: InReiveCard.b
+      value: 0.23300104
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739586312824440762, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
+      propertyPath: InReiveCard.g
+      value: 0.6415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739586312824440762, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
+      propertyPath: InReiveCard.r
+      value: 0.572708
       objectReference: {fileID: 0}
     - target: {fileID: 4093187957017341094, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1178,7 +1198,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423715864463149661, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_Name
-      value: Battle Card Deck 4
+      value: Player Battle Card Deck 4
       objectReference: {fileID: 0}
     - target: {fileID: 1629702520015224473, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_IsTrigger
@@ -1531,7 +1551,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423715864463149661, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_Name
-      value: Battle Card Deck 2
+      value: Player Battle Card Deck 2
       objectReference: {fileID: 0}
     - target: {fileID: 1629702520015224473, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_IsTrigger
@@ -2476,9 +2496,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBattleContainer: {fileID: 1390762138}
-  playerBattleCardDecks: []
   playerBattleDecks: []
   EnemyBattleDecks: []
+  indexPlayerCard: 0
+  indexEnemyCard: 0
   OnShowButton: {fileID: 11400000, guid: ffc921c64ed19c244b08a80c39d287d5, type: 2}
   OnHideButton: {fileID: 11400000, guid: 2ac3ee9afa18aff459b3572c91e20586, type: 2}
   onEnemyPickingCardEvent: {fileID: 11400000, guid: 5182ec71d2634874c886dbe882be1691, type: 2}
@@ -3130,6 +3151,7 @@ Transform:
   m_Children:
   - {fileID: 1426378589}
   - {fileID: 1928370799}
+  - {fileID: 1938873266}
   m_Father: {fileID: 13056411}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865662371
@@ -3283,8 +3305,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemCards:
   - {fileID: 11400000, guid: 06f59496562de6b4a92e9b9f6940dbad, type: 2}
+  - {fileID: 11400000, guid: b776eabc82da2ef4cbc0d214a0cdcc41, type: 2}
   - {fileID: 11400000, guid: 57143f81c4c59b844acc945ed9f5a525, type: 2}
-  - {fileID: 11400000, guid: 57143f81c4c59b844acc945ed9f5a525, type: 2}
+  - {fileID: 11400000, guid: c0b336cefdeefc547983819bc85f4b6d, type: 2}
 --- !u!1001 &1900389722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3387,6 +3410,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928370799}
+  - component: {fileID: 1928370800}
   m_Layer: 0
   m_Name: DeciderManager
   m_TagString: Untagged
@@ -3409,6 +3433,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1854876111}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1928370800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928370798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e49652a9a8f2384c887a04a663bebbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1938873265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938873266}
+  - component: {fileID: 1938873267}
+  m_Layer: 0
+  m_Name: DamageManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1938873266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938873265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1854876111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1938873267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938873265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da8428ca74deae344ba903cfa76a991b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2038581255
 GameObject:
   m_ObjectHideFlags: 0
@@ -3539,7 +3619,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 423715864463149661, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_Name
-      value: Battle Card Deck 1
+      value: Player Battle Card Deck 1
       objectReference: {fileID: 0}
     - target: {fileID: 4093187957017341094, guid: eb2340a86cff13041b951f1bfa55b1f9, type: 3}
       propertyPath: m_LocalPosition.x
