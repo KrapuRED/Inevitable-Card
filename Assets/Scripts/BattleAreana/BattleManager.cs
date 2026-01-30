@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -8,16 +9,17 @@ public class BattleManager : MonoBehaviour
     [Header("Config Battle Arena")]
     private int maxSlots;
     public GameObject playerBattleContainer;
-    private PlayerBattleCardDeck[] playerBattleCardDecks;
-    [SerializeField] private CardInstance[] playerBattleDecks;
-    [SerializeField] private CardInstance[] EnemyBattleDecks;
+    private PlayerBattleCardDeck[] _playerBattleCardDecks;
+    [SerializeField] private CardInstance[] _playerBattleDecks;
+    [SerializeField] private CardInstance[] _EnemyBattleDecks;
 
     [Header("State Battle Arena")]
-    //Player Script and Data
-    [SerializeField] private Enemy currentEnemy;
-    [SerializeField] private int indexPlayerCard;
-    [SerializeField] private int indexEnemyCard;
-    private bool isOnGoingBattle;
+    [SerializeField] private int turn;
+    [SerializeField] private PlayerCharacter _currentPlayer;
+    [SerializeField] private Enemy _currentEnemy;
+    [SerializeField] private int _indexPlayerCard;
+    [SerializeField] private int _indexEnemyCard;
+    [SerializeField] private bool _isOnGoingBattle;
 
     [Header("Events")]
     public OnShowButtonEventSO OnShowButton;
@@ -41,34 +43,34 @@ public class BattleManager : MonoBehaviour
     private void SetupCarDeckForPlayer()
     {
         maxSlots = playerBattleContainer.transform.childCount;
-        playerBattleCardDecks = playerBattleContainer.GetComponentsInChildren<PlayerBattleCardDeck>();
+        _playerBattleCardDecks = playerBattleContainer.GetComponentsInChildren<PlayerBattleCardDeck>();
 
-        for (int i = 0; i < playerBattleCardDecks.Length; i++)
-            playerBattleCardDecks[i].Init(i);
+        for (int i = 0; i < _playerBattleCardDecks.Length; i++)
+            _playerBattleCardDecks[i].Init(i);
 
-        playerBattleDecks = new CardInstance[maxSlots];
+        _playerBattleDecks = new CardInstance[maxSlots];
     }
 
     public void SetupCarDeckForEnemy(int slots)
     {
-        EnemyBattleDecks = new CardInstance[slots];
+        _EnemyBattleDecks = new CardInstance[slots];
     }
 
     private void SetEnemy(Enemy newEnemy)
     {
-        currentEnemy = newEnemy;
+        _currentEnemy = newEnemy;
     }
 
     #endregion
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             DebugEnemyBattleDeck();
             DebugPlayerBattleDeck();
         }
-    }
+    }*/
 
     #region CHANGE DATA DECK
     public bool ChangeDataPlayerBattleDeck(CardInstance cardData, int slotIndex)
@@ -76,15 +78,30 @@ public class BattleManager : MonoBehaviour
         if (slotIndex < 0 || slotIndex >= maxSlots)
             return false;
 
-        playerBattleDecks[slotIndex] = cardData;
+        _playerBattleDecks[slotIndex] = cardData;
 
-        if (playerBattleDecks.Length > 0)
-        {
-            OnShowButton.OnRaiseEvent(UIButtonContext.Battle, true);
-        }
+        CheckPlayerDeck();
 
         //PlayerDeckManager.instance.HideItemCard();
         return true;
+    }
+
+    public void CheckPlayerDeck()
+    {
+        Debug.Log("CheckPlayerDeck Get Called");
+        bool hasAnyCard = false;
+
+        for (int i = 0; i < _playerBattleDecks.Length; ++i)
+        {
+            if (_playerBattleDecks[i] != null && _playerBattleDecks[i].cardData != null)
+            {
+                hasAnyCard = true;
+                break; // stop early, we already found one
+            }
+        }
+
+        Debug.Log("hasAny Card : " + hasAnyCard);
+        OnShowButton.OnRaiseEvent(UIButtonContext.Battle, hasAnyCard);
     }
 
     public bool ChangeDataEnemyBattleDeck(CardInstance cardData, int slotIndex)
@@ -92,7 +109,7 @@ public class BattleManager : MonoBehaviour
         if (slotIndex < 0 || slotIndex >= maxSlots)
             return false;
 
-        EnemyBattleDecks[slotIndex] = cardData;
+        _EnemyBattleDecks[slotIndex] = cardData;
 
         return true;
     }
@@ -108,33 +125,33 @@ public class BattleManager : MonoBehaviour
     public void ReadyForBattle()
     {
         Debug.Log("The Battle BEGGUN");
-
+        OnShowButton.OnRaiseEvent(UIButtonContext.Battle, false);
         OnGoingBattle();
 
-        StartCoroutine(DelayDebugLog());
+        //StartCoroutine(DelayDebugLog());
     }
 
     public void OnGoingBattle()
     {
-        if (isOnGoingBattle) return;
-        indexEnemyCard  = 0;
-        indexPlayerCard = 0;
+        if (_isOnGoingBattle) return;
+        _indexEnemyCard  = 0;
+        _indexPlayerCard = 0;
 
-        isOnGoingBattle = true;
+        _isOnGoingBattle = true;
         StartCoroutine(BattleRoutine());
     }
 
     private IEnumerator BattleRoutine()
     {
-        while (indexEnemyCard < EnemyBattleDecks.Length || indexPlayerCard < playerBattleDecks.Length)
+        while (_indexEnemyCard < _EnemyBattleDecks.Length || _indexPlayerCard < _playerBattleDecks.Length)
         {
-            CardInstance playerCard = indexPlayerCard < playerBattleDecks.Length ? playerBattleDecks[indexPlayerCard] : null;
-            CardInstance enemyCard = indexEnemyCard < EnemyBattleDecks.Length ? EnemyBattleDecks[indexEnemyCard] : null;
+            CardInstance playerCard = _indexPlayerCard < _playerBattleDecks.Length ? _playerBattleDecks[_indexPlayerCard] : null;
+            CardInstance enemyCard = _indexEnemyCard < _EnemyBattleDecks.Length ? _EnemyBattleDecks[_indexEnemyCard] : null;
 
             DeciderManager.instance.DecideCard(playerCard, enemyCard);
 
-            indexPlayerCard++;
-            indexEnemyCard++;
+            _indexPlayerCard++;
+            _indexEnemyCard++;
 
             yield return new WaitForSeconds(1f); // delay antar slot battle
         }
@@ -144,16 +161,17 @@ public class BattleManager : MonoBehaviour
 
     public void EndBattle()
     {
-        for (int i = 0; i < playerBattleDecks.Length; i++)
+        for (int i = 0; i < _playerBattleDecks.Length; i++)
         {
-            playerBattleCardDecks[i].ResetPlayerBattleCardDeck();
-            playerBattleDecks[i] = null;
+            _playerBattleCardDecks[i].ResetPlayerBattleCardDeck();
+            _playerBattleDecks[i] = null;
         }
 
+        _isOnGoingBattle = false;
         SetupCarDeckForPlayer();
     }
 
-    public void ResetOnGoingBattle() { isOnGoingBattle = false; }
+    public void ResetOnGoingBattle() { _isOnGoingBattle = false; }
 
     private void OnEnable()
     {
@@ -172,9 +190,9 @@ public class BattleManager : MonoBehaviour
         {
             string cardName = "EMPTY";
 
-            if (playerBattleDecks[i] != null && playerBattleDecks[i].cardData != null)
+            if (_playerBattleDecks[i] != null && _playerBattleDecks[i].cardData != null)
             {
-                cardName = playerBattleDecks[i].cardData.cardName;
+                cardName = _playerBattleDecks[i].cardData.cardName;
             }
 
             Debug.Log($"{i + 1}. {cardName}, Player Battle Card Deck {i + 1}");
@@ -187,9 +205,9 @@ public class BattleManager : MonoBehaviour
         {
             string cardName = "EMPTY";
 
-            if (EnemyBattleDecks[i] != null && EnemyBattleDecks[i].cardData != null)
+            if (_EnemyBattleDecks[i] != null && _EnemyBattleDecks[i].cardData != null)
             {
-                cardName = EnemyBattleDecks[i].cardData.cardName;
+                cardName = _EnemyBattleDecks[i].cardData.cardName;
             }
 
             Debug.Log($"{i + 1}. {cardName}, Enemy Battle Card Deck {i + 1}");

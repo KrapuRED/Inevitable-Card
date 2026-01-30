@@ -17,7 +17,7 @@ public class DamageManager : MonoBehaviour
 
     public void DealDamageToTarget(TargetType target, int damageValue)
     {
-        onTakeDamage.OnRaise?.Invoke(target, damageValue);
+        onTakeDamage.OnRaise.Invoke(target, damageValue);
     }
 
     public void HealToTarget(string target, int damageValue)

@@ -42,6 +42,11 @@ public class MovementDeckContainer : DeckContiner
         Debug.Log($"Current: {cards.Count}, Max: {maxCardDeck}");
         */
 
+        if (movementCards.Count >= maxCardDeck)
+        {
+            return;
+        }
+
         CardInstance newCard = new CardInstance(newCardName, nextID++);
         movementCards.Add(newCard);
 

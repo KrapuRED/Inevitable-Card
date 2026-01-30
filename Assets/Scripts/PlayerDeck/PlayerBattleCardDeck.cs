@@ -68,7 +68,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
     #region Hovering Secetion
     public override void OnHoverEnter()
     {
-        if (cardInstance.cardData == null)
+        if (cardInstance == null)
             return;
 
         if (isHover || isDragging) return;
@@ -83,7 +83,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
     public override void OnHoverExit()
     {
-        if (cardInstance.cardData == null)
+        if (cardInstance == null)
             return;
 
         if (!isHover || isDragging) return;
@@ -139,20 +139,22 @@ public class PlayerBattleCardDeck : BattleCardDeck
     public override void CancelCard()
     {
         isHaveCard = false;
-        cardInstance.cardData = null;
+        cardInstance = null;
         _boxCollied2D.isTrigger = false;
         transform.position = orginalPosition;
         _spriteRenderer.color = OutReiveCard;
+
+        BattleManager.instance.ChangeDataPlayerBattleDeck(null, slotIndex);
     }
 
     public void ResetPlayerBattleCardDeck()
     {
         isHaveCard = false;
-        cardInstance.cardData = null;
+        cardInstance = null;
         _boxCollied2D.isTrigger = false;
 
         gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
-
+        BattleManager.instance.CheckPlayerDeck();
         _spriteRenderer.color = OutReiveCard;
     }
 

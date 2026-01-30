@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CardDeck
   - EventEnemyHandler
+  - EventPlayerHandler
   layers:
   - Default
   - TransparentFX
