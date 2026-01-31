@@ -137,6 +137,12 @@ public class EnemyBattleCardDeck :BattleCardDeck
         }
     }
 
+    public void ShowCard()
+    {
+        //_spriteRenderer.sprite = cardInstance.cardData.cardImage;
+        _spriteRenderer.color = Color.blue;
+    }
+
     public override void CancelCard()
     {
         isHaveCard = false;

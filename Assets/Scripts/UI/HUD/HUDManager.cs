@@ -1,18 +1,39 @@
 using UnityEngine;
 
+[System.Serializable]
 public enum StatusType
 {
     Health,
     Stamina
 }
 
+[System.Serializable]
+public enum PanelName
+{
+    EyeOfTheSpoilerPanel,
+    GameOverPanel,
+    WinningPanel
+}
+
 public class HUDManager : MonoBehaviour
 {
     public static HUDManager instance;
 
-    [Header("Reference")]
+    [Header("Reference UI Panel")]
+    public GameObject eyeOfTheSpoilerPanel;
+    public GameObject gameOverPanel;
+    public GameObject WinningPanel;
+
+    [Header("Reference UI")]
+    public GameObject InitiateMoveButton;
+    public GameObject statusPlayer;
+    public GameObject statusEnemy;
+
+    [Header("Reference Script")]
     public HUDBorderCard playerCard;
     public HUDBorderCard enemyCard;
+
+    [SerializeField]private bool isPanelOpened;
 
     private void Awake()
     {
@@ -24,6 +45,7 @@ public class HUDManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    #region Player and Enemy Status
     // Called when selecting/deselecting cards
     public void UpdatePlayerStaminaPreview(int usedStamina)
     {
@@ -46,5 +68,56 @@ public class HUDManager : MonoBehaviour
     {
         enemyCard.SetHealth(currentHealtPoint, maxHealtPoint);
     }
+    #endregion
 
+    #region Panel Section
+    public void OpenPanel(PanelName panelName)
+    {
+        switch (panelName)
+        {
+            case PanelName.EyeOfTheSpoilerPanel:
+                eyeOfTheSpoilerPanel.SetActive(true);
+                isPanelOpened = true;
+                break;
+
+            case PanelName.GameOverPanel:
+                gameOverPanel.SetActive(true);
+                isPanelOpened = true;
+                break;
+
+            case PanelName.WinningPanel:
+                WinningPanel.SetActive(true);
+                isPanelOpened = true;
+                break;
+
+            default:
+                isPanelOpened = false;
+                break;
+        }
+    }
+
+    public void ClosePanel()
+    {
+        if (isPanelOpened)
+        {
+            eyeOfTheSpoilerPanel.SetActive(false);
+            gameOverPanel.SetActive(false);
+            WinningPanel.SetActive(false);
+        }
+    }
+    #endregion
+
+    #region Button Section
+    public void ShowButton(UIButtonContext context, bool show)
+    {
+        InitiateMoveButton.SetActive(show);
+    }
+
+    public void HideButton(UIButtonContext context, bool show)
+    {
+        InitiateMoveButton.SetActive(show);
+    }
+    #endregion
+
+    public bool IsPanelOpened { get { return isPanelOpened; } }
 }

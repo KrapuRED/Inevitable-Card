@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "OnHideButtonEventSO", menuName = "Events/OnHideButtonEventSO")]
+[CreateAssetMenu(fileName = "OnHideButtonEventSO", menuName = "Events/UI/OnHideButtonEventSO")]
 public class OnHideButtonEventSO : ScriptableObject
 {
     public static Action<UIButtonContext, bool> OnShowButton;

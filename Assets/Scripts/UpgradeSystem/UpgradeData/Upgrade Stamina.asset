@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e6bd65735623f4fa1940467b15ed1d, type: 3}
+  m_Name: Upgrade Stamina
+  m_EditorClassIdentifier: 
+  upgradeName: Stamina +
+  upgradeImage: {fileID: -7868275561322272713, guid: 840d1222b9eee93438e687cf18c11296, type: 3}
+  upgradeType: 2
+  upgradeValue: 2

@@ -10,7 +10,7 @@ public enum UIButtonContext
     Dialogue
 }
 
-[CreateAssetMenu(fileName = "OnShowButtonEvent", menuName = "Events/On Show Button Event")]
+[CreateAssetMenu(fileName = "OnShowButtonEvent", menuName = "Events/UI/On Show Button Event")]
 public class OnShowButtonEventSO : ScriptableObject
 {
     public static Action<UIButtonContext, bool> OnShowButton;

@@ -9,6 +9,7 @@ public class BattleDeckUIController : MonoBehaviour
 
     [Header("Events")]
     public OnSetEnemyCardDeckEventSO OnSetEnemyCardDeckEvent;
+    public OnEyeOfTheSpoilerEventSO OnEyeOfTheSpoilerEvent;
     public OnResetCardDeckSO OnResetCardDeckEvent;
 
     private void Start()
@@ -65,6 +66,16 @@ public class BattleDeckUIController : MonoBehaviour
 
     }
 
+    private void RevealAllCardDeck()
+    {
+        Debug.Log("Reveal Enemy Deck");
+        foreach (EnemyBattleCardDeck enemyCard in enemyBattleCardDecks)
+        {
+            if (enemyCard.IsHiddenCard())
+                enemyCard.ShowCard();
+        }
+    }
+
     public void ResetEnemyBattleCardDeck()
     {
         foreach (EnemyBattleCardDeck cardDeck in enemyBattleCardDecks)
@@ -77,12 +88,14 @@ public class BattleDeckUIController : MonoBehaviour
     private void OnEnable()
     {
         OnSetEnemyCardDeckEvent.Register(SetCardDeck);
+        OnEyeOfTheSpoilerEvent.Register(RevealAllCardDeck);
         OnResetCardDeckEvent.Register(ResetEnemyBattleCardDeck);
     }
 
     private void OnDisable()
     {
         OnSetEnemyCardDeckEvent.Unregister(SetCardDeck);
+        OnEyeOfTheSpoilerEvent.Unregister(RevealAllCardDeck);
         OnResetCardDeckEvent.Unregister(ResetEnemyBattleCardDeck);
     }
 }

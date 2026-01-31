@@ -29,6 +29,9 @@ public class BattleManager : MonoBehaviour
     public OnChangeEnemyEventSO onChangeEnemy;
     public OnChangePlayerEventSO onChangePlayer;
     public OnResetCardDeckSO onResetCardDeck;
+    public OnEyeOfTheSpoilerEventSO onEyeOfTheSpoilerEvent;
+
+    [SerializeField] private Coroutine _battleCoroutine;
 
     private void Awake()
     {
@@ -113,7 +116,8 @@ public class BattleManager : MonoBehaviour
         }
 
         Debug.Log("hasAny Card : " + hasAnyCard);
-        OnShowButton.OnRaiseEvent(UIButtonContext.Battle, hasAnyCard);
+        HUDManager.instance.ShowButton(UIButtonContext.Battle, hasAnyCard);
+        //OnShowButton.OnRaiseEvent(UIButtonContext.Battle, hasAnyCard);
     }
 
     public void CalculateStamina()
@@ -159,7 +163,7 @@ public class BattleManager : MonoBehaviour
         }
 
         Debug.Log("The Battle BEGGUN");
-        OnShowButton.OnRaiseEvent(UIButtonContext.Battle, false);
+        HUDManager.instance.HideButton(UIButtonContext.Battle, false);
         OnGoingBattle();
 
         HUDManager.instance.CommitPlayerStamina(newCurrentStamina);
@@ -173,25 +177,30 @@ public class BattleManager : MonoBehaviour
         _indexPlayerCard = 0;
 
         _isOnGoingBattle = true;
-        StartCoroutine(BattleRoutine());
+        _battleCoroutine = StartCoroutine(BattleRoutine());
     }
 
     private IEnumerator BattleRoutine()
     {
-        while (_indexEnemyCard < _EnemyBattleDecks.Length || _indexPlayerCard < _playerBattleDecks.Length)
+        while (_battleCoroutine != null &&
+            _indexEnemyCard < _EnemyBattleDecks.Length || _indexPlayerCard < _playerBattleDecks.Length)
         {
-            CardInstance playerCard = _indexPlayerCard < _playerBattleDecks.Length ? _playerBattleDecks[_indexPlayerCard] : null;
-            CardInstance enemyCard = _indexEnemyCard < _EnemyBattleDecks.Length ? _EnemyBattleDecks[_indexEnemyCard] : null;
+            if (_isOnGoingBattle)
+            {
+                CardInstance playerCard = _indexPlayerCard < _playerBattleDecks.Length ? _playerBattleDecks[_indexPlayerCard] : null;
+                CardInstance enemyCard = _indexEnemyCard < _EnemyBattleDecks.Length ? _EnemyBattleDecks[_indexEnemyCard] : null;
 
-            DeciderManager.instance.DecideCard(playerCard, enemyCard, _currentPlayer.baseDamage, _currentEnemy.baseDamage);
+                DeciderManager.instance.DecideCard(playerCard, enemyCard, _currentPlayer.baseDamage, _currentEnemy.baseDamage);
 
-            _indexPlayerCard++;
-            _indexEnemyCard++;
+                _indexPlayerCard++;
+                _indexEnemyCard++;
+            }
 
-            yield return new WaitForSeconds(1f); // delay antar slot battle
+            yield return new WaitForSeconds(1f);
         }
 
-        EndBattle();
+        if (_isOnGoingBattle)
+            EndBattle();
     }
 
     public void EndBattle()
@@ -203,26 +212,45 @@ public class BattleManager : MonoBehaviour
         }
 
         _isOnGoingBattle = false;
+
         onResetCardDeck.OnRaise();
         SetupCarDeckForPlayer();
     }
 
-    public void SelectWinner(string defeat)
+    private void CancelBattle()
     {
-        if (defeat != "enemy")
+        if (!_isOnGoingBattle) return;
+
+        if (_battleCoroutine != null)
+        {
+            StopCoroutine(_battleCoroutine);
+            _battleCoroutine = null;
+        }
+
+        _isOnGoingBattle = false;
+
+        EndBattle(); // cleanup cards + UI
+    }
+
+    public void SelectWinner(TargetType defeat)
+    {
+        if (defeat == TargetType.Enemy)
         {
             Debug.Log("Player is WIN");
+            HUDManager.instance.OpenPanel(PanelName.WinningPanel);
             _currentEnemy = null;
         }
         else
         {
             Debug.Log("Enemy is WIN");
         }
+
+        CancelBattle();
     }
 
     public void EyeOfTheSpoiler()
     {
-        
+        onEyeOfTheSpoilerEvent.RaiseEvent();
     }
 
     public void ResetOnGoingBattle() { _isOnGoingBattle = false; }

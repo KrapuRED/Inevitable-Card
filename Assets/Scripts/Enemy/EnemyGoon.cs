@@ -27,10 +27,12 @@ public class EnemyGoon : Enemy
             baseDamage = enemyData.baseDamage;
         }
 
+
+        HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
         SetCurrentEnemy();
     }
 
-    private void Update()
+    protected override void OnHealthChanged()
     {
         HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
     }
@@ -67,8 +69,8 @@ public class EnemyGoon : Enemy
     public override void OnDeath()
     {
         //tell manager player is win
-        BattleManager.instance.SelectWinner("enemy");
-        //Desycing with battle manager
+        BattleManager.instance.SelectWinner(type);
+        HUDManager.instance.UpdateEnemyHealth(0, maxHealtPoint);
         Destroy(gameObject);
     }
 

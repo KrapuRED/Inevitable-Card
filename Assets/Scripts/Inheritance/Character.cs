@@ -18,18 +18,34 @@ public class Character : MonoBehaviour, IDamageable
     public void TakeHealing(int healValue)
     {
         healtPoints += (float)healValue;
+        healtPoints = Mathf.Clamp(healtPoints, 0, maxHealtPoint);
+
+        OnHealthChanged();
+
+        if (healtPoints > 100)
+        {
+            Debug.LogWarning("healtpoint is above 100!");
+        }
     }
 
     public void TakeDamage(float damage)
     {
         //Debug.Log($"{this.name} is TakeDamage called with: {damage}");
         healtPoints -= damage;
+        healtPoints = Mathf.Clamp(healtPoints, 0, maxHealtPoint);
+
+        OnHealthChanged();
+
         if (healtPoints <= 0)
         {
-            //Debug.Log($"{nameCharacter} is dead!");
             OnDeath();
         }
         //Debug.Log($"HP : {healtPoints}");
+    }
+
+    protected virtual void OnHealthChanged()
+    {
+
     }
 
     public virtual void OnDeath()

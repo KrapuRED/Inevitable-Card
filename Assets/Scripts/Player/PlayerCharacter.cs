@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-    [SerializeField] private int _maxStamina;
-    public int currentStamina;
+    public int maxStamina;
+    private  int _currentStamina;
+    public int currentStamina => _currentStamina;
+
     public TargetType type;
     [SerializeField] private CurrentPlayerHandler  _currentPlayerHandler;
 
@@ -14,17 +16,12 @@ public class PlayerCharacter : Character
     private void Start()
     {
         healtPoints = maxHealtPoint;
-        currentStamina = _maxStamina;
+        _currentStamina = maxStamina;
 
-        HUDManager.instance.CommitPlayerStamina(currentStamina);
+        HUDManager.instance.CommitPlayerStamina(_currentStamina);
         HUDManager.instance.UpdatePlayerHealth(healtPoints, maxHealtPoint);
 
         SetCurrentPlayerHandler();
-    }
-
-    private void Update()
-    {
-        HUDManager.instance.UpdatePlayerHealth(healtPoints, maxHealtPoint);
     }
 
     private void SetCurrentPlayerHandler()
@@ -54,9 +51,21 @@ public class PlayerCharacter : Character
             TakeHealing(damageValue);
         }
     }
-        public void ResetStamina()
+
+    protected override void OnHealthChanged()
     {
-        currentStamina = _maxStamina;
+        HUDManager.instance.UpdatePlayerHealth(healtPoints, maxHealtPoint);
+    }
+
+    public void ResetStamina()
+    {
+        _currentStamina = maxStamina;
+    }
+
+    public override void OnDeath()
+    {
+        BattleManager.instance.SelectWinner(type);
+        HUDManager.instance.OpenPanel(PanelName.GameOverPanel);
     }
 
     private void OnEnable()
