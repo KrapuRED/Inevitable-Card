@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
@@ -32,6 +33,7 @@ public class HUDManager : MonoBehaviour
     [Header("Reference Script")]
     public HUDBorderCard playerCard;
     public HUDBorderCard enemyCard;
+    public ObtainCardControllerUI obtainCardController;
 
     [SerializeField]private bool isPanelOpened;
 
@@ -118,6 +120,11 @@ public class HUDManager : MonoBehaviour
         InitiateMoveButton.SetActive(show);
     }
     #endregion
+
+    public void UpdateObtainCard(List<CardSO> obtainCard)
+    {
+        obtainCardController.SetObtainCards(obtainCard);
+    }
 
     public bool IsPanelOpened { get { return isPanelOpened; } }
 }

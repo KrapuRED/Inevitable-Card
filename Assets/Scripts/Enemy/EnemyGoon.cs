@@ -41,8 +41,8 @@ public class EnemyGoon : Enemy
     {
         if (currentEnemyHandler == null)
         {
-            currentEnemyHandler = GameObject.FindGameObjectWithTag("EventEnemyHandler")
-                                            .GetComponent<CurrentEnemyHandler>();
+            currentEnemyHandler = GetComponentInChildren<CurrentEnemyHandler>();
+
         }
 
         currentEnemyHandler.SetCurrentEnemy(this);
@@ -70,6 +70,7 @@ public class EnemyGoon : Enemy
     {
         //tell manager player is win
         BattleManager.instance.SelectWinner(type);
+        enemyData.isElimination = true;
         HUDManager.instance.UpdateEnemyHealth(0, maxHealtPoint);
         Destroy(gameObject);
     }

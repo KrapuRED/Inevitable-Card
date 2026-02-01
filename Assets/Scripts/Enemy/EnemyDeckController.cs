@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyDeckController : MonoBehaviour
 {
-    public EnemySO enemyData;
+    private Enemy _currentEnemy;
+    [SerializeField] private EnemySO enemyData;
     [Header("Refence Enemy Scripts")]
     public EnemyPickCard enemyPickCard;
     [SerializeField] private CardInstance[] enemyCards;
@@ -12,6 +13,12 @@ public class EnemyDeckController : MonoBehaviour
     [Header("Events")]
     public OnSetEnemyCardDeckEventSO OnSetEnemyCardDeckEvent;
     public OnEnemyPickingCardEventSO OnSetEnemyPickingCardEvent;
+
+    private void Start()
+    {
+        _currentEnemy = GetComponentInParent<Enemy>();
+        enemyData = _currentEnemy.enemyData;
+    }
 
     public void PickCard(int slots)
     {

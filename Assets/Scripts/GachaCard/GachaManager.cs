@@ -56,6 +56,7 @@ public class GachaManager : MonoBehaviour
             }
         }
 
+        HUDManager.instance.UpdateObtainCard(obtainCard);
         InventoryManager.instance.AddCardToInventory(obtainCard);
 
         DebugObtainCards();

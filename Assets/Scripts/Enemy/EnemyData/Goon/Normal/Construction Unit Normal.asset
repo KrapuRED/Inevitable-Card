@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e83d96d5d9bf064e91349abda8afff0, type: 3}
+  m_Name: Construction Unit Normal
+  m_EditorClassIdentifier: 
+  enemyName: Construction Unit Normal
+  enemyType: 0
+  enemyStatus: 0
+  baseDamage: 8
+  maxHealth: 200
+  hiddenCard: 3
+  isElimination: 0
