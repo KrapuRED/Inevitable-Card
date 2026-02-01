@@ -14,11 +14,6 @@ public class Card : MonoBehaviour
        
     }
 
-    public virtual void UseItem()
-    {
-
-    }
-
     #region Hovering Secetion
     public virtual void OnHoverEnter()
     {

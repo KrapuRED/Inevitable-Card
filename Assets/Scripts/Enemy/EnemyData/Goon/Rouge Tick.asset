@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Rouge Tick
   enemyType: 0
+  enemyStatus: 0
   baseDamage: 2
   maxHealth: 40
   hiddenCard: 2

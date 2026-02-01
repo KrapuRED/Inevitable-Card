@@ -18,6 +18,19 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        TakeOutCard();
+    }
+
+    public void AddCardToInventory(List<CardSO> cards)
+    {
+        foreach(CardSO card in cards)
+            itemCards.Add(card);
+        
+        TakeOutCard();
+    }
+
+    public void TakeOutCard()
+    {
         foreach (CardSO card in itemCards)
         {
             if (card.cardType == CardType.Item)

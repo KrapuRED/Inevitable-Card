@@ -64,7 +64,7 @@ public class CardDeck : Card
         cardData = newCardSO.cardData;
         Instance = newCardSO;
 
-       // Debug.Log($"Card Name : {Instance.cardData.cardName} Card ID : {Instance.ID}");
+        Debug.Log($"Card Name : {Instance.cardData.cardName} Card ID : {Instance.ID}");
 
         if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.Offensive)
         {
@@ -76,10 +76,6 @@ public class CardDeck : Card
         }
     }
 
-    public override void UseItem()
-    {
-
-    }
 
     #region Hovering Secetion
     public override void OnHoverEnter()

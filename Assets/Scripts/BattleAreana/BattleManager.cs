@@ -77,15 +77,6 @@ public class BattleManager : MonoBehaviour
 
     #endregion
 
-    /*private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            DebugEnemyBattleDeck();
-            DebugPlayerBattleDeck();
-        }
-    }*/
-
     #region CHANGE DATA DECK
     public bool ChangeDataPlayerBattleDeck(CardInstance cardData, int slotIndex)
     {
@@ -103,7 +94,7 @@ public class BattleManager : MonoBehaviour
 
     public void CheckPlayerDeck()
     {
-        Debug.Log("CheckPlayerDeck Get Called");
+        //Debug.Log("CheckPlayerDeck Get Called");
         bool hasAnyCard = false;
 
         for (int i = 0; i < _playerBattleDecks.Length; ++i)
@@ -115,7 +106,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        Debug.Log("hasAny Card : " + hasAnyCard);
+        //Debug.Log("hasAny Card : " + hasAnyCard);
         HUDManager.instance.ShowButton(UIButtonContext.Battle, hasAnyCard);
         //OnShowButton.OnRaiseEvent(UIButtonContext.Battle, hasAnyCard);
     }
@@ -238,6 +229,10 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("Player is WIN");
             HUDManager.instance.OpenPanel(PanelName.WinningPanel);
+           
+            if (_currentEnemy.enemyData.enemyType == EnemyType.Goon)
+                GachaManager.instance.GachaCard(_currentEnemy.enemyData.enemyStatus);
+
             _currentEnemy = null;
         }
         else

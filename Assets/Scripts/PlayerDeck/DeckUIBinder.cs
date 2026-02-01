@@ -17,7 +17,7 @@ public class DeckUIBinder : MonoBehaviour
     public OnRemoveCardEventSO OnRemoveCardEvent;
     public OnHideItemCardEventSO OnHideItemCardEvent;
 
-    private void HandelAddedCard(CardInstance card)
+    private void HandelAddedItemCard(CardInstance card)
     {
         //Debug.Log("Get Called");
         GameObject cardGO = cardUIFactory.CreateCardUI(card);
@@ -28,12 +28,12 @@ public class DeckUIBinder : MonoBehaviour
         Repositioning();
     }
 
-    public void HandleHideCard(CardInstance card)
+    public void HandleHideItemCard(CardInstance card)
     {
 
     }
 
-    private void HandleRemovedCard(CardInstance card)
+    private void HandleRemovedItemCard(CardInstance card)
     {
         if (!_cardViews.TryGetValue(card, out CardDeck cardDeck))
             return;
@@ -51,15 +51,15 @@ public class DeckUIBinder : MonoBehaviour
 
     private void OnEnable()
     {
-        OnAddCardEvent.Register(HandelAddedCard);
-        OnRemoveCardEvent.Register(HandleRemovedCard);
-        OnHideItemCardEvent.Register(HandleHideCard);
+        OnAddCardEvent.Register(HandelAddedItemCard);
+        OnRemoveCardEvent.Register(HandleRemovedItemCard);
+        OnHideItemCardEvent.Register(HandleHideItemCard);
     }
 
     private void OnDisable()
     {
-        OnAddCardEvent.Unregister(HandelAddedCard);
-        OnRemoveCardEvent.Unregister(HandleRemovedCard);
-        OnHideItemCardEvent.Unregister(HandleHideCard);
+        OnAddCardEvent.Unregister(HandelAddedItemCard);
+        OnRemoveCardEvent.Unregister(HandleRemovedItemCard);
+        OnHideItemCardEvent.Unregister(HandleHideItemCard);
     }
 }
