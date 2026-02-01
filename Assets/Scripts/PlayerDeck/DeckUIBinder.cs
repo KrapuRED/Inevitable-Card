@@ -4,28 +4,32 @@ using UnityEngine;
 
 public class DeckUIBinder : MonoBehaviour
 {
-    private Dictionary<CardInstance, CardDeck> _cardViews = new();
-
+    private Dictionary<CardInstance, CardDeck> _cardItemViews = new();
+    private Dictionary<CardInstance, CardDeck> _cardActionViews = new();
 
     [Header("References")]
     public CardUIfFactory cardUIFactory;
     public DeckCardPositioner positionerItemDeck;
-    public DeckCardPositioner positionerMovementDeck;
+    public MovementDeckContainer movementContainer;
+    public DeckCardPositioner positionerActionDeck;
 
     [Header("Events")]
     public OnAddCardEventSO OnAddCardEvent;
     public OnRemoveCardEventSO OnRemoveCardEvent;
     public OnHideItemCardEventSO OnHideItemCardEvent;
+    public RegisterCardEventSO OnRegisterCardEvent;
+    public OnRepositioningCardEventSO OnRepositioningCardEvent;
 
+  
     private void HandelAddedItemCard(CardInstance card)
     {
         //Debug.Log("Get Called");
         GameObject cardGO = cardUIFactory.CreateCardUI(card);
         CardDeck cardDeck = cardGO.GetComponent<CardDeck>();
 
-        _cardViews.Add(card, cardDeck);
+        _cardItemViews.Add(card, cardDeck);
     
-        Repositioning();
+        RepositionItemDeck();
     }
 
     public void HandleHideItemCard(CardInstance card)
@@ -35,18 +39,48 @@ public class DeckUIBinder : MonoBehaviour
 
     private void HandleRemovedItemCard(CardInstance card)
     {
-        if (!_cardViews.TryGetValue(card, out CardDeck cardDeck))
+        if (!_cardItemViews.TryGetValue(card, out CardDeck cardDeck))
             return;
 
         Destroy(cardDeck);
-        Repositioning();
+        RepositionItemDeck();
     }
 
-    private void Repositioning()
+    public void RegisterCardView(CardDeck view)
     {
-        var cardDecks = _cardViews.Values.ToList();
+        if (view.Instance == null)
+            return;
 
-        positionerItemDeck.RepositionCards(cardDecks);
+        if (view.cardData.cardType == CardType.Movement)
+        {
+            //Debug.Log($"Succes register : {view.cardData.cardName}");
+            _cardActionViews[view.Instance] = view;
+        }
+
+        RepositionActionDeck();
+    }
+
+    private void HandleRepositioningActionCard(CardInstance cardData, CardDeck cardGO)
+    {
+        if (cardData.cardData.cardType == CardType.Movement)
+        {
+            _cardActionViews.Add(cardData, cardGO);
+        }
+            RepositionActionDeck();
+    }
+
+    private  void RepositionActionDeck()
+    {
+        positionerActionDeck.RepositionCards(
+            _cardActionViews.Values.ToList()
+        );
+    }
+
+    private void RepositionItemDeck()
+    {
+        positionerActionDeck.RepositionCards(
+            _cardItemViews.Values.ToList()
+        );
     }
 
     private void OnEnable()
@@ -54,6 +88,8 @@ public class DeckUIBinder : MonoBehaviour
         OnAddCardEvent.Register(HandelAddedItemCard);
         OnRemoveCardEvent.Register(HandleRemovedItemCard);
         OnHideItemCardEvent.Register(HandleHideItemCard);
+        OnRepositioningCardEvent.Register(HandleRepositioningActionCard);
+        OnRegisterCardEvent.Register(RegisterCardView);
     }
 
     private void OnDisable()

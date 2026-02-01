@@ -5,7 +5,8 @@ public class MovementDeckContainer : DeckContiner
 {
     [Header("Config Movement Deck Container")]
     [SerializeField] private int maxCardDeck;
-    [SerializeField] private List<CardInstance> movementCards = new();
+    [SerializeField] private readonly List<CardInstance> movementCards = new();
+    public IReadOnlyList<CardInstance> Cards => movementCards;
     private int nextID;
 
     private void Start()
@@ -13,23 +14,15 @@ public class MovementDeckContainer : DeckContiner
         if (cardType != CardType.Movement)
             return;
 
-        CardDeck[] movements = GetComponentsInChildren<CardDeck>(true);
+        var cardDecks = GetComponentsInChildren<CardDeck>(true);
 
-        foreach (CardDeck card in movements)
+        foreach (var card in cardDecks)
         {
             if (card.cardData == null)
-            {
-                Debug.LogWarning($"{card.name} has no CardSO assigned");
                 continue;
-            }
 
-            // 1. Create runtime instance
-            CardInstance instance = new CardInstance(card.cardData, nextID++);
-
-            // 2. Store it in the container
+            var instance = new CardInstance(card.cardData, nextID++);
             movementCards.Add(instance);
-
-            // 3. Bind instance -> card UI
             card.InitializerCard(instance);
         }
     }

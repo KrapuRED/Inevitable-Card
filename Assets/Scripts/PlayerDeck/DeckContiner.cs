@@ -23,6 +23,7 @@ public class DeckContiner : MonoBehaviour
     [Header("Events")]
     public OnAddCardEventSO OnAddCardEvent;
     public OnRemoveCardEventSO OnRemoveCardEvent;
+    public OnRepositioningCardEventSO OnRepositioningCardEvent;
 
     //private List<CardSO> cards = new List<CardSO>();
     public virtual void AddCard(CardSO newCardName)

@@ -17,7 +17,6 @@ public class DeckCardPositioner : MonoBehaviour
 
     public void RepositionCards(List<CardDeck> cards)
     {
-        //Debug.Log("GET CALLED");
         float spacing = cardWidth - overlap;
 
         float startX = 0f;
@@ -36,6 +35,8 @@ public class DeckCardPositioner : MonoBehaviour
         {
             float dir = direction == DeckDirection.Left ? -1f : 1f;
             float xPos = startX + i * spacing * dir;
+
+            //Debug.Log($"{cards[i].cardData.cardName} is Reposiotion to {xPos}");
 
             cards[i].transform.localPosition =
                 new Vector3(xPos, ypos, -i * 0.01f);

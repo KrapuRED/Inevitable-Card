@@ -154,6 +154,7 @@ MonoBehaviour:
   dropZoneLayer:
     serializedVersion: 2
     m_Bits: 128
+  registerCardEvent: {fileID: 11400000, guid: 488ac4aa1fad8314ca3d9e1d3af7ec82, type: 2}
   animationTime: 0.5
   EndPosition: -4
   StartPosition: -5.23

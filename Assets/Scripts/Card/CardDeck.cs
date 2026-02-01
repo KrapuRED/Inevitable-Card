@@ -14,6 +14,7 @@ public class CardDeck : Card
     private Vector2 originalPosition;
     private Vector3 dragOffset;
     public LayerMask dropZoneLayer;
+    public RegisterCardEventSO registerCardEvent;
 
     [Header("Animation Card")]
     public float animationTime;
@@ -63,8 +64,9 @@ public class CardDeck : Card
     {
         cardData = newCardSO.cardData;
         Instance = newCardSO;
+        registerCardEvent.OnRegisterCard(this);
 
-        Debug.Log($"Card Name : {Instance.cardData.cardName} Card ID : {Instance.ID}");
+        //Debug.Log($"Card Name : {Instance.cardData.cardName} Card ID : {Instance.ID}");
 
         if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.Offensive)
         {
