@@ -139,11 +139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cards:
-  - {fileID: 11400000, guid: 4d7c0d8d9f1e1594e8d1b59558b97f98, type: 2}
-  - {fileID: 11400000, guid: 034e5ae20494fea4bbd86a245fdda0f8, type: 2}
-  - {fileID: 11400000, guid: 529dc89ef39212545979ca3f916d5e1f, type: 2}
-  - {fileID: 11400000, guid: 19551b1ce35cbdb469d8bb6a7520ac6e, type: 2}
-  - {fileID: 11400000, guid: 55a041a51f0087d419d5ed16233063d3, type: 2}
+  - {fileID: 11400000, guid: d822ba6a5eeec914d91f1c22d9ce748c, type: 2}
+  - {fileID: 11400000, guid: 38935e8897fdabe4dbef3a5cac2bf861, type: 2}
+  - {fileID: 11400000, guid: a2d50a8ccacc0e24ea135dd365e599eb, type: 2}
+  - {fileID: 11400000, guid: 59775c45b0eb38845bfc581cbf070757, type: 2}
+  - {fileID: 11400000, guid: 72cfd6616a227be4bafd8b50994f5f52, type: 2}
   - {fileID: 11400000, guid: b776eabc82da2ef4cbc0d214a0cdcc41, type: 2}
   - {fileID: 11400000, guid: c0b336cefdeefc547983819bc85f4b6d, type: 2}
 --- !u!1 &6573767982126811873

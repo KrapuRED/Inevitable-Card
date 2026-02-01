@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71876352c55329c4190e0cdf0645c952, type: 3}
+  m_Name: Heavy Attack Card Player
+  m_EditorClassIdentifier: 
+  cardName: Heavy Attack
+  cardImage: {fileID: 7346463642935770776, guid: 3028d8fff43c2e94bba8a94f62634982, type: 3}
+  cardType: 0
+  movementCardType: 0
+  offensiveCardType: 1
+  damageMovement: 15
+  defensiveCardType: 0
+  itemCardType: 0
+  useItem: 0
+  itemHealAmount: 0
+  itemDamage: 0
+  StaminaCost: 5

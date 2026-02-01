@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemyBattleCardDeck :BattleCardDeck
 {
+    public BattleDeckCardUI cardUI;
+
     [Header("State battke Card Deck")]
     [SerializeField] private int slotIndex;
     [SerializeField] private bool isAbleReiveCard;
@@ -53,6 +55,10 @@ public class EnemyBattleCardDeck :BattleCardDeck
         //Debug.Log("card name : " + card.cardData.cardName);
         cardInstance = card;
         isHaveCard = true;
+        
+        if (cardUI != null)
+            cardUI.SetBattleDeckCard(cardInstance.cardData);
+
         BattleManager.instance.ChangeDataEnemyBattleDeck(card, slotIndex);
         ChangeStateBattleDeck();
     }
@@ -133,14 +139,15 @@ public class EnemyBattleCardDeck :BattleCardDeck
             _spriteRenderer.color = InReiveCard;
 
             if (isHiddenCard)
-                _spriteRenderer.color = Color.black;
+                cardUI.HideEnemyCard();
         }
     }
 
     public void ShowCard()
     {
         //_spriteRenderer.sprite = cardInstance.cardData.cardImage;
-        _spriteRenderer.color = Color.blue;
+        if(cardUI != null)
+            cardUI.SetBattleDeckCard(cardInstance.cardData);
     }
 
     public override void CancelCard()
@@ -152,6 +159,9 @@ public class EnemyBattleCardDeck :BattleCardDeck
         _spriteRenderer.color = OutReiveCard;
     }
 
-    public void SetHiddenCard() => isHiddenCard = true;
+    public void SetHiddenCard()
+    {
+        isHiddenCard = true;
+    }
     public bool IsHiddenCard() { return isHiddenCard; }
 }

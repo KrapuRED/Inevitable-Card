@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71876352c55329c4190e0cdf0645c952, type: 3}
-  m_Name: Dodge Card
+  m_Name: Guard Card Enemy
   m_EditorClassIdentifier: 
-  cardName: Dodge
-  cardImage: {fileID: 1970043473887974267, guid: 524d52a41a6e1a24da1b28d84df3c5e4, type: 3}
+  cardName: Guard
+  cardImage: {fileID: 5197577308073694462, guid: cd5ec9c54b20795439341f12493114ac, type: 3}
   cardType: 0
   movementCardType: 1
   offensiveCardType: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   useItem: 0
   itemHealAmount: 0
   itemDamage: 0
-  StaminaCost: 3
+  StaminaCost: 1

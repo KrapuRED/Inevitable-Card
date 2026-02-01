@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71876352c55329c4190e0cdf0645c952, type: 3}
-  m_Name: Light Attack Card
+  m_Name: Parry Card Enemy
   m_EditorClassIdentifier: 
-  cardName: Light Attack
-  cardImage: {fileID: 7764062436102564320, guid: b96a24bf2c7051044a4e173a2b311557, type: 3}
+  cardName: Parry
+  cardImage: {fileID: 7267317276240964698, guid: f7d2e05640a2c6f4189601c96b7f03ae, type: 3}
   cardType: 0
-  movementCardType: 0
+  movementCardType: 1
   offensiveCardType: 0
-  damageMovement: 10
+  damageMovement: 0
   defensiveCardType: 0
   itemCardType: 0
   useItem: 0

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerBattleCardDeck : BattleCardDeck
 {
+    public BattleDeckCardUI battleCardUI;
+
     [Header("State battke Card Deck")]
     [SerializeField] private int slotIndex;
     public Color InReiveCard;
@@ -52,6 +54,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
         cardInstance = card;
         isHaveCard = true;
         ChangeStateBattleDeck();
+        battleCardUI.SetBattleDeckCard(cardInstance.cardData);
         BattleManager.instance.ChangeDataPlayerBattleDeck(card, slotIndex);
     }
 
@@ -144,6 +147,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
         transform.position = orginalPosition;
         _spriteRenderer.color = OutReiveCard;
 
+        battleCardUI.ResetBattleCardUI();
         BattleManager.instance.ChangeDataPlayerBattleDeck(null, slotIndex);
     }
 
@@ -154,7 +158,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
         _boxCollied2D.isTrigger = false;
 
         gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
-        //BattleManager.instance.CheckPlayerDeck();
+        battleCardUI.ResetBattleCardUI();
         _spriteRenderer.color = OutReiveCard;
     }
 
