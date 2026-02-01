@@ -106,7 +106,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        //Debug.Log("hasAny Card : " + hasAnyCard);
+        Debug.Log("hasAny Card : " + hasAnyCard);
         HUDManager.instance.ShowButton(UIButtonContext.Battle, hasAnyCard);
         //OnShowButton.OnRaiseEvent(UIButtonContext.Battle, hasAnyCard);
     }

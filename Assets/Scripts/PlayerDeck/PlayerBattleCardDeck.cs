@@ -154,7 +154,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
         _boxCollied2D.isTrigger = false;
 
         gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
-        BattleManager.instance.CheckPlayerDeck();
+        //BattleManager.instance.CheckPlayerDeck();
         _spriteRenderer.color = OutReiveCard;
     }
 

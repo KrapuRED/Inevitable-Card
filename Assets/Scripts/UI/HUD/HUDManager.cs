@@ -105,6 +105,7 @@ public class HUDManager : MonoBehaviour
             eyeOfTheSpoilerPanel.SetActive(false);
             gameOverPanel.SetActive(false);
             WinningPanel.SetActive(false);
+            isPanelOpened = false;
         }
     }
     #endregion
