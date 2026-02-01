@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heavy Attack Card
   m_EditorClassIdentifier: 
   cardName: Heavy Attack
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 7346463642935770776, guid: 3028d8fff43c2e94bba8a94f62634982, type: 3}
   cardType: 0
   movementCardType: 0
   offensiveCardType: 1

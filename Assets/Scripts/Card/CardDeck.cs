@@ -8,6 +8,7 @@ public class CardDeck : Card
     [Header("State Card")]
     [SerializeField] private bool isHover;
     [SerializeField] private bool isDragging;
+    [SerializeField] private CardDeckUI cardUI;
 
     [Header("Drag Config")]
     [SerializeField] private Vector2 defaultPosition;
@@ -37,10 +38,8 @@ public class CardDeck : Card
     {
         defaultPosition = transform.position;
 
-        if (cardData != null && cardData.cardImage != null)
-        {
-            _spriteRenderer.sprite = cardData.cardImage;
-        }
+        if (cardUI != null)
+            cardUI.SetCardDeckUI(cardData);
     }
 
     public override void UpdateBoxCollider2D(float visibleWidth)

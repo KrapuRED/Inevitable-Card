@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Guard Card
   m_EditorClassIdentifier: 
   cardName: Guard
-  cardImage: {fileID: 0}
+  cardImage: {fileID: -8495997250718177190, guid: cdef0417fcd13544cb3ea29813dea4c2, type: 3}
   cardType: 0
   movementCardType: 1
   offensiveCardType: 0

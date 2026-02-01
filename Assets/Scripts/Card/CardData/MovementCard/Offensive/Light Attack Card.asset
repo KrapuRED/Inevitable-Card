@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Light Attack Card
   m_EditorClassIdentifier: 
   cardName: Light Attack
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 7764062436102564320, guid: b96a24bf2c7051044a4e173a2b311557, type: 3}
   cardType: 0
   movementCardType: 0
   offensiveCardType: 0
