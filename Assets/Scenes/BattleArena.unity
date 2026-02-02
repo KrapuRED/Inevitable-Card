@@ -1306,6 +1306,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425346925}
   m_CullTransparentMesh: 1
+--- !u!1001 &431376958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1164757526225359600, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0032252073
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242202165352241094, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242202165352241094, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242202165352241094, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1242202165352241094, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655674056817664647, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.4585633
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.97606003
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3835395831915739427, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692782793775064860, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_Name
+      value: Item Card Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692782793775064860, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2121497360984165061, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1665872271}
+  m_SourcePrefab: {fileID: 100100000, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
 --- !u!1 &460967914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,6 +1628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Battle Card Deck 4
       objectReference: {fileID: 0}
+    - target: {fileID: 709904979322188072, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2250137360313009586, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1554,7 +1646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2238,6 +2330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Battle Card Deck 2
       objectReference: {fileID: 0}
+    - target: {fileID: 709904979322188072, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2250137360313009586, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -2252,7 +2348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2945,7 +3041,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.579999, y: 0.0000023841858}
+  m_AnchoredPosition: {x: -8.579998, y: 0.0000019073486}
   m_SizeDelta: {x: -21.866, y: -2.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801827606
@@ -3672,6 +3768,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Card Deck 5
       objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4301,7 +4429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.156, y: 0.034}
   m_AnchorMax: {x: 0.5, y: 0.15100001}
-  m_AnchoredPosition: {x: 0.4037075, y: 0.23028946}
+  m_AnchoredPosition: {x: 0.4037094, y: 0.23028564}
   m_SizeDelta: {x: 0.117733, y: -0.5289116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1223892344
@@ -4338,7 +4466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.156, y: 0.034}
   m_AnchorMax: {x: 0.5, y: 0.15100001}
-  m_AnchoredPosition: {x: -0.03699875, y: 0.016998291}
+  m_AnchoredPosition: {x: -0.037002563, y: 0.016998291}
   m_SizeDelta: {x: 0.072999954, y: -0.03399992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1224380314
@@ -4724,7 +4852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d615fb851b82db6499d97e0ee7074a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabCard: {fileID: 2139291278838584957, guid: d2f6da98a549f2842af3e74d0bb8d43e, type: 3}
+  PrefabCard: {fileID: 6692782793775064860, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
   movenentDeckUI: {fileID: 1402343526}
   itemDeckUI: {fileID: 1691160459}
 --- !u!4 &1320290369
@@ -4776,7 +4904,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.6111, y: 0}
+  m_AnchoredPosition: {x: 4.6110992, y: 0}
   m_SizeDelta: {x: -9.2221, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1322226901
@@ -6050,6 +6178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Battle Card Deck 5
       objectReference: {fileID: 0}
+    - target: {fileID: 709904979322188072, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2250137360313009586, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -6064,7 +6196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6285,6 +6417,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Battle Card Deck 3
       objectReference: {fileID: 0}
+    - target: {fileID: 709904979322188072, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2250137360313009586, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_Camera
       value: 
@@ -6299,7 +6435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6686,11 +6822,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Card Deck 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+--- !u!1 &1665872269 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2121497360984165061, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+  m_PrefabInstance: {fileID: 431376958}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1665872271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665872269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4534f6fc1a9bf8d46859a66f2dc180cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardNameText: {fileID: 0}
+  staminaValueText: {fileID: 0}
+  healValueText: {fileID: 0}
+  damageValueText: {fileID: 0}
+  cardIllustration: {fileID: 0}
+  statusDamage: {fileID: 0}
+  statusHeal: {fileID: 0}
+  statusStamina: {fileID: 0}
 --- !u!1 &1668689119
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,7 +7173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.6111, y: 0}
+  m_AnchoredPosition: {x: 4.6110992, y: 0}
   m_SizeDelta: {x: -9.2221, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1718678158
@@ -7530,6 +7723,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Card Deck 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7709,7 +7934,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.579999, y: 0.0000023841858}
+  m_AnchoredPosition: {x: -8.579998, y: 0.0000019073486}
   m_SizeDelta: {x: -21.866, y: -2.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852914031
@@ -8154,6 +8379,38 @@ PrefabInstance:
     - target: {fileID: 528257255828244419, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
       propertyPath: m_Name
       value: Enemy Battle Card Deck 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8806,6 +9063,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Battle Card Deck 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3611804474194910397, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8748422151033105599, guid: a04f2ce803ccedc44addcef47943d478, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9095,6 +9384,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Battle Card Deck 1
       objectReference: {fileID: 0}
+    - target: {fileID: 709904979322188072, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1345750798337298049, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_fontSize
       value: 0.2
@@ -9121,7 +9414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9150,6 +9443,10 @@ PrefabInstance:
     - target: {fileID: 2745186997698219616, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7074572694405984464, guid: c0be79e923f92fd4fb1c7e24c480c5fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9187,3 +9484,4 @@ SceneRoots:
   - {fileID: 1569570816}
   - {fileID: 668336314}
   - {fileID: 2014627652}
+  - {fileID: 431376958}
