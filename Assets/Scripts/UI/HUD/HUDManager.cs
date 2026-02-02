@@ -48,7 +48,7 @@ public class HUDManager : MonoBehaviour
     }
 
     #region Player and Enemy Status
-    // Called when selecting/deselecting cards
+    // Called when selecting/deselecting cardDatas
     public void UpdatePlayerStaminaPreview(int usedStamina)
     {
         playerCard.SetUsedStamina(usedStamina);

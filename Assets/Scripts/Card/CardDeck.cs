@@ -6,27 +6,27 @@ public class CardDeck : Card
     public CardSO cardData;
 
     [Header("State Card")]
-    [SerializeField] private bool isHover;
-    [SerializeField] private bool isDragging;
-    [SerializeField] private CardDeckUI cardUI;
+    public int BaseLayerOrder { get; private set; }
+    [SerializeField] protected bool _isHover;
+    [SerializeField] protected bool _isDragging;
+    [SerializeField] protected CardDeckUI cardUI;
 
     [Header("Drag Config")]
-    [SerializeField] private Vector2 defaultPosition;
-    private Vector2 originalPosition;
-    private Vector3 dragOffset;
+    protected Vector2 originalPosition;
+    protected Vector3 dragOffset;
     public LayerMask dropZoneLayer;
     public RegisterCardEventSO registerCardEvent;
 
     [Header("Animation Card")]
     public float animationTime;
-    [SerializeField] private float EndPosition;
-    [SerializeField] private float StartPosition;
+    [SerializeField] protected float EndPosition;
+    [SerializeField] protected float StartPosition;
 
     public CardInstance Instance { get; private set; }
 
-    private SpriteRenderer _spriteRenderer;
-    private BoxCollider2D _boxcollied2D;
-    Tween _tween;
+    protected SpriteRenderer _spriteRenderer;
+    protected BoxCollider2D _boxcollied2D;
+    protected Tween _tween;
 
     private void Awake()
     {
@@ -36,10 +36,13 @@ public class CardDeck : Card
 
     private void Start()
     {
-        defaultPosition = transform.position;
-
         if (cardUI != null)
             cardUI.SetCardDeckUI(cardData);
+    }
+
+    public void SetBaseLayerOrder(int order)
+    {
+        BaseLayerOrder = order;
     }
 
     public override void UpdateBoxCollider2D(float visibleWidth)
@@ -81,12 +84,12 @@ public class CardDeck : Card
     #region Hovering Secetion
     public override void OnHoverEnter()
     {
-        if (isHover || isDragging) return;
+        if (_isHover || _isDragging) return;
 
-        isHover = true;
+        _isHover = true;
         //Debug.Log($"Hover Enter: {cardData.cardName}");
         transform.DOMoveY(EndPosition, animationTime);
-        _spriteRenderer.sortingOrder = 1;
+        //_spriteRenderer.sortingOrder = 1;
     }
 
     public override void OnClickCard()
@@ -96,32 +99,32 @@ public class CardDeck : Card
 
     public override void OnHoverExit()
     {
-        if (!isHover || isDragging) return;
+        if (!_isHover || _isDragging) return;
 
-        isHover = false;
+        _isHover = false;
         //Debug.Log($"Hover Exit: {cardData.cardName}");
         transform.DOMoveY(StartPosition, animationTime);
-        _spriteRenderer.sortingOrder = 0;
+        //_spriteRenderer.sortingOrder = 0;
     }
     #endregion
 
     #region Dragging Section
     public override void StartDragging(Vector2 mouseWorldPosition)
     {
-        isDragging = true;
-        isHover = false;
+        _isDragging = true;
+        _isHover = false;
         _tween.Kill(transform);
 
         originalPosition = transform.position;
 
         dragOffset = transform.position - (Vector3)mouseWorldPosition;
 
-        _spriteRenderer.sortingOrder = 2;
+        //_spriteRenderer.sortingOrder = 2;
     }
 
     public override void Drag(Vector2 mouseWorldPosition)
     {
-        if (!isDragging) return;
+        if (!_isDragging) return;
 
         transform.position = (Vector3)mouseWorldPosition + dragOffset;
     }
@@ -130,11 +133,11 @@ public class CardDeck : Card
 
     public override void EndDrag(bool droppedSuccessfully)
     {
-        isDragging = false;
+        _isDragging = false;
         DOTween.Kill(transform);
 
-        transform.DOMove(defaultPosition, 1f).SetEase(Ease.OutQuad);
-        _spriteRenderer.sortingOrder = 0;
+        transform.DOMove(originalPosition, 1f).SetEase(Ease.OutQuad);
+        //_spriteRenderer.sortingOrder = 0;
     }
     #endregion
 }

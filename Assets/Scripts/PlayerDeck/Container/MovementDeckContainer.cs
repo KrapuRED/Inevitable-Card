@@ -6,7 +6,7 @@ public class MovementDeckContainer : DeckContiner
     [Header("Config Movement Deck Container")]
     [SerializeField] private int maxCardDeck;
     [SerializeField] private readonly List<CardInstance> movementCards = new();
-    public IReadOnlyList<CardInstance> Cards => movementCards;
+    [SerializeField] private List<CardDeck> cards = new List<CardDeck>();
     private int nextID;
 
     private void Start()
@@ -14,13 +14,14 @@ public class MovementDeckContainer : DeckContiner
         if (cardType != CardType.Movement)
             return;
 
-        var cardDecks = GetComponentsInChildren<CardDeck>(true);
+        var cardDecks = GetComponentsInChildren<CardDeck>();
 
         foreach (var card in cardDecks)
         {
             if (card.cardData == null)
                 continue;
 
+            cards.Add(card);
             var instance = new CardInstance(card.cardData, nextID++);
             movementCards.Add(instance);
             card.InitializerCard(instance);
@@ -32,7 +33,7 @@ public class MovementDeckContainer : DeckContiner
         /*
         Debug.Log($"AddCard called on {name}");
         Debug.Log($"DeckType: {cardType}, CardType: {newCardName.cardType}");
-        Debug.Log($"Current: {cards.Count}, Max: {maxCardDeck}");
+        Debug.Log($"Current: {cardDatas.Count}, Max: {maxCardDeck}");
         */
 
         if (movementCards.Count >= maxCardDeck)
@@ -55,6 +56,11 @@ public class MovementDeckContainer : DeckContiner
     {
         movementCards.Remove(instance);
         OnRemoveCardEvent.Raise(instance);
+    }
+
+    public override List<CardDeck> GetCards()
+    {
+        return cards;
     }
 
     public int Count => movementCards.Count;

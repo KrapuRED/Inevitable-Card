@@ -28,7 +28,6 @@ public class DeckUIBinder : MonoBehaviour
         CardDeck cardDeck = cardGO.GetComponent<CardDeck>();
 
         _cardItemViews.Add(card, cardDeck);
-    
         RepositionItemDeck();
     }
 
@@ -81,6 +80,11 @@ public class DeckUIBinder : MonoBehaviour
         positionerActionDeck.RepositionCards(
             _cardItemViews.Values.ToList()
         );
+
+        /*for (int i = 0; i < _cardActionViews.Values.ToList().Count; i++)
+        {
+            CardRenderManager.instance.SetBaseOrder(cards[i], i);
+        }*/
     }
 
     private void OnEnable()

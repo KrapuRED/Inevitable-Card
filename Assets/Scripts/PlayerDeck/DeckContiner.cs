@@ -25,7 +25,7 @@ public class DeckContiner : MonoBehaviour
     public OnRemoveCardEventSO OnRemoveCardEvent;
     public OnRepositioningCardEventSO OnRepositioningCardEvent;
 
-    //private List<CardSO> cards = new List<CardSO>();
+    //private List<CardSO> cardDatas = new List<CardSO>();
     public virtual void AddCard(CardSO newCardName)
     {
        
@@ -39,5 +39,9 @@ public class DeckContiner : MonoBehaviour
     public virtual void RemoveCardFromDeck(CardInstance removeCardName)
     {
         
+    }
+    public virtual List<CardDeck> GetCards()
+    {
+        return null;
     }
 }

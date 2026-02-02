@@ -220,7 +220,7 @@ public class BattleManager : MonoBehaviour
 
         _isOnGoingBattle = false;
 
-        EndBattle(); // cleanup cards + UI
+        EndBattle(); // cleanup cardDatas + UI
     }
 
     public void SelectWinner(TargetType defeat)

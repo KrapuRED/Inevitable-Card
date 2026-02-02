@@ -6,7 +6,8 @@ public class ItemDeckContainer : DeckContiner
     [Header("Config Item Deck Container")]
     [SerializeField] private int maxCardDeck;
     private int nextID;
-    private List<CardInstance> cards = new();
+    private List<CardInstance> cardDatas = new();
+    private List<CardDeck> cards = new();
 
     [Header("Events")]
     public OnHideItemCardEventSO OnHideItemCardEvent;
@@ -16,18 +17,12 @@ public class ItemDeckContainer : DeckContiner
 
         /*Debug.Log($"AddCard called on {name}");
         Debug.Log($"DeckType: {cardType}, CardType: {newCardName.cardType}");
-        Debug.Log($"Current: {cards.Count}, Max: {maxCardDeck}");*/
-        if (cards.Count >= maxCardDeck)
+        Debug.Log($"Current: {cardDatas.Count}, Max: {maxCardDeck}");*/
+        if (cardDatas.Count >= maxCardDeck)
             return;
 
         CardInstance newCard = new CardInstance(newCardName, nextID++);
-        cards.Add(newCard);
-
-        /* Debug Cards
-        foreach (var card in cards)
-        {
-            Debug.Log($"Cards ID : {card.ID} Card Name : {card.cardData.cardName}");
-        }*/
+        cardDatas.Add(newCard);
 
         OnAddCardEvent.Raise(newCard);
     }
@@ -44,7 +39,7 @@ public class ItemDeckContainer : DeckContiner
 
     public override void RemoveCardFromDeck(CardInstance removeCardName)
     {
-        cards.Remove(removeCardName);
+        cardDatas.Remove(removeCardName);
         OnRemoveCardEvent.Raise(removeCardName);
     }
 }

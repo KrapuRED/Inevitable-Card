@@ -52,7 +52,7 @@ public class BattleDeckUIController : MonoBehaviour
             enemyBattleCardDecks[deckIndex].ReceivePlayerCard(cardHidden);
         }
 
-        //2. Set the remaning battle cardHidden deck with cards left
+        //2. Set the remaning battle cardHidden deck with cardDatas left
         foreach (int deckIndex in availableIndexes)
         {
             if (workingCards.Count == 0) break;

@@ -36,7 +36,8 @@ public class DeckCardPositioner : MonoBehaviour
             float dir = direction == DeckDirection.Left ? -1f : 1f;
             float xPos = startX + i * spacing * dir;
 
-            //Debug.Log($"{cards[i].cardData.cardName} is Reposiotion to {xPos}");
+            //Debug.Log($"{cardDatas[i].cardData.cardName} is Reposiotion to {xPos}");
+            CardRenderManager.instance.SetBaseOrder(cards[i], i);
 
             cards[i].transform.localPosition =
                 new Vector3(xPos, ypos, -i * 0.01f);
