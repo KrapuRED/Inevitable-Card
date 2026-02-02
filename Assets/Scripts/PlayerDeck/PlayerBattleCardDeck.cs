@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerBattleCardDeck : BattleCardDeck
 {
@@ -22,11 +23,13 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
     SpriteRenderer _spriteRenderer;
     BoxCollider2D _boxCollied2D;
+    CanvasGroup _canvasGroup;
 
     private  void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollied2D = GetComponent<BoxCollider2D>();
+        _canvasGroup = GetComponentInChildren<CanvasGroup>();
     }
 
     public override void Init(int index)
@@ -35,14 +38,6 @@ public class PlayerBattleCardDeck : BattleCardDeck
     }
 
     #region Receive Section
-    /*  public override void EnterReceiveZone()
-    {
-        if (isAbleReiveCard) return;
-
-        isAbleReiveCard = true;
-        _spriteRenderer.color = InReiveCard;
-    }*/
-
     public override void ReceivePlayerCard(CardInstance card)
     {
         //Debug.Log($"{this.name} Succes get the data from {card.name}");
@@ -57,15 +52,6 @@ public class PlayerBattleCardDeck : BattleCardDeck
         battleCardUI.SetBattleDeckCard(cardInstance.cardData);
         BattleManager.instance.ChangeDataPlayerBattleDeck(card, slotIndex);
     }
-
-    /*  public override void ExitReceiveZone()
-    {
-        if (!isAbleReiveCard) return;
-
-        isAbleReiveCard = false;
-        //_spriteRenderer.color = OutReiveCard;
-    }*/
-
     #endregion
 
     #region Hovering Secetion
@@ -160,6 +146,21 @@ public class PlayerBattleCardDeck : BattleCardDeck
         gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
         battleCardUI.ResetBattleCardUI();
         _spriteRenderer.color = OutReiveCard;
+    }
+
+    public void ClashCardEnterAnimation(float scaleMultiplier, float time)
+    {
+        transform.DOKill();
+
+        Vector3 targetScale = transform.localScale * scaleMultiplier;
+        transform.DOScale(targetScale, time)
+                 .SetEase(Ease.OutBack);
+    }
+
+    public void ClasCardExitAnimation(float scale, float time)
+    {
+        transform.DOScale(Vector3.one * scale, time);
+        _canvasGroup.DOFade(0.5f, time);
     }
 
     public bool CanDragging()

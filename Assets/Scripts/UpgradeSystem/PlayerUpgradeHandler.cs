@@ -20,12 +20,13 @@ public class PlayerUpgradeHandler : MonoBehaviour
                 break;
 
             case UpgradeType.MaxStamina:
-                _player.maxStamina += (int) upgrade.upgradeValue;
+                _player.maxStamina += (int)upgrade.upgradeValue;
+                _player.ResetStamina();
                 break;
 
             case UpgradeType.BaseDamage:
                 _player.baseDamage += upgrade.upgradeValue;
-
+                HUDManager.instance.UpdatePlayerBaseDamage(_player.baseDamage);
                 break;
         }
     }

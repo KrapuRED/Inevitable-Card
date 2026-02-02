@@ -49,8 +49,9 @@ public class HUDManager : MonoBehaviour
 
     #region Player and Enemy Status
     // Called when selecting/deselecting cardDatas
-    public void UpdatePlayerStaminaPreview(int usedStamina)
+    public void UpdatePlayerStaminaPreview(int currentStamina, int usedStamina)
     {
+        playerCard.SetStamina(currentStamina, usedStamina);
         playerCard.SetUsedStamina(usedStamina);
     }
 
@@ -66,9 +67,19 @@ public class HUDManager : MonoBehaviour
         playerCard.SetHealth(currentHealtPoint, maxHealtPoint);
     }
 
+    public void UpdatePlayerBaseDamage(float baseDamage)
+    {
+        playerCard.SetBaseDamage(baseDamage);
+    }
+
     public void UpdateEnemyHealth(float currentHealtPoint, float maxHealtPoint)
     {
         enemyCard.SetHealth(currentHealtPoint, maxHealtPoint);
+    }
+
+    public void UpdateEnemyBaseDamage(float baseDamage)
+    {
+        enemyCard.SetBaseDamage(baseDamage);
     }
     #endregion
 

@@ -9,6 +9,7 @@ public class HUDBorderCard : MonoBehaviour
     public TextMeshProUGUI healthValueText;
     public TextMeshProUGUI staminaValueText;
     public TextMeshProUGUI usedStaminaValueText;
+    public TextMeshProUGUI baseDamageValue;
 
     public void SetHealth(float current, float max)
     {
@@ -19,6 +20,11 @@ public class HUDBorderCard : MonoBehaviour
     public void SetUsedStamina(int used)
     {
         usedStaminaValueText.text = used > 0 ? $"-{used}" : "";
+    }
+
+    public void SetBaseDamage(float baseDamage)
+    {
+        baseDamageValue.text = baseDamage.ToString();
     }
 
     public void SetStamina(int currentStaminaValue, int UsedStaminaValue)

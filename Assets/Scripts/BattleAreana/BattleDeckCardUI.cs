@@ -1,21 +1,30 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BattleDeckCardUI : MonoBehaviour
 {
-    public TextMeshProUGUI cardName;
-    public TextMeshProUGUI staminaValue;
-    public TextMeshProUGUI damageValue;
-    public TextMeshProUGUI healValue;
-    public Image borderImg;
-    public Image illustationImg;
-
+    public TextMeshPro cardName;
+    public SpriteRenderer borderImg;
+    public SpriteRenderer illustationImg;
     public List<Sprite> borders;
+
+    [Header("Double Status")]
+    public GameObject doubleStatus;
+    public TextMeshPro staminaDoubleValue;
+    public TextMeshPro damageDoubleValue;
+
+    [Header("Singel Damage")]
     public GameObject damageStatus;
-    public GameObject healStatus;
+    public TextMeshPro damageSingelValue;
+
+    [Header("Singel Stamina")]
     public GameObject staminaStatus;
+    public TextMeshPro staminaSingelValue;
+
+    [Header("Singel Stamina")]
+    public GameObject healStatus;
+    public TextMeshPro healSingelValue;
 
     public void SetBattleDeckCard(CardSO cardData)
     {
@@ -23,34 +32,21 @@ public class BattleDeckCardUI : MonoBehaviour
         ResetBattleCardUI();
 
         cardName.text = cardData.cardName;
-        //Select Border
-        if (cardData.cardType == CardType.Movement)
-        {
-            borderImg.sprite = borders[1];
-            illustationImg.sprite = cardData.cardImage;
-            staminaValue.text = cardData.StaminaCost.ToString();
-            staminaStatus.SetActive(true);
+        illustationImg.sprite = cardData.cardImage;
 
-            if (cardData.movementCardType == MovementCardType.Offensive)
-            {
-                damageStatus.SetActive(true);
-                //Debug.Log($"{cardData.cardName} have damage {cardData.damageMovement}");
-                damageValue.text = cardData.damageMovement.ToString();
-            }
-        }
-        else
+        borderImg.sprite = cardData.cardType == CardType.Movement
+            ? borders[1]
+            : borders[2];
+
+        ShowStatus(cardData);
+    }
+
+    private void ShowStatus(CardSO cardData)
+    {
+        if (cardData.damageMovement == 0 && cardData.StaminaCost == 0)
         {
-            illustationImg.sprite= borders[2];
-            if (cardData.itemCardType == ItemCardType.Offensive)
-            {
-                damageValue.text = cardData.damageMovement.ToString();
-                damageStatus.SetActive(true);
-            }
-            else
-            {
-                healValue.text = cardData.itemHealAmount.ToString();
-                healStatus.SetActive(true);
-            }
+            doubleStatus.SetActive(true);
+
         }
     }
 
@@ -61,13 +57,13 @@ public class BattleDeckCardUI : MonoBehaviour
         borderImg.sprite = borders[0];
         illustationImg.sprite = borders[0];
 
-        damageStatus.SetActive(false);
+        doubleStatus.SetActive(false);
 
         staminaStatus.SetActive(false);
 
         cardName.text = "";
-        staminaValue.text = "";
-        damageValue.text = "";
+        staminaDoubleValue.text = "";
+        damageDoubleValue.text = "";
     }
 
     public void ResetBattleCardUI()
@@ -77,18 +73,18 @@ public class BattleDeckCardUI : MonoBehaviour
         borderImg.sprite = borders[0];
         illustationImg.sprite = borders[0];
 
-        damageStatus.SetActive(false);
+        doubleStatus.SetActive(false);
         
-        if (healStatus != null)
-            healStatus.SetActive(false);
+        if (damageStatus != null)
+            damageStatus.SetActive(false);
 
         staminaStatus.SetActive(false);
 
         cardName.text = "";
-        staminaValue.text = "";
-        damageValue.text = "";
+        staminaSingelValue.text = "";
+        damageDoubleValue.text = "";
 
-        if (healValue != null)
-            healValue.text = "";
+        if (damageSingelValue != null)
+            damageSingelValue.text = "";
     }
 }

@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -12,6 +14,8 @@ public class BattleManager : MonoBehaviour
     private PlayerBattleCardDeck[] _playerBattleCardDecks;
     [SerializeField] private CardInstance[] _playerBattleDecks;
     [SerializeField] private CardInstance[] _EnemyBattleDecks;
+    [SerializeField] private List<PlayerBattleCardDeck> playerBattleCardDecks;
+    [SerializeField] private List<EnemyBattleCardDeck> enemyBattleCardDecks;
 
     [Header("State Battle Arena")]
     [SerializeField] private int turn;
@@ -123,7 +127,7 @@ public class BattleManager : MonoBehaviour
             }
         }
 
-        HUDManager.instance.UpdatePlayerStaminaPreview(_totalCostStamina);
+        HUDManager.instance.UpdatePlayerStaminaPreview(_currentPlayer.currentStamina, _totalCostStamina);
     }
 
     public bool ChangeDataEnemyBattleDeck(CardInstance cardData, int slotIndex)
@@ -180,6 +184,8 @@ public class BattleManager : MonoBehaviour
             {
                 CardInstance playerCard = _indexPlayerCard < _playerBattleDecks.Length ? _playerBattleDecks[_indexPlayerCard] : null;
                 CardInstance enemyCard = _indexEnemyCard < _EnemyBattleDecks.Length ? _EnemyBattleDecks[_indexEnemyCard] : null;
+
+                AnimationManager.instance.PlayEnterCardClashAnimation(playerBattleCardDecks[_indexPlayerCard], enemyBattleCardDecks[_indexEnemyCard]);
 
                 DeciderManager.instance.DecideCard(playerCard, enemyCard, _currentPlayer.baseDamage, _currentEnemy.baseDamage);
 

@@ -20,6 +20,7 @@ public class PlayerCharacter : Character
 
         HUDManager.instance.CommitPlayerStamina(_currentStamina);
         HUDManager.instance.UpdatePlayerHealth(healtPoints, maxHealtPoint);
+        HUDManager.instance.UpdatePlayerBaseDamage(baseDamage);
 
         SetCurrentPlayerHandler();
     }
@@ -60,6 +61,7 @@ public class PlayerCharacter : Character
     public void ResetStamina()
     {
         _currentStamina = maxStamina;
+        HUDManager.instance.CommitPlayerStamina(_currentStamina);
     }
 
     public override void OnDeath()
