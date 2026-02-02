@@ -3885,6 +3885,83 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d85dcef771cb648b144051588b169b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battleSpawnConfigs:
+  - battleIndex: 1
+    tiers:
+    - status: 0
+      teirChange: 100
+      enemies:
+      - prefab: {fileID: 5734599598906989324, guid: e7af5e3eef5e90e49b5414c38e3e32d3, type: 3}
+        weight: 80
+      - prefab: {fileID: 1123111722660559127, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
+        weight: 9
+      - prefab: {fileID: 3973419390431618797, guid: 9cc587d2332c26742b48542f0573a0f3, type: 3}
+        weight: 1
+    - status: 1
+      teirChange: 0
+      enemies:
+      - prefab: {fileID: 0}
+        weight: 0
+  - battleIndex: 2
+    tiers:
+    - status: 0
+      teirChange: 80
+      enemies:
+      - prefab: {fileID: 5734599598906989324, guid: e7af5e3eef5e90e49b5414c38e3e32d3, type: 3}
+        weight: 50
+      - prefab: {fileID: 1123111722660559127, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
+        weight: 35
+      - prefab: {fileID: 3973419390431618797, guid: 9cc587d2332c26742b48542f0573a0f3, type: 3}
+        weight: 15
+    - status: 1
+      teirChange: 20
+      enemies:
+      - prefab: {fileID: 7797743492293814185, guid: 4125614c2ad316047b676bab94e2f50e, type: 3}
+        weight: 70
+      - prefab: {fileID: 6306423009806350778, guid: 23845d525efb96e40ad574be7fc7e3ef, type: 3}
+        weight: 20
+      - prefab: {fileID: 6573767982126811873, guid: db9b3a9b6e752724fb60da68a7216c7c, type: 3}
+        weight: 10
+  - battleIndex: 3
+    tiers:
+    - status: 0
+      teirChange: 60
+      enemies:
+      - prefab: {fileID: 5734599598906989324, guid: e7af5e3eef5e90e49b5414c38e3e32d3, type: 3}
+        weight: 40
+      - prefab: {fileID: 1123111722660559127, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
+        weight: 40
+      - prefab: {fileID: 3973419390431618797, guid: 9cc587d2332c26742b48542f0573a0f3, type: 3}
+        weight: 20
+    - status: 1
+      teirChange: 20
+      enemies:
+      - prefab: {fileID: 7797743492293814185, guid: 4125614c2ad316047b676bab94e2f50e, type: 3}
+        weight: 50
+      - prefab: {fileID: 6306423009806350778, guid: 23845d525efb96e40ad574be7fc7e3ef, type: 3}
+        weight: 35
+      - prefab: {fileID: 6573767982126811873, guid: db9b3a9b6e752724fb60da68a7216c7c, type: 3}
+        weight: 15
+  - battleIndex: 4
+    tiers:
+    - status: 0
+      teirChange: 0
+      enemies:
+      - prefab: {fileID: 5734599598906989324, guid: e7af5e3eef5e90e49b5414c38e3e32d3, type: 3}
+        weight: 50
+      - prefab: {fileID: 1123111722660559127, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
+        weight: 35
+      - prefab: {fileID: 3973419390431618797, guid: 9cc587d2332c26742b48542f0573a0f3, type: 3}
+        weight: 15
+    - status: 1
+      teirChange: 100
+      enemies:
+      - prefab: {fileID: 7797743492293814185, guid: 4125614c2ad316047b676bab94e2f50e, type: 3}
+        weight: 10
+      - prefab: {fileID: 6306423009806350778, guid: 23845d525efb96e40ad574be7fc7e3ef, type: 3}
+        weight: 45
+      - prefab: {fileID: 6573767982126811873, guid: db9b3a9b6e752724fb60da68a7216c7c, type: 3}
+        weight: 45
   enemyPrefabs:
   - {fileID: 5734599598906989324, guid: e7af5e3eef5e90e49b5414c38e3e32d3, type: 3}
   - {fileID: 1123111722660559127, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
@@ -3893,7 +3970,6 @@ MonoBehaviour:
   - {fileID: 6306423009806350778, guid: 23845d525efb96e40ad574be7fc7e3ef, type: 3}
   - {fileID: 6573767982126811873, guid: db9b3a9b6e752724fb60da68a7216c7c, type: 3}
   enemySpawn: {fileID: 1237469162}
-  indexEnemy: 0
 --- !u!1 &1013830675
 GameObject:
   m_ObjectHideFlags: 0
@@ -6887,6 +6963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fc0d2e5edc5d24fbd201f4898d0789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentBattle: 1
 --- !u!1 &1691160458
 GameObject:
   m_ObjectHideFlags: 0

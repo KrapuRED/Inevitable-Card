@@ -4,6 +4,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [Header("Status Game")]
+    [SerializeField] private int currentBattle;
+
     private void Awake()
     {
         if (instance == null)
@@ -14,7 +17,20 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        EnemyManager.instance.SpawnEnemyGoon();
+        EnemyManager.instance.SpawnEnemyGoon(currentBattle);
+    }
+
+    public void NextBattle()
+    {
+        currentBattle++;
+        if (currentBattle >= 5)
+        {
+            FightBoss();
+        }
+        else
+        {
+            EnemyManager.instance.SpawnEnemyGoon(currentBattle);
+        }
     }
 
     public void FightBoss()

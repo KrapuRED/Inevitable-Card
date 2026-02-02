@@ -17,7 +17,7 @@ public class UpgradeManager : MonoBehaviour
     public void UpgradePlayerStatus(UpgradeSO upgradeData)
     {
         playerUpgradeHandler.ApplyUpgrade(upgradeData);
-        EnemyManager.instance.SpawnEnemyGoon();
+        GameManager.instance.NextBattle();
         HUDManager.instance.ClosePanel();
     }
 }
