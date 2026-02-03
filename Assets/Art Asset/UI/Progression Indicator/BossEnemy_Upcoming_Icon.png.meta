@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cdef0417fcd13544cb3ea29813dea4c2
+guid: a888a98ed6bd17e44bbade5707a97637
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8495997250718177190
-    second: GamePlay_MoveCard_Illustration_PlayerBlock_0
+      213: 589175729488237441
+    second: BossEnemy_Upcoming_Icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WebGL
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -110,7 +110,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: Android
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GamePlay_MoveCard_Illustration_PlayerBlock_0
+      name: BossEnemy_Upcoming_Icon_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 288
+        width: 72
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a586f32a387281a80800000000000000
-      internalID: -8495997250718177190
+      spriteID: 1839d62543c2d2800800000000000000
+      internalID: 589175729488237441
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GamePlay_MoveCard_Illustration_PlayerBlock_0: -8495997250718177190
+      BossEnemy_Upcoming_Icon_0: 589175729488237441
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
