@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d8cad97bf937f3a4197722fc659585d2
+guid: 2755b7b854432b34aa274edbd4908b8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3707431386208870157
-    second: GamePlay_ItemCard_Frame_0
+      213: 351538319070857128
+    second: Environment_Battleground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GamePlay_ItemCard_Frame_0
+      name: Environment_Battleground_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 192
-        height: 288
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d0f1d14f331737330800000000000000
-      internalID: 3707431386208870157
+      spriteID: 8a708291d3ae0e400800000000000000
+      internalID: 351538319070857128
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GamePlay_ItemCard_Frame_0: 3707431386208870157
+      Environment_Battleground_0: 351538319070857128
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
