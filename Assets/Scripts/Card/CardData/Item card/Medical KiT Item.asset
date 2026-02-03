@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Medical KiT Item
   m_EditorClassIdentifier: 
   cardName: Medical KiT
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 4558478063842972485, guid: 0b11665788e4e3141a11f0a765813b31, type: 3}
   cardType: 1
   movementCardType: 0
   offensiveCardType: 0

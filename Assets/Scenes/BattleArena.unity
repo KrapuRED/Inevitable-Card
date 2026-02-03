@@ -814,6 +814,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
     - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -1242,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
+    - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -4171,6 +4179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
     - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -4723,6 +4735,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
     - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -5105,7 +5121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d615fb851b82db6499d97e0ee7074a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PrefabCard: {fileID: 6692782793775064860, guid: a0c1c5ed8dec9804388213a66e6638ca, type: 3}
+  PrefabCard: {fileID: 2873152418550266470, guid: fc7195ffdd0db5446857b3a480ad15c5, type: 3}
   movenentDeckUI: {fileID: 1402343526}
   itemDeckUI: {fileID: 1691160459}
 --- !u!4 &1320290369
@@ -9421,6 +9437,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1390762139}
     m_Modifications:
+    - target: {fileID: 4983032126002021750, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8110267751619994732, guid: 9dd5da4e8d43b554aab08be4c95f0541, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.523

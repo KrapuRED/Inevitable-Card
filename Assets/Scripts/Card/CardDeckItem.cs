@@ -2,15 +2,11 @@ using UnityEngine;
 
 public class CardDeckItem : CardDeck
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public ItemCardUI itemcardUI;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        itemcardUI = GetComponent<ItemCardUI>();
+        itemcardUI.SetCardUI(cardData);
     }
 }

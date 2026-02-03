@@ -1595,7 +1595,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1695,8 +1695,9 @@ MonoBehaviour:
   borders:
   - {fileID: 2847143250334962773, guid: 465998120eeee35499f9675371be64a0, type: 3}
   - {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
-  - {fileID: 3707431386208870157, guid: d8cad97bf937f3a4197722fc659585d2, type: 3}
+  - {fileID: -7667273454304705787, guid: 7b71060efb0709e418709d07c31f349f, type: 3}
   useCardEffect: {fileID: 4052274507879252791}
+  hideCardEffect: {fileID: 0}
   doubleStatus: {fileID: 8079268290541004816}
   staminaDoubleValue: {fileID: 833231373347946286}
   damageDoubleValue: {fileID: 7720046798702962858}

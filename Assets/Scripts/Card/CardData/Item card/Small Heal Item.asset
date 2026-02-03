@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Small Heal Item
   m_EditorClassIdentifier: 
   cardName: Small Medical
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 3171104550126875544, guid: 911fb23af66f9c64098f66efb78737fa, type: 3}
   cardType: 1
   movementCardType: 0
   offensiveCardType: 0
