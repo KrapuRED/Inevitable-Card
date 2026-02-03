@@ -53,6 +53,7 @@ public class EnemyManager : MonoBehaviour
     public List<BattleSpawnConfig> battleSpawnConfigs;
     [SerializeField] private List<GameObject> enemyPrefabs;
     [SerializeField] private Transform enemySpawn;
+    [SerializeField] private GameObject enemyBossPrefab;
 
     private void Awake()
     {
@@ -131,5 +132,10 @@ public class EnemyManager : MonoBehaviour
         GameObject selectedEnemy = WeightedRandom.GetRandom(enemRollList);
 
         Instantiate(selectedEnemy, enemySpawn);
+    }
+
+    public void SpawnEnemyBoss()
+    {
+        Instantiate(enemyBossPrefab, enemySpawn);
     }
 }

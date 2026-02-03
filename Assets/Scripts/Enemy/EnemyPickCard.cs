@@ -22,6 +22,12 @@ public class EnemyPickCard : MonoBehaviour
         return instanceList;
     }
 
+    public void SetCardDeckPool(List<CardSO> cardDatas)
+    {
+        cards.Clear();
+        cards = cardDatas;
+    }
+
     private CardSO RandomPickCard()
     {
         if (cards.Count < 0)

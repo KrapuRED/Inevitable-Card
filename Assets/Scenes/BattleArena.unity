@@ -1056,10 +1056,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1402343526}
     m_Modifications:
+    - target: {fileID: 2336251726036413558, guid: d74408ee1f5cce74a97375639cc8b473, type: 3}
+      propertyPath: cardData
+      value: 
+      objectReference: {fileID: 11400000, guid: 59775c45b0eb38845bfc581cbf070757, type: 2}
     - target: {fileID: 3996481682748096924, guid: d74408ee1f5cce74a97375639cc8b473, type: 3}
       propertyPath: m_Name
       value: Action Offensive Card
       objectReference: {fileID: 0}
+    - target: {fileID: 5258666576181306177, guid: d74408ee1f5cce74a97375639cc8b473, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7764062436102564320, guid: b96a24bf2c7051044a4e173a2b311557, type: 3}
     - target: {fileID: 9127103653337770792, guid: d74408ee1f5cce74a97375639cc8b473, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.928
@@ -3955,6 +3963,7 @@ MonoBehaviour:
   - {fileID: 6306423009806350778, guid: 23845d525efb96e40ad574be7fc7e3ef, type: 3}
   - {fileID: 6573767982126811873, guid: db9b3a9b6e752724fb60da68a7216c7c, type: 3}
   enemySpawn: {fileID: 1237469162}
+  enemyBossPrefab: {fileID: 1123111722660559127, guid: 9790104b1fffbb64a80e3b379eee1c57, type: 3}
 --- !u!1 &1013830675
 GameObject:
   m_ObjectHideFlags: 0
@@ -8842,7 +8851,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0175, y: 0.23777781}
   m_AnchorMax: {x: 0.20625001, y: 0.7044445}
-  m_AnchoredPosition: {x: 630.04004, y: 148.26}
+  m_AnchoredPosition: {x: 630.04004, y: 148.25998}
   m_SizeDelta: {x: 1.95, y: 6.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2049804500

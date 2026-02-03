@@ -4,7 +4,8 @@ using UnityEngine;
 public enum CardType
 {
     Movement,
-    Item
+    Item,
+    Special
 }
 
 #region Movement Card Types
