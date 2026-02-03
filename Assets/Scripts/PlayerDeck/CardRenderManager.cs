@@ -28,20 +28,24 @@ public class CardRenderManager : MonoBehaviour
             return;
         }
 
+        rootSpriteRenderer.sortingOrder = indexLayer;
         var spriteRenderers = card.GetComponentsInChildren<SpriteRenderer>(true);
         var meshRenderes = card.GetComponentsInChildren<MeshRenderer>(true);
 
         foreach (var sr in spriteRenderers)
         {
+            if (sr == rootSpriteRenderer)
+                continue;
+
             if (sr.gameObject.name == "Illustration")
                 sr.sortingOrder = indexLayer - 1;
             else
-                sr.sortingOrder = indexLayer;
+                sr.sortingOrder = indexLayer + 1;
         }
 
         foreach (var mr in meshRenderes)
         {
-            mr.sortingOrder = indexLayer;
+            mr.sortingOrder = indexLayer + 1;
         }
     }
 

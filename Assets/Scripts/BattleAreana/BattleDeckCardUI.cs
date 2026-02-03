@@ -9,6 +9,10 @@ public class BattleDeckCardUI : MonoBehaviour
     public SpriteRenderer illustationImg;
     public List<Sprite> borders;
 
+    [Header("Visual Effects")]
+    public GameObject useCardEffect;
+    public GameObject hideCardEffect;
+
     [Header("Double Status")]
     public GameObject doubleStatus;
     public TextMeshPro staminaDoubleValue;
@@ -38,15 +42,40 @@ public class BattleDeckCardUI : MonoBehaviour
             ? borders[1]
             : borders[2];
 
+        if (hideCardEffect != null)
+            hideCardEffect.SetActive(false);
+
         ShowStatus(cardData);
     }
 
     private void ShowStatus(CardSO cardData)
     {
-        if (cardData.damageMovement == 0 && cardData.StaminaCost == 0)
+        if (cardData.cardType == CardType.Movement)
         {
-            doubleStatus.SetActive(true);
-
+            if (cardData.damageMovement > 0 && cardData.StaminaCost > 0)
+            {
+                staminaDoubleValue.text = cardData.StaminaCost.ToString();
+                damageDoubleValue.text = cardData.damageMovement.ToString();
+                doubleStatus.SetActive(true);
+            }
+            else if (cardData.StaminaCost > 0)
+            {
+                staminaSingelValue.text = cardData.StaminaCost.ToString();
+                staminaStatus.SetActive(true);
+            }
+        }
+        else if (cardData.cardType == CardType.Item)
+        {
+            if (cardData.itemHealAmount > 0)
+            {
+                healSingelValue.text = cardData.itemHealAmount.ToString();
+                healStatus.SetActive(true);
+            }
+            else if (cardData.itemDamage > 0)
+            {
+                damageSingelValue.text= cardData.itemDamage.ToString();
+                damageStatus.SetActive(true);
+            }
         }
     }
 
@@ -54,8 +83,7 @@ public class BattleDeckCardUI : MonoBehaviour
     {
         Debug.Log("Hide Enemy Card");
 
-        borderImg.sprite = borders[0];
-        illustationImg.sprite = borders[0];
+        hideCardEffect.SetActive(true);
 
         doubleStatus.SetActive(false);
 
@@ -64,6 +92,11 @@ public class BattleDeckCardUI : MonoBehaviour
         cardName.text = "";
         staminaDoubleValue.text = "";
         damageDoubleValue.text = "";
+    }
+
+    public void UsedCard()
+    {
+        useCardEffect.SetActive(true);
     }
 
     public void ResetBattleCardUI()
@@ -86,5 +119,7 @@ public class BattleDeckCardUI : MonoBehaviour
 
         if (damageSingelValue != null)
             damageSingelValue.text = "";
+
+        useCardEffect.SetActive(false);
     }
 }
