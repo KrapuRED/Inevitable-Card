@@ -160,7 +160,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
     public void ClasCardExitAnimation(float scale, float time)
     {
         transform.DOScale(Vector3.one * scale, time);
-        _canvasGroup.DOFade(0.5f, time);
+        battleCardUI.UsedCard();
     }
 
     public bool CanDragging()

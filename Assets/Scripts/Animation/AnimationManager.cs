@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
@@ -17,13 +18,17 @@ public class AnimationManager : MonoBehaviour
             Destroy(gameObject);
     }
 
-    public void PlayEnterCardClashAnimation(PlayerBattleCardDeck playerCard, EnemyBattleCardDeck enemyCard)
+    public IEnumerator PlayEnterCardClashAnimation(PlayerBattleCardDeck playerCard, EnemyBattleCardDeck enemyCard)
     {
         playerCard.ClashCardEnterAnimation(EndScale, time);
+        enemyCard.ClashCardEnterAnimation(EndScale, time);
+        yield return new WaitForSeconds(time);
     }
-    public void PlayExitCardClashAnimation(PlayerBattleCardDeck playerCard, EnemyBattleCardDeck enemyCard)
+    public IEnumerator PlayExitCardClashAnimation(PlayerBattleCardDeck playerCard, EnemyBattleCardDeck enemyCard)
     {
         playerCard.ClasCardExitAnimation(defaultScale, time);
+        enemyCard.ClasCardExitAnimation(defaultScale, time);
+        yield return new WaitForSeconds(time);
     }
 
     public void ApplyVisuaEffect()

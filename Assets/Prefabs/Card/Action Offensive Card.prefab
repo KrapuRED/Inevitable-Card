@@ -357,9 +357,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3996481682748096924}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4884699842653820396}
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce51c367da4074a40aa22972daddc018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
+  cardData: {fileID: 11400000, guid: 529dc89ef39212545979ca3f916d5e1f, type: 2}
   _isHover: 0
   _isDragging: 0
   cardUI: {fileID: 0}
@@ -489,7 +489,7 @@ MonoBehaviour:
     m_Bits: 128
   registerCardEvent: {fileID: 11400000, guid: 488ac4aa1fad8314ca3d9e1d3af7ec82, type: 2}
   animationTime: 0.5
-  EndPosition: -4
+  EndPosition: -3.5
   StartPosition: -5.23
 --- !u!114 &285617349028765865
 MonoBehaviour:
@@ -533,8 +533,8 @@ Transform:
   m_GameObject: {fileID: 4083298919006171400}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0054, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.0027, y: 0.0025, z: 0}
+  m_LocalScale: {x: 0.9692955, y: 0.9793073, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 9127103653337770792}

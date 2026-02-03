@@ -177,17 +177,18 @@ public class BattleManager : MonoBehaviour
 
     private IEnumerator BattleRoutine()
     {
-        while (_battleCoroutine != null &&
-            _indexEnemyCard < _EnemyBattleDecks.Length || _indexPlayerCard < _playerBattleDecks.Length)
+        while (_battleCoroutine != null && _indexEnemyCard < _EnemyBattleDecks.Length || _indexPlayerCard < _playerBattleDecks.Length)
         {
             if (_isOnGoingBattle)
             {
                 CardInstance playerCard = _indexPlayerCard < _playerBattleDecks.Length ? _playerBattleDecks[_indexPlayerCard] : null;
                 CardInstance enemyCard = _indexEnemyCard < _EnemyBattleDecks.Length ? _EnemyBattleDecks[_indexEnemyCard] : null;
 
-                AnimationManager.instance.PlayEnterCardClashAnimation(playerBattleCardDecks[_indexPlayerCard], enemyBattleCardDecks[_indexEnemyCard]);
+                yield return StartCoroutine(AnimationManager.instance.PlayEnterCardClashAnimation(playerBattleCardDecks[_indexPlayerCard], enemyBattleCardDecks[_indexEnemyCard]));
 
                 DeciderManager.instance.DecideCard(playerCard, enemyCard, _currentPlayer.baseDamage, _currentEnemy.baseDamage);
+
+                yield return StartCoroutine(AnimationManager.instance.PlayExitCardClashAnimation(playerBattleCardDecks[_indexPlayerCard], enemyBattleCardDecks[_indexEnemyCard]));
 
                 _indexPlayerCard++;
                 _indexEnemyCard++;

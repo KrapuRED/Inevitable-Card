@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyBattleCardDeck :BattleCardDeck
 {
-    public BattleDeckCardUI cardUI;
+    public BattleDeckCardUI battleCardUI;
 
     [Header("State battke Card Deck")]
     [SerializeField] private int slotIndex;
@@ -56,8 +56,8 @@ public class EnemyBattleCardDeck :BattleCardDeck
         cardInstance = card;
         isHaveCard = true;
         
-        if (cardUI != null)
-            cardUI.SetBattleDeckCard(cardInstance.cardData);
+        if (battleCardUI != null)
+            battleCardUI.SetBattleDeckCard(cardInstance.cardData);
 
         BattleManager.instance.ChangeDataEnemyBattleDeck(card, slotIndex);
         ChangeStateBattleDeck();
@@ -139,15 +139,30 @@ public class EnemyBattleCardDeck :BattleCardDeck
             _spriteRenderer.color = InReiveCard;
 
             if (isHiddenCard)
-                cardUI.HideEnemyCard();
+                battleCardUI.HideEnemyCard();
         }
     }
 
     public void ShowCard()
     {
         //_spriteRenderer.sprite = cardInstance.cardData.cardImage;
-        if(cardUI != null)
-            cardUI.SetBattleDeckCard(cardInstance.cardData);
+        if(battleCardUI != null)
+            battleCardUI.SetBattleDeckCard(cardInstance.cardData);
+    }
+
+    public void ClashCardEnterAnimation(float scaleMultiplier, float time)
+    {
+        transform.DOKill();
+
+        Vector3 targetScale = transform.localScale * scaleMultiplier;
+        transform.DOScale(targetScale, time)
+                 .SetEase(Ease.OutBack);
+    }
+
+    public void ClasCardExitAnimation(float scale, float time)
+    {
+        transform.DOScale(Vector3.one * scale, time);
+        battleCardUI.UsedCard();
     }
 
     public override void CancelCard()
