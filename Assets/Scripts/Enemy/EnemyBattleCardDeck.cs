@@ -145,14 +145,17 @@ public class EnemyBattleCardDeck :BattleCardDeck
 
     public void ShowCard()
     {
-        //_spriteRenderer.sprite = cardInstance.cardData.cardImage;
-        if(battleCardUI != null)
+        isHiddenCard = false;
+
+        if (battleCardUI != null && cardInstance != null)
             battleCardUI.SetBattleDeckCard(cardInstance.cardData);
     }
 
     public void ClashCardEnterAnimation(float scaleMultiplier, float time)
     {
         transform.DOKill();
+
+        ShowCard();
 
         Vector3 targetScale = transform.localScale * scaleMultiplier;
         transform.DOScale(targetScale, time)

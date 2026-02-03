@@ -217,8 +217,9 @@ MonoBehaviour:
   borderImg: {fileID: 6477821244433049648}
   illustationImg: {fileID: 1115260139731480354}
   borders:
-  - {fileID: -7615672966134749218, guid: 11c9258b45cbe8149b8ee0fc7b041142, type: 3}
+  - {fileID: -5541280924274388533, guid: bc247395e30279b409809e987875bac9, type: 3}
   - {fileID: -8116007715201162145, guid: 6a112a41fd33dd445a262d17d2f2c88e, type: 3}
+  - {fileID: -7667273454304705787, guid: 7b71060efb0709e418709d07c31f349f, type: 3}
   useCardEffect: {fileID: 8465744445680300293}
   hideCardEffect: {fileID: 2412001852127145091}
   doubleStatus: {fileID: 3354479938774326726}
@@ -432,7 +433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5260450603592865510
 Transform:
   m_ObjectHideFlags: 0
@@ -443,8 +444,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.00016, y: 0.00103, z: 0}
-  m_LocalScale: {x: 1.7751732, y: 2.6623976, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1428454220741138525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -492,8 +493,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -5541280924274388533, guid: bc247395e30279b409809e987875bac9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1947,7 +1948,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8465744445680300293

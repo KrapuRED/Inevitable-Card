@@ -26,7 +26,7 @@ public class EnemyBoss : Enemy
     {
         if (enemyData != null)
         {
-            _spriteRenderer.color = Color.red;
+            
             nameCharacter = enemyData.enemyName;
             maxHealtPoint = enemyData.maxHealth;
             healtPoints = enemyData.maxHealth;
@@ -41,6 +41,7 @@ public class EnemyBoss : Enemy
 
     protected override void OnHealthChanged()
     {
+        Debug.Log("Get called OnHealthChanged");
         HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
     }
 
@@ -57,6 +58,7 @@ public class EnemyBoss : Enemy
 
     public void OnTakeDamage(TargetType targetType, int damageValue)
     {
+        Debug.Log($"{gameObject.name} is take damage with value {damageValue}");
         if (targetType == _enemyType)
         {
             //Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
@@ -75,23 +77,27 @@ public class EnemyBoss : Enemy
 
     public override void OnDeath()
     {
-        //tell manager player is win
-        BattleManager.instance.SelectWinner(_enemyType);
-        HUDManager.instance.UpdateEnemyHealth(0, maxHealtPoint);
-
         //Go Second Phase
         EnterSecondPhase();
-        _currentEnemyPickCard.SetCardDeckPool(bossCard);
-        SetCurrentEnemy();
+        
     }
 
     private void EnterSecondPhase()
     {
-       if (!isDead)
-        {
-            healtPoints = enemyData.maxHealth;
-            HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
-        }
+       Debug.Log("We go Second Phase");
+        if (isDead) return;
+
+        isDead = true; // prevents looping
+
+        // 1. Set boss deck pool
+        _currentEnemyPickCard.SetCardDeckPool(bossCard);
+
+        // 2. Reset HP
+        healtPoints = maxHealtPoint;
+        HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
+
+        // 3. Tell BattleManager to rebuild enemy deck (SEQUENTIAL + REVEALED)
+        BattleManager.instance.RefreshEnemyDeckPhase();
     }
 
     private void OnEnable()

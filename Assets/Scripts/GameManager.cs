@@ -17,8 +17,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //EnemyManager.instance.SpawnEnemyGoon(currentBattle);
-        EnemyManager.instance.SpawnEnemyBoss();
+        EnemyManager.instance.SpawnEnemyGoon(currentBattle);  
     }
 
     public void NextBattle()
@@ -37,5 +36,6 @@ public class GameManager : MonoBehaviour
     public void FightBoss()
     {
         Debug.Log("We kill all the Goons! NOW WE FIGHT THE BOSS!");
+        EnemyManager.instance.SpawnEnemyBoss();
     }
 }

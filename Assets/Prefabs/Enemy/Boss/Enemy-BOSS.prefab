@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5482096516783744588}
-  - component: {fileID: 3181005186197122318}
   - component: {fileID: -4930949737012845274}
   m_Layer: 0
   m_Name: Enemy-BOSS
@@ -37,26 +36,6 @@ Transform:
   - {fileID: 2986149111327063154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3181005186197122318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123111722660559127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5fd7cd1a54fff143b4b8c707d49b625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameCharacter: 
-  maxHealtPoint: 0
-  baseDamage: 0
-  enemyData: {fileID: 11400000, guid: 4c2770f3c94ab3f4a8d9987485d8db17, type: 2}
-  currentEnemyHandler: {fileID: 4913918026782479758}
-  type: 1
-  onTakeDamageEvent: {fileID: 11400000, guid: ecc8461ea53771545a9c316b2bab072e, type: 2}
-  onTakingHealEvent: {fileID: 11400000, guid: ebfe3c6c38eb6ae428b2b3a7f078363e, type: 2}
 --- !u!114 &-4930949737012845274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,7 +139,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1513633973960189213, guid: 1fc7d6f0c98594c429bfb456a81dda19, type: 3}
+  m_Sprite: {fileID: 3043550970707233860, guid: fbe925692d73e4e43970052c3b99f0a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

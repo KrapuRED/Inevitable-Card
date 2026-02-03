@@ -20,7 +20,7 @@ public class EnemyGoon : Enemy
     {
         if (enemyData != null)
         {
-            _spriteRenderer.color = Color.red;
+            
             nameCharacter = enemyData.enemyName;
             maxHealtPoint = enemyData.maxHealth;
             healtPoints = enemyData.maxHealth;

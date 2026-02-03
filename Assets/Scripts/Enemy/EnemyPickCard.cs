@@ -4,13 +4,26 @@ using System.Collections;
 
 public class EnemyPickCard : MonoBehaviour
 {
+    private Enemy _currentEnemy;
+
     [Header("Card list")]
     public List<CardSO> cards = new List<CardSO>();
     private List<CardInstance> instanceList = new List<CardInstance>();
     private int index;
 
+    private void Awake()
+    {
+        _currentEnemy = GetComponentInParent<Enemy>();
+    }
+
     public List<CardInstance> GetEnemyCardList(int maxSlots)
     {
+        if (_currentEnemy == null)
+        {
+            Debug.LogWarning($"{this.name} dont have Enemy");
+            return null;
+        }
+
         index = 0;
         instanceList.Clear();
         for (int i = 0; i < maxSlots; i++)
@@ -22,10 +35,24 @@ public class EnemyPickCard : MonoBehaviour
         return instanceList;
     }
 
+    public List<CardInstance> GetEnemyCardListSequential(int maxSlots)
+    {
+        index = 0;
+        instanceList.Clear();
+
+        for (int i = 0; i < maxSlots; i++)
+        {
+            CardSO cardData = cards[Mathf.Min(i, cards.Count - 1)];
+            instanceList.Add(new CardInstance(cardData, index++));
+        }
+
+        return instanceList;
+    }
+
     public void SetCardDeckPool(List<CardSO> cardDatas)
     {
         cards.Clear();
-        cards = cardDatas;
+        cards.AddRange(cardDatas);
     }
 
     private CardSO RandomPickCard()

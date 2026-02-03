@@ -145,7 +145,6 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
         gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
         battleCardUI.ResetBattleCardUI();
-        _spriteRenderer.color = OutReiveCard;
     }
 
     public void ClashCardEnterAnimation(float scaleMultiplier, float time)

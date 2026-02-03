@@ -34,6 +34,7 @@ public class BattleManager : MonoBehaviour
     public OnChangePlayerEventSO onChangePlayer;
     public OnResetCardDeckSO onResetCardDeck;
     public OnEyeOfTheSpoilerEventSO onEyeOfTheSpoilerEvent;
+    public OnSetEnemyCardDeckEventSO onChangeEnemyCardDeck;
 
     [SerializeField] private Coroutine _battleCoroutine;
 
@@ -148,6 +149,31 @@ public class BattleManager : MonoBehaviour
         onEnemyPickingCardEvent.OnRaise(maxSlots);
     }
 
+    public void RefreshEnemyDeckPhase()
+    {
+        // 1. Stop battle & clear everything
+        CancelBattle();
+
+        if (_currentEnemy == null) return;
+
+        EnemyPickCard enemyPick = _currentEnemy.GetComponentInParent<EnemyPickCard>();
+        if (enemyPick == null) return;
+
+        // 2. Generate SEQUENTIAL boss deck
+        List<CardInstance> enemyCards = enemyPick.GetEnemyCardListSequential(maxSlots);
+
+        _EnemyBattleDecks = enemyCards.ToArray();
+
+        // 3. No hidden cards in phase 2
+        int hiddenCard = 0;
+
+        // 4. Build UI
+        onChangeEnemyCardDeck.OnSetEnemyDeck(hiddenCard, _EnemyBattleDecks);
+
+        // 5. Force reveal (safety)
+        EyeOfTheSpoiler();
+    }
+
     public void ReadyForBattle()
     {
         int newCurrentStamina = _currentPlayer.currentStamina - _totalCostStamina;
@@ -165,7 +191,7 @@ public class BattleManager : MonoBehaviour
         //StartCoroutine(DelayDebugLog());
     }
 
-    public void OnGoingBattle()
+    private void OnGoingBattle()
     {
         if (_isOnGoingBattle) return;
         _indexEnemyCard  = 0;
@@ -235,12 +261,15 @@ public class BattleManager : MonoBehaviour
         if (defeat == TargetType.Enemy)
         {
             Debug.Log("Player is WIN");
-            HUDManager.instance.OpenPanel(PanelName.WinningPanel);
-           
             if (_currentEnemy.enemyData.enemyType == EnemyType.Goon)
-                GachaManager.instance.GachaCard(_currentEnemy.enemyData.enemyStatus);
+            {
+                HUDManager.instance.OpenPanel(PanelName.WinningPanel);
 
-            _currentEnemy = null;
+                if (_currentEnemy.enemyData.enemyType == EnemyType.Goon)
+                    GachaManager.instance.GachaCard(_currentEnemy.enemyData.enemyStatus);
+
+                _currentEnemy = null;
+            }
         }
         else
         {

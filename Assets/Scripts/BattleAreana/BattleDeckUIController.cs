@@ -28,6 +28,11 @@ public class BattleDeckUIController : MonoBehaviour
         if (cards == null || cards.Length == 0) return;
         if (enemyBattleCardDecks == null || enemyBattleCardDecks.Length == 0) return;
 
+        foreach (var deck in enemyBattleCardDecks)
+        {
+            deck.CancelCard(); // or ResetVisualState()
+        }
+
         List<CardInstance> workingCards = new List<CardInstance>(cards);
 
         List<int> availableIndexes = new List<int>();
@@ -36,9 +41,12 @@ public class BattleDeckUIController : MonoBehaviour
 
         int hiddenToPlace = Mathf.Min(hiddenCard, availableIndexes.Count, workingCards.Count);
 
+        Debug.Log($"min hidden card : {hiddenCard}");
+
         //1. Set Hiden Enemy Card and set data then change the visual
         for (int i = 0; i < hiddenToPlace; i++)
         {
+            //Debug.Log($"hidden card : {i}");
             int randSlotIndex = Random.Range(0, availableIndexes.Count);
             int deckIndex = availableIndexes[randSlotIndex];
             availableIndexes.RemoveAt(randSlotIndex);

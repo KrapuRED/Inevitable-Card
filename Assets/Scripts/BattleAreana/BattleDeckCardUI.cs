@@ -43,7 +43,9 @@ public class BattleDeckCardUI : MonoBehaviour
             : borders[2];
 
         if (hideCardEffect != null)
+        {
             hideCardEffect.SetActive(false);
+        }
 
         ShowStatus(cardData);
     }
@@ -81,7 +83,7 @@ public class BattleDeckCardUI : MonoBehaviour
 
     public void HideEnemyCard()
     {
-        Debug.Log("Hide Enemy Card");
+        //Debug.Log("Hide Enemy Card");
 
         hideCardEffect.SetActive(true);
 

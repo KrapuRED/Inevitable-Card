@@ -852,7 +852,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2633639534487856645
@@ -1596,7 +1596,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
+  m_Sprite: {fileID: -760809960287874789, guid: 875f1740795bc9e4ab045925e24a55a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   borderImg: {fileID: 4983032126002021750}
   illustationImg: {fileID: 226040633420122263}
   borders:
-  - {fileID: 2847143250334962773, guid: 465998120eeee35499f9675371be64a0, type: 3}
+  - {fileID: -760809960287874789, guid: 875f1740795bc9e4ab045925e24a55a3, type: 3}
   - {fileID: -4775782950092099608, guid: fc1a9ea3149f60f4c826430d5b026bae, type: 3}
   - {fileID: -7667273454304705787, guid: 7b71060efb0709e418709d07c31f349f, type: 3}
   useCardEffect: {fileID: 4052274507879252791}
@@ -1985,7 +1985,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

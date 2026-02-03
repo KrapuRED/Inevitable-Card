@@ -31,6 +31,12 @@ public class DeciderManager : MonoBehaviour
                  Example : Player daealingDamage, enemy Healing -> Enemy Take Damage then Heal reduce 50%
          */
 
+        if (enemyCard.cardData.cardType == CardType.Special)
+        {
+            //Change Scene
+            return;
+        }
+
         int playerDamage = 0;
         bool playerDefending = false;
         bool playerHealing =  false;

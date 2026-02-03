@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Mechaniical Chaos
   enemyType: 1
-  baseDamage: 0
-  maxHealth: 0
+  enemyStatus: 0
+  baseDamage: 25
+  maxHealth: 10
   hiddenCard: 4
-  isElimination: 0
+  isElimination: 1
