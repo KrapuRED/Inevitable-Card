@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 33d84f1089a65cd4f973886da5c65b3e
+guid: f39c58626591a64428bc931492f29af6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -522858174994682047
-    second: UI_Icon_HealthIcon_0
+      213: 1540025085019979364
+    second: UI_Button_InitiateButton_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Icon_HealthIcon_0
+      name: UI_Button_InitiateButton_0
       rect:
         serializedVersion: 2
-        x: 5
+        x: 2
         y: 2
-        width: 35
-        height: 38
+        width: 194
+        height: 86
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14f6883924f6eb8f0800000000000000
-      internalID: -522858174994682047
+      spriteID: 46e7ec9c7a44f5510800000000000000
+      internalID: 1540025085019979364
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UI_Icon_HealthIcon_0: -522858174994682047
+      UI_Button_InitiateButton_0: 1540025085019979364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
