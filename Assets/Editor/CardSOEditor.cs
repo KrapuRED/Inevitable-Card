@@ -22,7 +22,7 @@ public class CardSOEditor : Editor
 
     private void OnEnable()
     {
-        cardName            = serializedObject.FindProperty("cardName");
+        cardName            = serializedObject.FindProperty("cardNameMovement");
         cardImage           = serializedObject.FindProperty("cardImage");
         cardType            = serializedObject.FindProperty("cardType");
         movementCardType    = serializedObject.FindProperty("movementCardType");

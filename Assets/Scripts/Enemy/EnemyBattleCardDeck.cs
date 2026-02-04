@@ -52,7 +52,7 @@ public class EnemyBattleCardDeck :BattleCardDeck
         {
             Debug.LogError("card is null");
         }
-        //Debug.Log("card name : " + card.cardData.cardName);
+        //Debug.Log("card name : " + card.cardData.cardNameMovement);
         cardInstance = card;
         isHaveCard = true;
         

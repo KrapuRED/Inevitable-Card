@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BattleDeckCardUI : MonoBehaviour
 {
-    public TextMeshPro cardName;
+    public TextMeshPro cardNameMovement;
+    public TextMeshPro cardNameitem;
     public SpriteRenderer borderImg;
     public SpriteRenderer illustationImg;
     public List<Sprite> borders;
@@ -32,10 +33,8 @@ public class BattleDeckCardUI : MonoBehaviour
 
     public void SetBattleDeckCard(CardSO cardData)
     {
-        //Debug.Log($"SetBattleDeckCard try to change using data {cardData.cardName}");
+        //Debug.Log($"SetBattleDeckCard try to change using data {cardData.cardNameMovement}");
         ResetBattleCardUI();
-
-        cardName.text = cardData.cardName;
         illustationImg.sprite = cardData.cardImage;
 
         borderImg.sprite = cardData.cardType == CardType.Movement
@@ -54,6 +53,8 @@ public class BattleDeckCardUI : MonoBehaviour
     {
         if (cardData.cardType == CardType.Movement)
         {
+
+            cardNameMovement.text = cardData.cardName;
             if (cardData.damageMovement > 0 && cardData.StaminaCost > 0)
             {
                 staminaDoubleValue.text = cardData.StaminaCost.ToString();
@@ -68,6 +69,8 @@ public class BattleDeckCardUI : MonoBehaviour
         }
         else if (cardData.cardType == CardType.Item)
         {
+
+            cardNameitem.text = cardData.cardName;
             if (cardData.itemHealAmount > 0)
             {
                 healSingelValue.text = cardData.itemHealAmount.ToString();
@@ -91,8 +94,11 @@ public class BattleDeckCardUI : MonoBehaviour
 
         staminaStatus.SetActive(false);
 
-        cardName.text = "";
+        healStatus.SetActive(false);
+
+        cardNameMovement.text = "";
         staminaDoubleValue.text = "";
+        healSingelValue.text = "";
         damageDoubleValue.text = "";
     }
 
@@ -115,12 +121,20 @@ public class BattleDeckCardUI : MonoBehaviour
 
         staminaStatus.SetActive(false);
 
-        cardName.text = "";
-        staminaSingelValue.text = "";
-        damageDoubleValue.text = "";
+        doubleStatus.SetActive(false);
 
-        if (damageSingelValue != null)
-            damageSingelValue.text = "";
+        staminaStatus.SetActive(false);
+
+        healStatus.SetActive(false);
+
+        cardNameMovement.text = "";
+        
+        if (cardNameitem != null)
+            cardNameitem.text = "";
+
+        staminaDoubleValue.text = "";
+        healSingelValue.text = "";
+        damageDoubleValue.text = "";
 
     }
 }

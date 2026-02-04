@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Status Game")]
     [SerializeField] private int currentBattle;
+    [SerializeField] private string defaultBGM;
+    [SerializeField] private string bossBGM;
 
     private void Awake()
     {
@@ -17,7 +19,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        //EnemyManager.instance.SpawnEnemyGoon(currentBattle);  
+        MusicManager.instance.PlayMusicBackground(defaultBGM);
+        EnemyManager.instance.SpawnEnemyGoon(currentBattle);  
         //FightBoss();
     }
 
@@ -38,5 +41,15 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("We kill all the Goons! NOW WE FIGHT THE BOSS!");
         EnemyManager.instance.SpawnEnemyBoss();
+    }
+
+    public void PlayerWin()
+    {
+        HUDManager.instance.OpenPanel(PanelName.WinningPanel);
+    }
+
+    public void PlayerLose()
+    {
+        HUDManager.instance.OpenPanel(PanelName.GameOverPanel);
     }
 }

@@ -214,6 +214,8 @@ public class BattleManager : MonoBehaviour
         _indexEnemyCard  = 0;
         _indexPlayerCard = 0;
 
+        EyeOfTheSpoiler();
+
         _isOnGoingBattle = true;
         _battleCoroutine = StartCoroutine(BattleRoutine());
     }
@@ -288,8 +290,8 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Player is WIN");
             if (_currentEnemy.enemyData.enemyType == EnemyType.Goon)
             {
-                HUDManager.instance.OpenPanel(PanelName.WinningPanel);
-
+                GameManager.instance.PlayerWin();
+                
                 if (_currentEnemy.enemyData.enemyType == EnemyType.Goon)
                     GachaManager.instance.GachaCard(_currentEnemy.enemyData.enemyStatus);
 
@@ -299,6 +301,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("Enemy is WIN");
+            GameManager.instance.PlayerLose();
         }
 
         CancelBattle();

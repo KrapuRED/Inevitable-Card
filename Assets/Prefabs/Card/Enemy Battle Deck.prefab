@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78a64eb87cfce140939ab5e87e98a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardName: {fileID: 2053437207902834110}
+  cardNameMovement: {fileID: 2053437207902834110}
+  cardNameitem: {fileID: 0}
   borderImg: {fileID: 6477821244433049648}
   illustationImg: {fileID: 1115260139731480354}
   borders:
@@ -813,7 +814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Sample text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

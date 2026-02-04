@@ -68,7 +68,7 @@ public class CardDeck : Card
         Instance = newCardSO;
         registerCardEvent.OnRegisterCard(this);
 
-        //Debug.Log($"Card Name : {Instance.cardData.cardName} Card ID : {Instance.ID}");
+        //Debug.Log($"Card Name : {Instance.cardData.cardNameMovement} Card ID : {Instance.ID}");
 
         if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.Offensive)
         {
@@ -87,7 +87,7 @@ public class CardDeck : Card
         if (_isHover || _isDragging) return;
 
         _isHover = true;
-        //Debug.Log($"Hover Enter: {cardData.cardName}");
+        //Debug.Log($"Hover Enter: {cardData.cardNameMovement}");
         transform.DOMoveY(EndPosition, animationTime);
         //_spriteRenderer.sortingOrder = 1;
     }
@@ -102,7 +102,7 @@ public class CardDeck : Card
         if (!_isHover || _isDragging) return;
 
         _isHover = false;
-        //Debug.Log($"Hover Exit: {cardData.cardName}");
+        //Debug.Log($"Hover Exit: {cardData.cardNameMovement}");
         transform.DOMoveY(StartPosition, animationTime);
         //_spriteRenderer.sortingOrder = 0;
     }

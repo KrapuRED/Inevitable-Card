@@ -69,7 +69,6 @@ public class Player : Character
     public override void OnDeath()
     {
         BattleManager.instance.SelectWinner(type);
-        HUDManager.instance.OpenPanel(PanelName.GameOverPanel);
     }
 
     private void OnEnable()

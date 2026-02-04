@@ -47,7 +47,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
             {
                 Debug.LogError("card is null");
             }
-            //Debug.Log("card name : " + card.cardData.cardName);
+            //Debug.Log("card name : " + card.cardData.cardNameMovement);
 
             if (card.cardData.cardType == CardType.Item)
                 PlayerDeckManager.instance.UsedItem(card);

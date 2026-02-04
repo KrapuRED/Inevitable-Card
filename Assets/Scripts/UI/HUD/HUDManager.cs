@@ -13,7 +13,8 @@ public enum PanelName
 {
     EyeOfTheSpoilerPanel,
     GameOverPanel,
-    WinningPanel
+    WinningPanel,
+    GuidePanel
 }
 
 public class HUDManager : MonoBehaviour
@@ -24,6 +25,7 @@ public class HUDManager : MonoBehaviour
     public GameObject eyeOfTheSpoilerPanel;
     public GameObject gameOverPanel;
     public GameObject WinningPanel;
+    public GameObject GuidePanel;
 
     [Header("Reference UI")]
     public GameObject InitiateMoveButton;
@@ -103,6 +105,11 @@ public class HUDManager : MonoBehaviour
                 isPanelOpened = true;
                 break;
 
+            case PanelName.GuidePanel:
+                GuidePanel.SetActive(true);
+                isPanelOpened = true;
+                break;
+
             default:
                 isPanelOpened = false;
                 break;
@@ -116,6 +123,7 @@ public class HUDManager : MonoBehaviour
             eyeOfTheSpoilerPanel.SetActive(false);
             gameOverPanel.SetActive(false);
             WinningPanel.SetActive(false);
+            GuidePanel.SetActive(false);
             isPanelOpened = false;
         }
         obtainCardController.CloseCards();

@@ -18,7 +18,7 @@ public class ActionCard : CardDeck
         if (_isHover || _isDragging) return;
 
         _isHover = true;
-        //Debug.Log($"Hover Enter: {cardData.cardName}");
+        //Debug.Log($"Hover Enter: {cardData.cardNameMovement}");
         transform.DOMoveY(EndPosition, animationTime);
         //actionCardUI.OnHoverEnter();
         CardRenderManager.instance.OnHoverEnter(this);
@@ -35,7 +35,7 @@ public class ActionCard : CardDeck
         if (!_isHover || _isDragging) return;
 
         _isHover = false;
-        //Debug.Log($"Hover Exit: {cardData.cardName}");
+        //Debug.Log($"Hover Exit: {cardData.cardNameMovement}");
         //actionCardUI.OnHoverExit();
         CardRenderManager.instance.OnHoverExit(this);
         transform.DOMoveY(StartPosition, animationTime);

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Upgrade Health
   m_EditorClassIdentifier: 
   upgradeName: Health +
-  upgradeImage: {fileID: -522858174994682047, guid: 33d84f1089a65cd4f973886da5c65b3e, type: 3}
+  upgradeImage: {fileID: -4027803704605868421, guid: 8e598c97aab7a54429805c8d70495eda, type: 3}
   upgradeType: 0
-  upgradeValue: 2
+  upgradeValue: 20

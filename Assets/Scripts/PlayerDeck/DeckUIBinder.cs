@@ -58,7 +58,7 @@ public class DeckUIBinder : MonoBehaviour
 
         if (view.cardData.cardType == CardType.Movement)
         {
-            //Debug.Log($"Succes register : {view.cardData.cardName}");
+            //Debug.Log($"Succes register : {view.cardData.cardNameMovement}");
             _cardActionViews[view.Instance] = view;
         }
 
