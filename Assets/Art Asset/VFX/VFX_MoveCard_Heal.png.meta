@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c92184dc394d26a48bb0089d20b81783
+guid: 425d2b83afdeff24e90a536b47a4a9ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5801955510055451976
-    second: VFX_MoveCard_LightSlash_0
-  - first:
-      213: -2157946327680505578
-    second: VFX_MoveCard_LightSlash_1
-  - first:
-      213: -4901916514466222436
-    second: VFX_MoveCard_LightSlash_2
-  - first:
-      213: 1283866790344527231
-    second: VFX_MoveCard_LightSlash_3
+      213: 2704574469467031761
+    second: VFX_MoveCard_Heal_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: VFX_MoveCard_LightSlash_0
+      name: VFX_MoveCard_Heal_0
       rect:
         serializedVersion: 2
-        x: 101
-        y: 290
-        width: 29
-        height: 41
+        x: 71
+        y: 161
+        width: 98
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b2468424305b7fa0800000000000000
-      internalID: -5801955510055451976
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX_MoveCard_LightSlash_1
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 35
-        width: 140
-        height: 290
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 619ae3e8f3f6d02e0800000000000000
-      internalID: -2157946327680505578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX_MoveCard_LightSlash_2
-      rect:
-        serializedVersion: 2
-        x: 503
-        y: 26
-        width: 152
-        height: 137
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9eae9cc6e4e8fbb0800000000000000
-      internalID: -4901916514466222436
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: VFX_MoveCard_LightSlash_3
-      rect:
-        serializedVersion: 2
-        x: 755
-        y: 32
-        width: 50
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7d08692b0631d110800000000000000
-      internalID: 1283866790344527231
+      spriteID: 1d84c298624988520800000000000000
+      internalID: 2704574469467031761
       vertices: []
       indices: 
       edges: []
@@ -223,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      VFX_MoveCard_LightSlash_0: -5801955510055451976
-      VFX_MoveCard_LightSlash_1: -2157946327680505578
-      VFX_MoveCard_LightSlash_2: -4901916514466222436
-      VFX_MoveCard_LightSlash_3: 1283866790344527231
+      VFX_MoveCard_Heal_0: 2704574469467031761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
