@@ -103,8 +103,8 @@ public class BattleDeckCardUI : MonoBehaviour
 
     public void ResetBattleCardUI()
     {
-        //Debug.Log("reset BattleDeckCardUI");
-
+        //Debug.Log($"[RESET UI] {gameObject.name}");
+        useCardEffect.SetActive(false);
         borderImg.sprite = borders[0];
         illustationImg.sprite = borders[0];
 
@@ -122,6 +122,5 @@ public class BattleDeckCardUI : MonoBehaviour
         if (damageSingelValue != null)
             damageSingelValue.text = "";
 
-        useCardEffect.SetActive(false);
     }
 }

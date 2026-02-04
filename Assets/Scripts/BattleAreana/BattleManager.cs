@@ -24,6 +24,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private int _indexPlayerCard;
     [SerializeField] private int _indexEnemyCard;
     [SerializeField] private bool _isOnGoingBattle;
+    public bool IsBattleOngoing => _isOnGoingBattle;
     private int _totalCostStamina;
 
     [Header("Events")]
@@ -152,15 +153,26 @@ public class BattleManager : MonoBehaviour
     public void RefreshEnemyDeckPhase()
     {
         // 1. Stop battle & clear everything
-        CancelBattle();
+        CancelBattle(false);
 
-        if (_currentEnemy == null) return;
+        if (_currentEnemy == null)
+        {
+            Debug.Log("_currentEnemy is empty");
+            return;
+        }
 
-        EnemyPickCard enemyPick = _currentEnemy.GetComponentInParent<EnemyPickCard>();
-        if (enemyPick == null) return;
+        EnemyPickCard enemyPick = _currentEnemy.GetComponentInChildren<EnemyPickCard>();
+        if (enemyPick == null)
+        {
+            Debug.Log("enemyPick is empty");
+            return;
+        }
 
         // 2. Generate SEQUENTIAL boss deck
         List<CardInstance> enemyCards = enemyPick.GetEnemyCardListSequential(maxSlots);
+
+        for (int i = 0; i < enemyCards.Count; i++)
+            Debug.Log($"{i}. {enemyCards[i].cardData.cardName}");
 
         _EnemyBattleDecks = enemyCards.ToArray();
 
@@ -229,19 +241,14 @@ public class BattleManager : MonoBehaviour
 
     public void EndBattle()
     {
-        for (int i = 0; i < _playerBattleDecks.Length; i++)
-        {
-            _playerBattleCardDecks[i].ResetPlayerBattleCardDeck();
-            _playerBattleDecks[i] = null;
-        }
+        ResetDeckCard();
 
         _isOnGoingBattle = false;
 
-        onResetCardDeck.OnRaise();
         SetupCarDeckForPlayer();
     }
 
-    private void CancelBattle()
+    private void CancelBattle(bool resetDeck = true)
     {
         if (!_isOnGoingBattle) return;
 
@@ -253,7 +260,14 @@ public class BattleManager : MonoBehaviour
 
         _isOnGoingBattle = false;
 
-        EndBattle(); // cleanup cardDatas + UI
+        for (int i = 0; i < maxSlots; i++)
+        {
+            _playerBattleCardDecks[i].ResetPlayerBattleCardDeck();
+            _playerBattleDecks[i] = null;
+        }
+
+        if (resetDeck)
+            EndBattle();
     }
 
     public void SelectWinner(TargetType defeat)
@@ -284,7 +298,17 @@ public class BattleManager : MonoBehaviour
         onEyeOfTheSpoilerEvent.RaiseEvent();
     }
 
-    public void ResetOnGoingBattle() { _isOnGoingBattle = false; }
+    private void ResetDeckCard()
+    {
+        for (int i = 0; i < maxSlots; i++)
+        {
+            _playerBattleCardDecks[i].ResetPlayerBattleCardDeck();
+            _playerBattleDecks[i] = null;
+        }
+
+        onResetCardDeck.OnRaise();
+    }
+         
 
     private void OnEnable()
     {

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         EnemyManager.instance.SpawnEnemyGoon(currentBattle);  
+        //FightBoss();
     }
 
     public void NextBattle()

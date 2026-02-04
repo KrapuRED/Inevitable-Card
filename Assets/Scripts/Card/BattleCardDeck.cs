@@ -15,7 +15,7 @@ public class BattleCardDeck : Card
         
     }
 
-    public virtual void ReceivePlayerCard(CardInstance card)
+    public virtual void ReceivePlayerCard(CardInstance card, bool startHidden)
     {
         
     }
@@ -61,7 +61,7 @@ public class BattleCardDeck : Card
     }
     #endregion
 
-    public virtual void ChangeStateBattleDeck()
+    public virtual void ChangeStateBattleDeck(bool hidden)
     {
         
     }

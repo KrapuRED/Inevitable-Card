@@ -143,7 +143,7 @@ public class CursorCollision2D : MonoBehaviour
 
             if (hoveredCardDeck != null)
             {
-                hoveredCardDeck.ReceivePlayerCard(draggingCard.Instance);
+                hoveredCardDeck.ReceivePlayerCard(draggingCard.Instance, false);
                 dropped = true;
             }
 

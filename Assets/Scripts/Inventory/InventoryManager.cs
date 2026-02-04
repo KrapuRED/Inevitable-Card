@@ -29,6 +29,18 @@ public class InventoryManager : MonoBehaviour
         TakeOutCard();
     }
 
+    public void RemoveCard(CardSO cardData)
+    {
+        for (int i = 0; i < itemCards.Count; i++)
+        {
+            if (itemCards[i].name == cardData.name)
+            {
+                itemCards.RemoveAt(i);
+                break;
+            }
+        }
+    }
+
     public void TakeOutCard()
     {
         foreach (CardSO card in itemCards)

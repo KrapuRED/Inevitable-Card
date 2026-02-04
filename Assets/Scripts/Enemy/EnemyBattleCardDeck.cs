@@ -45,7 +45,7 @@ public class EnemyBattleCardDeck :BattleCardDeck
         _spriteRenderer.color = InReiveCard;
     }
 
-    public override void ReceivePlayerCard(CardInstance card)
+    public override void ReceivePlayerCard(CardInstance card, bool startHidden)
     {
         //Debug.Log($"{this.name} Succes get the data from {card.name}");
         if (card == null)
@@ -60,7 +60,7 @@ public class EnemyBattleCardDeck :BattleCardDeck
             battleCardUI.SetBattleDeckCard(cardInstance.cardData);
 
         BattleManager.instance.ChangeDataEnemyBattleDeck(card, slotIndex);
-        ChangeStateBattleDeck();
+        ChangeStateBattleDeck(startHidden);
     }
 
     public override void ExitReceiveZone()
@@ -131,15 +131,23 @@ public class EnemyBattleCardDeck :BattleCardDeck
     }
     #endregion
 
-    public override void ChangeStateBattleDeck()
+    public override void ChangeStateBattleDeck(bool hidden)
     {
         if (cardInstance.cardData != null)
         {
             gameObject.layer = LayerMask.NameToLayer("Interact");
             _spriteRenderer.color = InReiveCard;
 
-            if (isHiddenCard)
+            if (hidden)
+            {
+                Debug.Log($"the card is hidden = {hidden} ");
+                isHiddenCard = hidden;
                 battleCardUI.HideEnemyCard();
+            }
+            else
+            {
+                ShowCard();
+            }
         }
     }
 
@@ -153,9 +161,11 @@ public class EnemyBattleCardDeck :BattleCardDeck
 
     public void ClashCardEnterAnimation(float scaleMultiplier, float time)
     {
-        transform.DOKill();
+        if (!BattleManager.instance.IsBattleOngoing)
+            return;
 
         ShowCard();
+        transform.DOKill();
 
         Vector3 targetScale = transform.localScale * scaleMultiplier;
         transform.DOScale(targetScale, time)
@@ -164,8 +174,16 @@ public class EnemyBattleCardDeck :BattleCardDeck
 
     public void ClasCardExitAnimation(float scale, float time)
     {
-        transform.DOScale(Vector3.one * scale, time);
-        battleCardUI.UsedCard();
+        transform.DOKill();
+
+        transform.DOScale(Vector3.one * scale, time)
+            .OnComplete(() =>
+            {
+                if (!BattleManager.instance.IsBattleOngoing)
+                    return;
+
+                battleCardUI.UsedCard();
+            });
     }
 
     public override void CancelCard()
@@ -174,7 +192,6 @@ public class EnemyBattleCardDeck :BattleCardDeck
         cardInstance = null;
         isHiddenCard = false;
         isAbleReiveCard = false;
-        _spriteRenderer.color = OutReiveCard;
     }
 
     public void SetHiddenCard()

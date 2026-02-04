@@ -38,7 +38,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
     }
 
     #region Receive Section
-    public override void ReceivePlayerCard(CardInstance card)
+    public override void ReceivePlayerCard(CardInstance card, bool startHidden)
     {
         //Debug.Log($"{this.name} Succes get the data from {card.name}");
         if (card == null)
@@ -48,7 +48,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
         //Debug.Log("card name : " + card.cardData.cardName);
         cardInstance = card;
         isHaveCard = true;
-        ChangeStateBattleDeck();
+        ChangeStateBattleDeck(startHidden);
         battleCardUI.SetBattleDeckCard(cardInstance.cardData);
         BattleManager.instance.ChangeDataPlayerBattleDeck(card, slotIndex);
     }
@@ -112,7 +112,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
     }
     #endregion
 
-    public override void ChangeStateBattleDeck()
+    public override void ChangeStateBattleDeck(bool hidden)
     {
         if (cardInstance.cardData == null)
         {
@@ -120,8 +120,12 @@ public class PlayerBattleCardDeck : BattleCardDeck
             return;
         }
 
+        if (cardInstance.cardData.cardType == CardType.Item)
+        {
+            PlayerDeckManager.instance.HideItemCard(cardInstance);
+        }
+
         gameObject.layer = LayerMask.NameToLayer("Interact");
-        _spriteRenderer.color = InReiveCard;
         _boxCollied2D.isTrigger = true;
     }
 
@@ -139,6 +143,9 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
     public void ResetPlayerBattleCardDeck()
     {
+        transform.DOKill(true);
+        DOTween.Kill(gameObject, true);
+     
         isHaveCard = false;
         cardInstance = null;
         _boxCollied2D.isTrigger = false;
@@ -149,6 +156,9 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
     public void ClashCardEnterAnimation(float scaleMultiplier, float time)
     {
+        if (!BattleManager.instance.IsBattleOngoing)
+            return;
+
         transform.DOKill();
 
         Vector3 targetScale = transform.localScale * scaleMultiplier;
@@ -158,8 +168,16 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
     public void ClasCardExitAnimation(float scale, float time)
     {
-        transform.DOScale(Vector3.one * scale, time);
-        battleCardUI.UsedCard();
+        transform.DOKill();
+
+        transform.DOScale(Vector3.one * scale, time)
+            .OnComplete(() =>
+            {
+                if (!BattleManager.instance.IsBattleOngoing)
+                    return;
+
+                battleCardUI.UsedCard();
+            });
     }
 
     public bool CanDragging()

@@ -118,6 +118,7 @@ public class HUDManager : MonoBehaviour
             WinningPanel.SetActive(false);
             isPanelOpened = false;
         }
+        obtainCardController.CloseCards();
     }
     #endregion
 

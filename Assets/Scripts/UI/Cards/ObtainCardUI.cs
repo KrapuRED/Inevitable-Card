@@ -1,16 +1,19 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObtainCardUI : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Image illustration;
+
+    public void SetImageCard(CardSO cardData)
     {
-        
+        illustration.sprite = cardData.cardImage;
+        gameObject.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetObtainCardUI()
     {
-        
+        gameObject.SetActive(false);
     }
 }

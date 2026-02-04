@@ -30,7 +30,7 @@ public class BattleDeckUIController : MonoBehaviour
 
         foreach (var deck in enemyBattleCardDecks)
         {
-            deck.CancelCard(); // or ResetVisualState()
+            deck.CancelCard();
         }
 
         List<CardInstance> workingCards = new List<CardInstance>(cards);
@@ -44,20 +44,22 @@ public class BattleDeckUIController : MonoBehaviour
         Debug.Log($"min hidden card : {hiddenCard}");
 
         //1. Set Hiden Enemy Card and set data then change the visual
-        for (int i = 0; i < hiddenToPlace; i++)
+        if (hiddenCard > 0)
         {
-            //Debug.Log($"hidden card : {i}");
-            int randSlotIndex = Random.Range(0, availableIndexes.Count);
-            int deckIndex = availableIndexes[randSlotIndex];
-            availableIndexes.RemoveAt(randSlotIndex);
+            Debug.Log("Enemy Hide the card");
+            for (int i = 0; i < hiddenToPlace; i++)
+            {
+                //Debug.Log($"hidden card : {i}");
+                int randSlotIndex = Random.Range(0, availableIndexes.Count);
+                int deckIndex = availableIndexes[randSlotIndex];
+                availableIndexes.RemoveAt(randSlotIndex);
 
-            enemyBattleCardDecks[deckIndex].SetHiddenCard();
+                int randCardIndex = Random.Range(0, workingCards.Count);
+                CardInstance cardHidden = workingCards[randCardIndex];
+                workingCards.RemoveAt(randCardIndex);
 
-            int randCardIndex = Random.Range(0, workingCards.Count);
-            CardInstance cardHidden = workingCards[randCardIndex];
-            workingCards.RemoveAt(randCardIndex);
-
-            enemyBattleCardDecks[deckIndex].ReceivePlayerCard(cardHidden);
+                enemyBattleCardDecks[deckIndex].ReceivePlayerCard(cardHidden, true);
+            }
         }
 
         //2. Set the remaning battle cardHidden deck with cardDatas left
@@ -68,7 +70,7 @@ public class BattleDeckUIController : MonoBehaviour
             CardInstance card = workingCards[0];
             workingCards.RemoveAt(0);
 
-            enemyBattleCardDecks[deckIndex].ReceivePlayerCard(card);
+            enemyBattleCardDecks[deckIndex].ReceivePlayerCard(card, false);
         }
 
 

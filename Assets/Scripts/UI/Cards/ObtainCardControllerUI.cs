@@ -4,7 +4,7 @@ using UnityEngine;
 public class ObtainCardControllerUI : MonoBehaviour
 {
     [Header("Card Obtain")]
-    [SerializeField] private List<GameObject> obtainCards;
+    [SerializeField] private List<ObtainCardUI> obtainCards;
 
     public void SetObtainCards(List<CardSO> cardData)
     {
@@ -12,7 +12,7 @@ public class ObtainCardControllerUI : MonoBehaviour
 
         for (int i = 0; i < countCard; i++)
         {
-            obtainCards[i].SetActive(true);
+            obtainCards[i].SetImageCard(cardData[i]);
         }
 
     }
@@ -21,7 +21,7 @@ public class ObtainCardControllerUI : MonoBehaviour
     {
         foreach (var card in obtainCards)
         {
-            card.SetActive(false);
+            card.ResetObtainCardUI();
         }
     }
 }

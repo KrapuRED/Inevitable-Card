@@ -33,21 +33,6 @@ public class PlayerDeckManager : MonoBehaviour
         }
     }
 
-    public void RemoveCard(CardInstance card)
-    {
-        switch (card.cardData.cardType)
-        {
-            case CardType.Movement:
-                movementDeck.RemoveCardFromDeck(card);
-                break;
-
-            case CardType.Item:
-                //Debug.Log($"card type : {card.cardType}");
-                itemDeck.RemoveCardFromDeck(card);
-                break;
-        }
-    }
-
     public void HideItemCard(CardInstance card)
     {
         itemDeck.HideItemCard(card);
