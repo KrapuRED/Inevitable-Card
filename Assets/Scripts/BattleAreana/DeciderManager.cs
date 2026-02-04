@@ -165,15 +165,24 @@ public class DeciderManager : MonoBehaviour
         #endregion
 
         if (playerDamage > 0)
+        {
+
             DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage + (int)baseDamagePlayer);
+        }
 
         if (enemyDamage > 0)
             DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage + +(int)baseDamageEnemy);
 
         if (playerHeal > 0)
+        {
+            AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Heal);
             DamageManager.instance.HealToTarget(TargetType.Player, playerHeal);
+        }
 
         if (enemyHeal > 0)
+        {
+            AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Heal);
             DamageManager.instance.HealToTarget(TargetType.Enemy, enemyHeal);
+        }
     }
 }
