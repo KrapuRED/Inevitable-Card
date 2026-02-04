@@ -19,7 +19,7 @@ public class BattleManager : MonoBehaviour
 
     [Header("State Battle Arena")]
     [SerializeField] private int turn;
-    [SerializeField] private PlayerCharacter _currentPlayer;
+    [SerializeField] private Player _currentPlayer;
     [SerializeField] private Enemy _currentEnemy;
     [SerializeField] private int _indexPlayerCard;
     [SerializeField] private int _indexEnemyCard;
@@ -76,7 +76,7 @@ public class BattleManager : MonoBehaviour
         _currentEnemy = newEnemy;
     }
 
-    private void SetPayer(PlayerCharacter newPlayer)
+    private void SetPayer(Player newPlayer)
     {
         _currentPlayer = newPlayer;
     }

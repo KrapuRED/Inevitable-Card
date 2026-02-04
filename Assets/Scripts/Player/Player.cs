@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerCharacter : Character
+public class Player : Character
 {
     public int maxStamina;
     private  int _currentStamina;
@@ -8,6 +8,8 @@ public class PlayerCharacter : Character
 
     public TargetType type;
     [SerializeField] private CurrentPlayerHandler  _currentPlayerHandler;
+    [SerializeField] private PlayerAnimation _playerAnimation;
+    public PlayerAnimation playerAnimation => _playerAnimation;
 
     [Header("Events")]
     public OnTakeDamageEventSO onTakeDamageEvent;

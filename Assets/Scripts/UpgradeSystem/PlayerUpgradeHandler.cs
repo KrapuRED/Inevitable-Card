@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PlayerUpgradeHandler : MonoBehaviour
 {
-    [SerializeField] private PlayerCharacter _player;
+    [SerializeField] private Player _player;
 
     private void Start()
     {
-        _player = GetComponentInParent<PlayerCharacter>();
+        _player = GetComponentInParent<Player>();
     }
 
     public void ApplyUpgrade(UpgradeSO upgrade)
