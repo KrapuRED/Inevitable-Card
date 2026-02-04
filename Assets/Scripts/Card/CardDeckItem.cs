@@ -1,8 +1,10 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class CardDeckItem : CardDeck
 {
     public ItemCardUI itemcardUI;
+    public bool IsConsumed { get; private set; }
 
     [Header("Events")]
     public OnHideItemCardEventSO onHideItemCard;
@@ -19,5 +21,11 @@ public class CardDeckItem : CardDeck
         {
             Destroy(gameObject);
         }
+    }
+
+    public void CosumeCard()
+    {
+        IsConsumed = true;
+        Debug.Log($"cosmue : {IsConsumed}");
     }
 }

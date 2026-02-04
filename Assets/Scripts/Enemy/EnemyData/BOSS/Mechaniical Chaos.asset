@@ -16,6 +16,6 @@ MonoBehaviour:
   enemyType: 1
   enemyStatus: 0
   baseDamage: 25
-  maxHealth: 10
+  maxHealth: 500
   hiddenCard: 4
   isElimination: 1

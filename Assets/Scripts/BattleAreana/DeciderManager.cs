@@ -37,6 +37,14 @@ public class DeciderManager : MonoBehaviour
             return;
         }
 
+       if (playerCard != null)
+        {
+            if (playerCard.cardData.cardType == CardType.Item)
+            {
+                InventoryManager.instance.RemoveCard(playerCard.cardData);
+            }
+        }
+
         int playerDamage = 0;
         bool playerDefending = false;
         bool playerHealing =  false;

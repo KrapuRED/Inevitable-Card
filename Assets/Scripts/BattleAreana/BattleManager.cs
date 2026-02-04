@@ -195,6 +195,11 @@ public class BattleManager : MonoBehaviour
             return;
         }
 
+        for (int i = 0; i < _playerBattleCardDecks.Length; i++)
+        {
+            _playerBattleCardDecks[i].SetCannotChangeCard();
+        }
+
         Debug.Log("The Battle BEGGUN");
         HUDManager.instance.HideButton(UIButtonContext.Battle, false);
         OnGoingBattle();

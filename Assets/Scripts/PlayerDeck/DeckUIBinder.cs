@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -41,7 +41,13 @@ public class DeckUIBinder : MonoBehaviour
         if (!_cardItemViews.TryGetValue(card, out CardDeck cardDeck))
             return;
 
-        Destroy(cardDeck);
+        // 1 REMOVE from dictionary FIRST
+        _cardItemViews.Remove(card);
+
+        // 2️ DESTROY the GameObject
+        Destroy(cardDeck.gameObject);
+
+        // 3️ NOW reposition safely
         RepositionItemDeck();
     }
 
@@ -77,7 +83,7 @@ public class DeckUIBinder : MonoBehaviour
 
     private void RepositionItemDeck()
     {
-        positionerActionDeck.RepositionCards(
+        positionerItemDeck.RepositionCards(
             _cardItemViews.Values.ToList()
         );
 

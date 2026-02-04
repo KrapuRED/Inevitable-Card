@@ -147,11 +147,17 @@ public class CursorCollision2D : MonoBehaviour
                 dropped = true;
             }
 
+            if (dropped &&
+            draggingCard.Instance.cardData.cardType == CardType.Item)
+            {
+                if (draggingCard is CardDeckItem cardItem)
+                {
+                    cardItem.CosumeCard(); // or Destroy(cardItem.gameObject)
+                }
+            }
+
             draggingCard.EndDrag(dropped);
             draggingCard = null;
-
-            hoveredCardDeck?.ExitReceiveZone();
-            hoveredCardDeck = null;
         }
         #endregion
 
@@ -170,12 +176,17 @@ public class CursorCollision2D : MonoBehaviour
 
             if (containerDeckCard != null &&
                 draggingBCD.CardInstance != null &&
-                containerDeckCard.cardType == draggingBCD.CardInstance.cardData.cardType)
+                containerDeckCard.cardType ==
+                draggingBCD.CardInstance.cardData.cardType)
             {
-                containerDeckCard.AddCard(draggingBCD.CardInstance.cardData);
+                containerDeckCard.AddCard(
+                    draggingBCD.CardInstance.cardData
+                );
                 draggingBCD.CancelCard();
+
                 dropped = true;
             }
+
             draggingBCD.EndDrag(dropped);
             draggingBCD = null;
         }

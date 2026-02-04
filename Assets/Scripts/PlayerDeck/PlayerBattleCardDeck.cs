@@ -8,13 +8,12 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
     [Header("State battke Card Deck")]
     [SerializeField] private int slotIndex;
-    public Color InReiveCard;
-    public Color OutReiveCard;
     [SerializeField] private CardInstance cardInstance;
     public CardInstance CardInstance => cardInstance;
     [SerializeField] private bool isHaveCard;
     [SerializeField] private bool isHover;
     [SerializeField] private bool isDragging;
+    [SerializeField] private bool isCanChangeCard;
 
     [Header("Aniamtion")]
     public float scaleEnd;
@@ -30,6 +29,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _boxCollied2D = GetComponent<BoxCollider2D>();
         _canvasGroup = GetComponentInChildren<CanvasGroup>();
+        isCanChangeCard = true;
     }
 
     public override void Init(int index)
@@ -40,17 +40,24 @@ public class PlayerBattleCardDeck : BattleCardDeck
     #region Receive Section
     public override void ReceivePlayerCard(CardInstance card, bool startHidden)
     {
-        //Debug.Log($"{this.name} Succes get the data from {card.name}");
-        if (card == null)
+        if (isCanChangeCard)
         {
-            Debug.LogError("card is null");
+            //Debug.Log($"{this.name} Succes get the data from {card.name}");
+            if (card == null)
+            {
+                Debug.LogError("card is null");
+            }
+            //Debug.Log("card name : " + card.cardData.cardName);
+
+            if (card.cardData.cardType == CardType.Item)
+                PlayerDeckManager.instance.UsedItem(card);
+
+            cardInstance = card;
+            isHaveCard = true;
+            ChangeStateBattleDeck(startHidden);
+            battleCardUI.SetBattleDeckCard(cardInstance.cardData);
+            BattleManager.instance.ChangeDataPlayerBattleDeck(card, slotIndex);
         }
-        //Debug.Log("card name : " + card.cardData.cardName);
-        cardInstance = card;
-        isHaveCard = true;
-        ChangeStateBattleDeck(startHidden);
-        battleCardUI.SetBattleDeckCard(cardInstance.cardData);
-        BattleManager.instance.ChangeDataPlayerBattleDeck(card, slotIndex);
     }
     #endregion
 
@@ -120,10 +127,10 @@ public class PlayerBattleCardDeck : BattleCardDeck
             return;
         }
 
-        if (cardInstance.cardData.cardType == CardType.Item)
+       /* if (cardInstance.cardData.cardType == CardType.Item)
         {
             PlayerDeckManager.instance.HideItemCard(cardInstance);
-        }
+        }*/
 
         gameObject.layer = LayerMask.NameToLayer("Interact");
         _boxCollied2D.isTrigger = true;
@@ -135,7 +142,6 @@ public class PlayerBattleCardDeck : BattleCardDeck
         cardInstance = null;
         _boxCollied2D.isTrigger = false;
         transform.position = orginalPosition;
-        _spriteRenderer.color = OutReiveCard;
 
         battleCardUI.ResetBattleCardUI();
         BattleManager.instance.ChangeDataPlayerBattleDeck(null, slotIndex);
@@ -148,6 +154,7 @@ public class PlayerBattleCardDeck : BattleCardDeck
      
         isHaveCard = false;
         cardInstance = null;
+        isCanChangeCard = true;
         _boxCollied2D.isTrigger = false;
 
         gameObject.layer = LayerMask.NameToLayer("BattleDeckDropZone");
@@ -178,6 +185,11 @@ public class PlayerBattleCardDeck : BattleCardDeck
 
                 battleCardUI.UsedCard();
             });
+    }
+
+    public void SetCannotChangeCard()
+    {
+        isCanChangeCard = false;
     }
 
     public bool CanDragging()
