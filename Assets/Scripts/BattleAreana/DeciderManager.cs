@@ -37,13 +37,21 @@ public class DeciderManager : MonoBehaviour
             return;
         }
 
-       if (playerCard != null)
+        if (playerCard != null && playerCard.cardData != null)
         {
             if (playerCard.cardData.cardType == CardType.Item)
             {
-                InventoryManager.instance.RemoveCard(playerCard.cardData);
+                if (InventoryManager.instance != null)
+                {
+                    InventoryManager.instance.RemoveCard(playerCard.cardData);
+                }
+                else
+                {
+                    Debug.LogError("InventoryManager.instance is NULL!");
+                }
             }
         }
+
 
         int playerDamage = 0;
         bool playerDefending = false;
@@ -64,7 +72,7 @@ public class DeciderManager : MonoBehaviour
                 if (playerCard.cardData.movementCardType == MovementCardType.Defensive)
                     playerDefending = true;
             }
-            else if (playerCard.cardData.cardType == CardType.Item)
+            else if (playerCard.cardData.cardType == CardType.Item && playerCard.cardData != null)
             {
                 if (playerCard.cardData.itemCardType == ItemCardType.HealthPotion)
                 {
@@ -109,16 +117,19 @@ public class DeciderManager : MonoBehaviour
                 playerCard.cardData.defensiveCardType == DefensiveCardType.Parry)
             {
                 Debug.Log($"Player parried Light Attack!");
+                AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Parry);
                 enemyDamage = 0;
             }
             else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack &&
                      playerCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
             {
                 Debug.Log($"Player dodged Heavy Attack!");
+                AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Dodge);
                 enemyDamage = 0;
             }
             else if (enemyDamage > 0)
             {
+                AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Guard);
                 enemyDamage = Mathf.CeilToInt(enemyDamage * 0.5f);
             }
         }
@@ -129,16 +140,19 @@ public class DeciderManager : MonoBehaviour
                 enemyCard.cardData.defensiveCardType == DefensiveCardType.Parry)
             {
                 Debug.Log($"Enemy parried Light Attack!");
+                AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Parry);
                 playerDamage = 0;
             }
             else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack &&
                      enemyCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
             {
                 Debug.Log($"Enemy dodged Heavy Attack!");
+                AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Dodge);
                 playerDamage = 0;
             }
             else if (playerDamage > 0)
             {
+                AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Guard);
                 playerDamage = Mathf.CeilToInt(playerDamage * 0.5f);
             }
         }
@@ -164,25 +178,36 @@ public class DeciderManager : MonoBehaviour
             enemyHeal = Mathf.FloorToInt(enemyHeal * 0.5f);
         #endregion
 
-        if (playerDamage > 0)
+        if (playerDamage > 0 && playerCard != null)
         {
-
+            if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack)
+            {
+                AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.LightBlast);
+            }
+            else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack)
+            {
+                AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.HeavyBlast);
+            }
             DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage + (int)baseDamagePlayer);
         }
 
         if (enemyDamage > 0)
+        {
+            if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack)
+            {
+                AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.LightBlast);
+            }
+            else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack)
+            {
+                AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.HeavyBlast);
+            }
             DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage + +(int)baseDamageEnemy);
+        }
 
-        if (playerHeal > 0)
+        if (playerHeal > 0 && playerCard != null)
         {
             AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Heal);
             DamageManager.instance.HealToTarget(TargetType.Player, playerHeal);
-        }
-
-        if (enemyHeal > 0)
-        {
-            AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Heal);
-            DamageManager.instance.HealToTarget(TargetType.Enemy, enemyHeal);
         }
     }
 }

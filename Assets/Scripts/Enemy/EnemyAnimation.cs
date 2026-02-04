@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyAnimation : MonoBehaviour
 {
     SpriteRenderer _spriteRenderer;
+    [SerializeField] private Animator _animator;    
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class EnemyAnimation : MonoBehaviour
     public void PlayAnimation(AnimationEffectType effectType)
     {
         Debug.Log($"Player try show VFX of {effectType}");
+        _animator.SetTrigger(effectType.ToString());
     }
 
     private void ResetAnimation()

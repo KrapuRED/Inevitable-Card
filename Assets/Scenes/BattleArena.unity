@@ -4382,6 +4382,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1167245754}
   m_CullTransparentMesh: 1
+--- !u!95 &1187633077 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7564881148983867226, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
+  m_PrefabInstance: {fileID: 1191581481}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1191581481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4394,6 +4399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy-Defect Track Unit
       objectReference: {fileID: 0}
+    - target: {fileID: 4157597907167951711, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
+      propertyPath: _animator
+      value: 
+      objectReference: {fileID: 1187633077}
     - target: {fileID: 5482096516783744588, guid: 2e31732fee5620449bac59e87dd75619, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -9384,6 +9393,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
+      propertyPath: m_Size.x
+      value: 1.1296296
+      objectReference: {fileID: 0}
+    - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5185186
+      objectReference: {fileID: 0}
+    - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8956531755304105792, guid: e11f095d9b2d43544812da2daf4256a1, type: 3}
+    - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2981012883035875535, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.112

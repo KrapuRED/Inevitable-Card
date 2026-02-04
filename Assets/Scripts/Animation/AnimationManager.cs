@@ -6,7 +6,7 @@ public enum AnimationEffectType
     None,
     LightBlast,
     Heal,
-    HighBlast,
+    HeavyBlast,
     Parry,
     Dodge,
     Guard,

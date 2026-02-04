@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Light_Blast_Enemy
+  m_Name: idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1827959695375744771, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - time: 0.1
-      value: {fileID: -94714035492577040, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - time: 0.21666667
-      value: {fileID: -6276331285913197114, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - time: 0.35
-      value: {fileID: 3787816644954400426, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - time: 0.45
-      value: {fileID: -1266455303697076591, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - time: 0.56666666
-      value: {fileID: -3159380539729496193, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - time: 0.6666667
-      value: {fileID: 5202508843404191412, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
+      value: {fileID: 0}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -56,19 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -1827959695375744771, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - {fileID: -94714035492577040, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - {fileID: -6276331285913197114, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - {fileID: 3787816644954400426, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - {fileID: -1266455303697076591, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - {fileID: -3159380539729496193, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
-    - {fileID: 5202508843404191412, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

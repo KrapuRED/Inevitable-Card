@@ -11,14 +11,10 @@ public class PlayerAnimation : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    private void Start()
-    {
-        ResetAnimation();
-    }
-
     public void PlayAnimation(AnimationEffectType effectType)
     {
         Debug.Log($"Player try show VFX of {effectType}");
+        _animator.ResetTrigger(effectType.ToString());
         _animator.SetTrigger(effectType.ToString());
     }
 
