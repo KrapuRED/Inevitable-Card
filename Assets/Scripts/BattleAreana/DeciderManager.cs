@@ -34,6 +34,7 @@ public class DeciderManager : MonoBehaviour
         if (enemyCard.cardData.cardType == CardType.Special)
         {
             //Change Scene
+            Debug.Log("Special card is been used");
             return;
         }
 
@@ -62,6 +63,12 @@ public class DeciderManager : MonoBehaviour
         bool enemyDefending = false;
         bool enemyCancelAttack = false;
 
+        if (playerCard != null)
+        {
+            Debug.Log("Player card  : " + playerCard.cardData.name);
+            Debug.Log("Enemy card   : " + enemyCard.cardData.name);
+        }
+
         #region Calculate
         // Player
         if (playerCard != null && playerCard.cardData != null)
@@ -73,7 +80,7 @@ public class DeciderManager : MonoBehaviour
                 if (playerCard.cardData.movementCardType == MovementCardType.Defensive)
                 {
                     playerDefending = true;
-                    Debug.Log("Playet is defendeing is " + playerDefending);
+                    //Debug.Log("Player is defendeing is " + playerDefending);
                 }
 
             }
@@ -110,28 +117,34 @@ public class DeciderManager : MonoBehaviour
             enemyCard?.cardData != null &&
             playerCard.cardData.movementCardType == MovementCardType.Defensive)
         {
+            Debug.Log("Player is defendeing is " + playerDefending);
+
             if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack &&
                 playerCard.cardData.defensiveCardType == DefensiveCardType.Parry)
             {
                 Debug.Log($"Player parried Light Attack!");
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Parry);
                 enemyDamage = 0;
-                playerCancelAttack = true;
+                enemyCancelAttack= true;
             }
-            if (enemyCard.cardData.movementCardType == MovementCardType.Offensive &&
+            else if (enemyCard.cardData.movementCardType == MovementCardType.Offensive &&
                 enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack &&
                 playerCard.cardData.defensiveCardType == DefensiveCardType.Dodge)
             {
                 Debug.Log($"Player dodged Heavy Attack!");
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Dodge);
-                playerCancelAttack = true;
+                enemyCancelAttack = true;
                 enemyDamage = 0;
             }
             else if (playerCard.cardData.defensiveCardType == DefensiveCardType.Guard && enemyDamage > 0)
             {
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Guard);
                 enemyDamage = Mathf.CeilToInt(enemyDamage * 0.5f);
-                playerCancelAttack = true;
+                enemyCancelAttack = true;
+            }
+            else
+            {
+                Debug.LogWarning("Player failed to def");
             }
         }
 
@@ -140,12 +153,14 @@ public class DeciderManager : MonoBehaviour
             playerCard?.cardData != null &&
             enemyCard.cardData.movementCardType == MovementCardType.Defensive)
         {
+            Debug.Log("Enemy is defendeing is " + enemyDefending);
+
             if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack &&
                 enemyCard.cardData.defensiveCardType == DefensiveCardType.Parry)
             {
                 Debug.Log("Enemy parried Light Attack!");
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Parry);
-                enemyCancelAttack = true;
+                playerCancelAttack = true;
                 playerDamage = 0;
             }
             if (playerCard.cardData.movementCardType == MovementCardType.Offensive &&
@@ -154,17 +169,16 @@ public class DeciderManager : MonoBehaviour
             {
                 Debug.Log("Enemy dodged Heavy Attack!");
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Dodge);
-                enemyCancelAttack = true;
+                playerCancelAttack = true;
                 playerDamage = 0;
             }
             else if (enemyCard.cardData.defensiveCardType == DefensiveCardType.Guard && playerDamage > 0)
             {
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Guard);
-                enemyCancelAttack = true;
+                playerCancelAttack = true;
                 playerDamage = Mathf.CeilToInt(playerDamage * 0.5f);
             }
         }
-
 
         #endregion
 
@@ -180,29 +194,38 @@ public class DeciderManager : MonoBehaviour
 
         #endregion
 
-        if (playerDamage > 0 && playerCard != null)
+        Debug.Log("enemy is cancel attack is " + enemyCancelAttack);
+
+        Debug.Log("player is cancel attack is " + playerCancelAttack);
+
+        if (playerDamage > 0 && playerCard != null && !enemyCancelAttack)
         {
-            if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack && !enemyCancelAttack)
+            Debug.Log("Enemy get damage : " + playerDamage);
+            if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack)
             {
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.LightBlast);
             }
-            else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack && !enemyCancelAttack)
+            else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack)
             {
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.HeavyBlast);
             }
             else if (playerCard.cardData.cardType == CardType.Item && playerCard.cardData.itemCardType == ItemCardType.Offensive)
+            {
                 AnimationManager.instance.DoEnemyAnimation((AnimationEffectType.Explosion));
+            }
 
             DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage + (int)baseDamagePlayer);
         }
 
-        if (enemyDamage > 0)
+        if (enemyDamage > 0 && !playerCancelAttack)
         {
-            if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack && !playerCancelAttack)
+            Debug.Log("Player get damage : " + enemyCard);
+
+            if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack)
             {
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.LightBlast);
             }
-            else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack && !playerCancelAttack)
+            else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack)
             {
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.HeavyBlast);
             }

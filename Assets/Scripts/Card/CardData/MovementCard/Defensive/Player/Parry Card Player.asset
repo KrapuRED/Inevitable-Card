@@ -18,7 +18,7 @@ MonoBehaviour:
   movementCardType: 1
   offensiveCardType: 0
   damageMovement: 0
-  defensiveCardType: 0
+  defensiveCardType: 1
   itemCardType: 0
   useItem: 0
   itemHealAmount: 0
