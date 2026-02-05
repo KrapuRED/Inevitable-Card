@@ -19,7 +19,7 @@ public class SoundLibrary : MonoBehaviour
         {
             if (soundEffect.groupID == groupName)
             {
-                return soundEffect.clipSoundEffects[Random.Range(0, soundEffects.Length)];
+                return soundEffect.clipSoundEffects[Random.Range(0, soundEffect.clipSoundEffects.Length)];
             }
         }
         Debug.LogWarning($"There are no sound effect with name {groupName}");

@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public enum CardType
 {
+    None,
     Movement,
     Item,
     Special
@@ -11,12 +12,14 @@ public enum CardType
 #region Movement Card Types
 public enum MovementCardType
 {
+    None,
     Offensive,
     Defensive
 }
 
 public enum OffensiveCardType
 {
+    None,
     LightAttack,
     HeavyAttack
 }

@@ -124,6 +124,8 @@ public class DeciderManager : MonoBehaviour
             {
                 Debug.Log($"Player parried Light Attack!");
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Parry);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Parry");
+
                 enemyDamage = 0;
                 enemyCancelAttack= true;
             }
@@ -133,12 +135,16 @@ public class DeciderManager : MonoBehaviour
             {
                 Debug.Log($"Player dodged Heavy Attack!");
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Dodge);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Dodge");
+
                 enemyCancelAttack = true;
                 enemyDamage = 0;
             }
             else if (playerCard.cardData.defensiveCardType == DefensiveCardType.Guard && enemyDamage > 0)
             {
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.Guard);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Guard");
+
                 enemyDamage = Mathf.CeilToInt(enemyDamage * 0.5f);
                 enemyCancelAttack = true;
             }
@@ -160,6 +166,7 @@ public class DeciderManager : MonoBehaviour
             {
                 Debug.Log("Enemy parried Light Attack!");
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Parry);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Parry");
                 playerCancelAttack = true;
                 playerDamage = 0;
             }
@@ -169,12 +176,16 @@ public class DeciderManager : MonoBehaviour
             {
                 Debug.Log("Enemy dodged Heavy Attack!");
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Dodge);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Dodge");
+
                 playerCancelAttack = true;
                 playerDamage = 0;
             }
             else if (enemyCard.cardData.defensiveCardType == DefensiveCardType.Guard && playerDamage > 0)
             {
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.Guard);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Guard");
+
                 playerCancelAttack = true;
                 playerDamage = Mathf.CeilToInt(playerDamage * 0.5f);
             }
