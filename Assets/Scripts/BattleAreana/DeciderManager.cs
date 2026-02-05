@@ -215,14 +215,18 @@ public class DeciderManager : MonoBehaviour
             if (playerCard.cardData.offensiveCardType == OffensiveCardType.LightAttack)
             {
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.LightBlast);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("LightAttack");
             }
             else if (playerCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack)
             {
                 AnimationManager.instance.DoEnemyAnimation(AnimationEffectType.HeavyBlast);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("HeavyAttack");
             }
             else if (playerCard.cardData.cardType == CardType.Item && playerCard.cardData.itemCardType == ItemCardType.Offensive)
             {
                 AnimationManager.instance.DoEnemyAnimation((AnimationEffectType.Explosion));
+                SoundEffectManager.instance.PlaySoundEffectOneClip("Explosion");
+
             }
 
             DamageManager.instance.DealDamageToTarget(TargetType.Enemy, playerDamage + (int)baseDamagePlayer);
@@ -235,10 +239,13 @@ public class DeciderManager : MonoBehaviour
             if (enemyCard.cardData.offensiveCardType == OffensiveCardType.LightAttack)
             {
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.LightBlast);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("LightAttack");
             }
             else if (enemyCard.cardData.offensiveCardType == OffensiveCardType.HeavyAttack)
             {
                 AnimationManager.instance.DoPlayerAnimation(AnimationEffectType.HeavyBlast);
+                SoundEffectManager.instance.PlaySoundEffectOneClip("HeavyAttack");
+
             }
             DamageManager.instance.DealDamageToTarget(TargetType.Player, enemyDamage + +(int)baseDamageEnemy);
         }

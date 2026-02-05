@@ -23,6 +23,8 @@ public class ActionCard : CardDeck
         //actionCardUI.OnHoverEnter();
         CardRenderManager.instance.OnHoverEnter(this);
         //_spriteRenderer.sortingOrder = 2;
+        SoundEffectManager.instance.PlaySoundEffectOneClip("CardDeckHover");
+
     }
 
     public override void OnClickCard()

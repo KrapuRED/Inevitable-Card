@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Light Attack
   cardImage: {fileID: -5266544882933869063, guid: af004c466c8710b4fa0e7e7f74a28868, type: 3}
-  cardType: 0
-  movementCardType: 0
-  offensiveCardType: 0
+  cardType: 1
+  movementCardType: 1
+  offensiveCardType: 1
   damageMovement: 4
   defensiveCardType: 0
   itemCardType: 0

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Guard
   cardImage: {fileID: 5197577308073694462, guid: cd5ec9c54b20795439341f12493114ac, type: 3}
-  cardType: 0
-  movementCardType: 1
+  cardType: 1
+  movementCardType: 2
   offensiveCardType: 0
   damageMovement: 0
   defensiveCardType: 3

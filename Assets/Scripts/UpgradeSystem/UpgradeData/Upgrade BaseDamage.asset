@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Upgrade BaseDamage
   m_EditorClassIdentifier: 
   upgradeName: Damage +
-  upgradeImage: {fileID: 3421553560787678545, guid: f27ab436ccd4b66438746ba61d60e885, type: 3}
+  upgradeImage: {fileID: -3546221635666516488, guid: 36e78864e139ef84689adcd979cafed1, type: 3}
   upgradeType: 1
   upgradeValue: 2

@@ -8,6 +8,7 @@ public class EyeOfTheSpoilerButtton : CostumizeButton
     {
         BattleManager.instance.EyeOfTheSpoiler();
         DamageManager.instance.DealDamageToTarget(TargetType.Player, costHealth);
+        SoundEffectManager.instance.PlaySoundEffectOneClip("TextButton");
         HUDManager.instance.ClosePanel();
     }
 }

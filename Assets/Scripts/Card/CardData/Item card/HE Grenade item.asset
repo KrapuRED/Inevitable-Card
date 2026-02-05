@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: HE Grenade
   cardImage: {fileID: 7361592983519363506, guid: 4ab3baf96db62d448b943cee0d181782, type: 3}
-  cardType: 1
+  cardType: 2
   movementCardType: 0
   offensiveCardType: 0
   damageMovement: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   useItem: 0
   itemHealAmount: 0
   itemDamage: 60
-  StaminaCost: 0
+  staminaCost: 0

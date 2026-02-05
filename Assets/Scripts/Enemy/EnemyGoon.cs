@@ -55,6 +55,7 @@ public class EnemyGoon : Enemy
         {
             //Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
             TakeDamage(damageValue);
+            SoundEffectManager.instance.PlaySoundEffectOneClip("EnemyHurt");
         }
     }
 

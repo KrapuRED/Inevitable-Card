@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Small Medical
   cardImage: {fileID: 3171104550126875544, guid: 911fb23af66f9c64098f66efb78737fa, type: 3}
-  cardType: 1
+  cardType: 2
   movementCardType: 0
   offensiveCardType: 0
   damageMovement: 0
@@ -23,4 +23,4 @@ MonoBehaviour:
   useItem: 0
   itemHealAmount: 15
   itemDamage: 0
-  StaminaCost: 0
+  staminaCost: 0

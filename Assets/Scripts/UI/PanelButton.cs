@@ -10,5 +10,7 @@ public class PanelButton : CostumizeButton
             HUDManager.instance.ClosePanel();
         else
             HUDManager.instance.OpenPanel(panelName);
+
+        SoundEffectManager.instance.PlaySoundEffectOneClip("ClickButton");
     }
 }

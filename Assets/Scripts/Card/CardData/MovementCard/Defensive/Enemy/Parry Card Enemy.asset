@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Parry
   cardImage: {fileID: 7267317276240964698, guid: f7d2e05640a2c6f4189601c96b7f03ae, type: 3}
-  cardType: 0
-  movementCardType: 1
+  cardType: 1
+  movementCardType: 2
   offensiveCardType: 0
   damageMovement: 0
   defensiveCardType: 1

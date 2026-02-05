@@ -43,6 +43,7 @@ public class Player : Character
         {
             //Debug.Log($"{this.name} with the target type of {targetType} is take damage {damageValue}");
             TakeDamage(damageValue);
+            SoundEffectManager.instance.PlaySoundEffectOneClip("PlayerHurt");
         }
     }
 

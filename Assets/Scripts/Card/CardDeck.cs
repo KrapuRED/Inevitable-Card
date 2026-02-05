@@ -90,6 +90,8 @@ public class CardDeck : Card
         //Debug.Log($"Hover Enter: {cardData.cardNameMovement}");
         transform.DOMoveY(EndPosition, animationTime);
         //_spriteRenderer.sortingOrder = 1;
+        SoundEffectManager.instance.PlaySoundEffectOneClip("CardDeckHover");
+
     }
 
     public override void OnClickCard()

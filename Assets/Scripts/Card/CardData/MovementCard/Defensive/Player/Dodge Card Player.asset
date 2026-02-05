@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Dodge
   cardImage: {fileID: 1970043473887974267, guid: 524d52a41a6e1a24da1b28d84df3c5e4, type: 3}
-  cardType: 0
-  movementCardType: 1
+  cardType: 1
+  movementCardType: 2
   offensiveCardType: 0
   damageMovement: 0
   defensiveCardType: 2
