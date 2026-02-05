@@ -8,8 +8,8 @@ public class Player : Character
 
     public TargetType type;
     [SerializeField] private CurrentPlayerHandler  _currentPlayerHandler;
-    [SerializeField] private PlayerAnimation _playerAnimation;
-    public PlayerAnimation playerAnimation => _playerAnimation;
+    [SerializeField] private PlayerVisualEffectAnimation _playerAnimation;
+    public PlayerVisualEffectAnimation playerAnimation => _playerAnimation;
 
     [Header("Events")]
     public OnTakeDamageEventSO onTakeDamageEvent;

@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class BattleManager : MonoBehaviour
@@ -18,6 +19,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField] private List<EnemyBattleCardDeck> enemyBattleCardDecks;
 
     [Header("State Battle Arena")]
+    [SerializeField] private GameObject warning;
     [SerializeField] private int turn;
     [SerializeField] private Player _currentPlayer;
     [SerializeField] private Enemy _currentEnemy;
@@ -192,8 +194,11 @@ public class BattleManager : MonoBehaviour
 
         if (newCurrentStamina < 0)
         {
+            warning.SetActive(true);
             return;
         }
+
+        warning.SetActive(false);
 
         for (int i = 0; i < _playerBattleCardDecks.Length; i++)
         {

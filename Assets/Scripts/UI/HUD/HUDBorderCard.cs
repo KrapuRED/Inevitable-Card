@@ -11,6 +11,7 @@ public class HUDBorderCard : MonoBehaviour
     public TextMeshProUGUI staminaValueText;
     public TextMeshProUGUI usedStaminaValueText;
     public TextMeshProUGUI baseDamageValue;
+    public GameObject warningLabel;
 
     public void SetNameCharacter(string nameCharacter)
     {
@@ -37,6 +38,14 @@ public class HUDBorderCard : MonoBehaviour
     {
         int remaining = currentStaminaValue - UsedStaminaValue;
 
-        staminaValueText.text = remaining.ToString();
+        if(warningLabel != null && remaining < 0)
+            warningLabel.SetActive(true);
+        else
+            warningLabel.SetActive(false);
+
+        if (remaining > 0)
+            staminaValueText.text = remaining.ToString();
+        else
+            staminaValueText.text = "0";
     }
 }
