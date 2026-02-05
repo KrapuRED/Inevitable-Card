@@ -8,11 +8,12 @@ public class EnemyAnimation : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     public void PlayAnimation(AnimationEffectType effectType)
     {
-        Debug.Log($"Player try show VFX of {effectType}");
+        Debug.Log($"{gameObject.name} try show VFX of {effectType}");
         _animator.ResetTrigger(effectType.ToString());
         _animator.SetTrigger(effectType.ToString());
     }

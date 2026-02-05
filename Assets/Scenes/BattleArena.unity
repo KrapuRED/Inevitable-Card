@@ -4128,7 +4128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.579998, y: 0.0000019073486}
+  m_AnchoredPosition: {x: -8.579996, y: 0.0000019073486}
   m_SizeDelta: {x: -21.866, y: -2.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &801827606
@@ -8224,7 +8224,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.047225483}
   m_AnchorMax: {x: 0.17333333, y: 0.878}
-  m_AnchoredPosition: {x: 0, y: -0.29253006}
+  m_AnchoredPosition: {x: 0, y: -0.29253197}
   m_SizeDelta: {x: -0, y: -0.585}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492864894
@@ -10914,7 +10914,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -367.31, y: 149.02002}
+  m_AnchoredPosition: {x: -367.31006, y: 149.02002}
   m_SizeDelta: {x: -759.63, y: -303.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852028127
@@ -11231,7 +11231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCards:
-  - {fileID: 11400000, guid: 06f59496562de6b4a92e9b9f6940dbad, type: 2}
+  - {fileID: 11400000, guid: b776eabc82da2ef4cbc0d214a0cdcc41, type: 2}
 --- !u!1 &1900401571
 GameObject:
   m_ObjectHideFlags: 0
@@ -12738,23 +12738,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: m_Size.x
-      value: 1.1296296
+      value: 2.2222223
       objectReference: {fileID: 0}
     - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: m_Size.y
-      value: 1.5185186
-      objectReference: {fileID: 0}
-    - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 79720611280702497, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
+      value: 3.1111112
       objectReference: {fileID: 0}
     - target: {fileID: 2981012883035875535, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.112
+      value: -7.11
       objectReference: {fileID: 0}
     - target: {fileID: 2981012883035875535, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12795,10 +12787,6 @@ PrefabInstance:
     - target: {fileID: 3203812290811689414, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5840772166163879672, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
-      propertyPath: maxHealtPoint
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5840772166163879672, guid: 6076e90bc1f724548a28f8408344a2d5, type: 3}
       propertyPath: _currentPlayerHandler

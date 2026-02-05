@@ -22,7 +22,7 @@ public class CardSOEditor : Editor
 
     private void OnEnable()
     {
-        cardName            = serializedObject.FindProperty("cardNameMovement");
+        cardName            = serializedObject.FindProperty("cardName");
         cardImage           = serializedObject.FindProperty("cardImage");
         cardType            = serializedObject.FindProperty("cardType");
         movementCardType    = serializedObject.FindProperty("movementCardType");
@@ -33,43 +33,50 @@ public class CardSOEditor : Editor
         useItem             = serializedObject.FindProperty("useItem");
         itemHealAmount      = serializedObject.FindProperty("itemHealAmount");
         itemDamage          = serializedObject.FindProperty("itemDamage");
-        staminaCost         = serializedObject.FindProperty("StaminaCost");
+        staminaCost         = serializedObject.FindProperty("staminaCost");
     }
+
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
+
         EditorGUILayout.PropertyField(cardName);
         EditorGUILayout.PropertyField(cardImage);
         EditorGUILayout.PropertyField(cardType);
-        if (cardType.enumValueIndex == (int)CardType.Movement)
+
+        if ((CardType)cardType.enumValueIndex == CardType.Movement)
         {
             EditorGUILayout.PropertyField(movementCardType);
-            if (movementCardType.enumValueIndex == (int)MovementCardType.Offensive)
+
+            if ((MovementCardType)movementCardType.enumValueIndex == MovementCardType.Offensive)
             {
                 EditorGUILayout.PropertyField(offensiveCardType);
                 EditorGUILayout.PropertyField(damage);
             }
-            else if (movementCardType.enumValueIndex == (int)MovementCardType.Defensive)
+            else if ((MovementCardType)movementCardType.enumValueIndex == MovementCardType.Defensive)
             {
                 EditorGUILayout.PropertyField(defensiveCardType);
             }
         }
 
-        if (cardType.enumValueIndex == (int)CardType.Item)
+        if ((CardType)cardType.enumValueIndex == CardType.Item)
         {
             EditorGUILayout.PropertyField(itemCardType);
             EditorGUILayout.PropertyField(useItem);
-            if (itemCardType.enumValueIndex == (int)ItemCardType.HealthPotion)
+
+            if ((ItemCardType)itemCardType.enumValueIndex == ItemCardType.HealthPotion)
             {
                 EditorGUILayout.PropertyField(itemHealAmount);
             }
-            else if (itemCardType.enumValueIndex == (int)ItemCardType.Offensive)
+            else if ((ItemCardType)itemCardType.enumValueIndex == ItemCardType.Offensive)
             {
                 EditorGUILayout.PropertyField(itemDamage);
             }
         }
-            EditorGUILayout.PropertyField(staminaCost);
+
+        EditorGUILayout.PropertyField(staminaCost);
+
         serializedObject.ApplyModifiedProperties();
     }
 }

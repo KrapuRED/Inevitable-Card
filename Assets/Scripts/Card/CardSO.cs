@@ -23,6 +23,7 @@ public enum OffensiveCardType
 
 public enum DefensiveCardType
 {
+    None,
     Parry,
     Dodge,
     Guard   //reduce damageMovement taken %50 dmg
@@ -68,5 +69,5 @@ public class CardSO : ScriptableObject
     public int itemDamage;
     #endregion
 
-    public int StaminaCost;
+    public int staminaCost;
 }

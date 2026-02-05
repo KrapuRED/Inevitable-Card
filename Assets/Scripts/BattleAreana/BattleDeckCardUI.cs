@@ -55,15 +55,15 @@ public class BattleDeckCardUI : MonoBehaviour
         {
 
             cardNameMovement.text = cardData.cardName;
-            if (cardData.damageMovement > 0 && cardData.StaminaCost > 0)
+            if (cardData.damageMovement > 0 && cardData.staminaCost > 0)
             {
-                staminaDoubleValue.text = cardData.StaminaCost.ToString();
+                staminaDoubleValue.text = cardData.staminaCost.ToString();
                 damageDoubleValue.text = cardData.damageMovement.ToString();
                 doubleStatus.SetActive(true);
             }
-            else if (cardData.StaminaCost > 0)
+            else if (cardData.staminaCost > 0)
             {
-                staminaSingelValue.text = cardData.StaminaCost.ToString();
+                staminaSingelValue.text = cardData.staminaCost.ToString();
                 staminaStatus.SetActive(true);
             }
         }

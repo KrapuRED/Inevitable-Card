@@ -20,7 +20,7 @@ public class CardDeckUI : MonoBehaviour
 
         if (cardData.cardType == CardType.Movement)
         {
-            staminaValueText.text = cardData.StaminaCost.ToString();
+            staminaValueText.text = cardData.staminaCost.ToString();
             if (cardData.movementCardType == MovementCardType.Offensive)
             {
                 //show

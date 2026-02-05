@@ -12,7 +12,7 @@ public class ActionCardUI : CardUI
     {
         cardNameText.text = cardData.cardName;
         cardRenderer.sprite = cardData.cardImage;
-        staminaValue.text = cardData.StaminaCost.ToString();
+        staminaValue.text = cardData.staminaCost.ToString();
 
         if (damageValue != null)
             damageValue.text = cardData.damageMovement.ToString();

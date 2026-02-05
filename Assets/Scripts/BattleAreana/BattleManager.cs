@@ -125,7 +125,7 @@ public class BattleManager : MonoBehaviour
         {
             if (_playerBattleDecks[i] != null && _playerBattleDecks[i].cardData != null)
             {
-                _totalCostStamina += _playerBattleDecks[i].cardData.StaminaCost;
+                _totalCostStamina += _playerBattleDecks[i].cardData.staminaCost;
             }
         }
 
