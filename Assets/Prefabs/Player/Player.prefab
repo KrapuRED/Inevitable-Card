@@ -49,8 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameCharacter: 
   maxHealtPoint: 100
-  baseDamage: 2
-  maxStamina: 10
+  baseDamage: 5
+  maxStamina: 12
   type: 0
   _currentPlayerHandler: {fileID: 0}
   _playerAnimation: {fileID: 5241384657620989735}
@@ -266,7 +266,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1827959695375744771, guid: 2bdea6e3fa03c2548af14beff9412fd1, type: 3}
+  m_Sprite: {fileID: -8856612739084537608, guid: 9b0540073b04b3e43923d6797cc7b267, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

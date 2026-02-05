@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeName: Stamina +
   upgradeImage: {fileID: 7660996141844871263, guid: a095854bbfb88e041a0588f269e63ead, type: 3}
   upgradeType: 2
-  upgradeValue: 2
+  upgradeValue: 6

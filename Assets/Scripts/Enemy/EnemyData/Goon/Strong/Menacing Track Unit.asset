@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Menacing Track Unit
   enemyType: 0
   enemyStatus: 1
-  baseDamage: 2
-  maxHealth: 100
+  baseDamage: 8
+  maxHealth: 50
   hiddenCard: 2
   isElimination: 0

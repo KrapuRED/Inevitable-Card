@@ -15,4 +15,4 @@ MonoBehaviour:
   upgradeName: Damage +
   upgradeImage: {fileID: -3546221635666516488, guid: 36e78864e139ef84689adcd979cafed1, type: 3}
   upgradeType: 1
-  upgradeValue: 2
+  upgradeValue: 6

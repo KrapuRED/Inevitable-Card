@@ -24,7 +24,7 @@ public class GachaManager : MonoBehaviour
     {
         obtainCard = new List<CardSO>();
 
-        int dropCount = enemyStatus == EnemyStatus.Strong ? 4 : 2;
+        int dropCount = enemyStatus == EnemyStatus.Strong ? 6 : 3;
 
         // Calculate total weight ONCE
         int totalWeights = 0;
