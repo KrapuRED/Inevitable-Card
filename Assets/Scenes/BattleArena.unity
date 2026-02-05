@@ -7681,7 +7681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 2
   cardWidth: 1
-  overlap: 0.1
+  overlap: 0
   ypos: -0.4
 --- !u!61 &1402343529
 BoxCollider2D:

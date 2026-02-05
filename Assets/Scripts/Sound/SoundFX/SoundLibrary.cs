@@ -1,16 +1,28 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+
+[System.Serializable]
+public struct SoundEffect
+{
+    public string groupID;
+    public AudioClip[] clipSoundEffects;
+}
 
 public class SoundLibrary : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public SoundEffect[] soundEffects;   
 
-    // Update is called once per frame
-    void Update()
+    public AudioClip GetClipSoundEffectByGroupID(string groupName)
     {
-        
+        foreach (var soundEffect in soundEffects)
+        {
+            if (soundEffect.groupID == groupName)
+            {
+                return soundEffect.clipSoundEffects[Random.Range(0, soundEffects.Length)];
+            }
+        }
+        Debug.LogWarning($"There are no sound effect with name {groupName}");
+        return null;
     }
 }
