@@ -9,24 +9,35 @@ public class MovementDeckContainer : DeckContiner
     [SerializeField] private List<CardDeck> cards = new List<CardDeck>();
     private int nextID;
 
-    private void Start()
+    private void Awake()
     {
-        if (cardType != CardType.Movement)
-            return;
+        Debug.Log($"Awake MovementDeckContainer: {name}");
+
+        Debug.Log($"cardType = {cardType}");
 
         var cardDecks = GetComponentsInChildren<CardDeck>();
+        Debug.Log($"Found {cardDecks.Length} CardDeck children");
 
         foreach (var card in cardDecks)
         {
+            Debug.Log($"Checking card: {card.name}");
+
             if (card.cardData == null)
+            {
+                Debug.LogWarning($"{card.name} cardData is NULL");
                 continue;
+            }
+
+            Debug.Log($"Init card {card.cardData.name}");
 
             cards.Add(card);
             var instance = new CardInstance(card.cardData, nextID++);
             movementCards.Add(instance);
+
             card.InitializerCard(instance);
         }
     }
+
 
     public override void AddCard(CardSO newCardName)
     {

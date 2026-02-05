@@ -35,6 +35,7 @@ public class DeciderManager : MonoBehaviour
         {
             //Change Scene
             Debug.Log("Special card is been used");
+            CutSceneManager.instance.PlayCutScene();
             return;
         }
 

@@ -8,18 +8,23 @@ public class CardRenderManager : MonoBehaviour
 
     [SerializeField] private int _globalTopOrder = 1000;
 
-
-
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     private void ApplyOrder(CardDeck card, int indexLayer)
     {
+        if (card == null)
+            return;
+
         SpriteRenderer rootSpriteRenderer = card.GetComponent<SpriteRenderer>();
         if (rootSpriteRenderer == null)
         {

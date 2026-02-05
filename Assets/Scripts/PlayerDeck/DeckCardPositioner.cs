@@ -17,6 +17,8 @@ public class DeckCardPositioner : MonoBehaviour
 
     public void RepositionCards(List<CardDeck> cards)
     {
+        cards.RemoveAll(c => c == null);
+
         float spacing = cardWidth - overlap;
 
         float startX = 0f;

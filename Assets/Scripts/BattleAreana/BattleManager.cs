@@ -194,11 +194,8 @@ public class BattleManager : MonoBehaviour
 
         if (newCurrentStamina < 0)
         {
-            warning.SetActive(true);
             return;
         }
-
-        warning.SetActive(false);
 
         for (int i = 0; i < _playerBattleCardDecks.Length; i++)
         {

@@ -66,18 +66,10 @@ public class CardDeck : Card
     {
         cardData = newCardSO.cardData;
         Instance = newCardSO;
-        registerCardEvent.OnRegisterCard(this);
-
-        //Debug.Log($"Card Name : {Instance.cardData.cardNameMovement} Card ID : {Instance.ID}");
-
-        if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.Offensive)
-        {
-            _spriteRenderer.color = Color.red;
-        }
-        else if (cardData.cardType == CardType.Item && cardData.itemCardType == ItemCardType.HealthPotion)
-        {
-            _spriteRenderer.color = Color.green;
-        }
+        if (registerCardEvent != null)
+            registerCardEvent.OnRegisterCard(this);
+        else
+            Debug.LogError($"{name} registerCardEvent is NULL!");
     }
 
 

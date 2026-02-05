@@ -54,4 +54,14 @@ public class GameManager : MonoBehaviour
     {
         HUDManager.instance.OpenPanel(PanelName.GameOverPanel);
     }
+
+    public void RestartGame()
+    {
+        SceneManagement.instance.ChangeScene("StartScene");
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManagement.instance.ChangeScene("MainMenu");
+    }
 }
