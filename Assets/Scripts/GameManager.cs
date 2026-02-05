@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
     public void NextBattle()
     {
         currentBattle++;
+        HUDManager.instance.UpdateBattleStageUI(currentBattle - 1);
         if (currentBattle >= 5)
         {
             FightBoss();
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     public void FightBoss()
     {
         Debug.Log("We kill all the Goons! NOW WE FIGHT THE BOSS!");
+        MusicManager.instance.PlayMusicBackground(bossBGM);
         EnemyManager.instance.SpawnEnemyBoss();
     }
 

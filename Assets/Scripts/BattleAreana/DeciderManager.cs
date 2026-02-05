@@ -63,11 +63,11 @@ public class DeciderManager : MonoBehaviour
         bool enemyDefending = false;
         bool enemyCancelAttack = false;
 
-        if (playerCard != null)
+        /*if (playerCard != null)
         {
             Debug.Log("Player card  : " + playerCard.cardData.name);
             Debug.Log("Enemy card   : " + enemyCard.cardData.name);
-        }
+        }*/
 
         #region Calculate
         // Player

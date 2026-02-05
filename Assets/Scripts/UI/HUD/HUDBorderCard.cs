@@ -6,10 +6,16 @@ public class HUDBorderCard : MonoBehaviour
 {
     [Header("reference")]
     public Slider healthBar;
+    public TextMeshProUGUI characterName;
     public TextMeshProUGUI healthValueText;
     public TextMeshProUGUI staminaValueText;
     public TextMeshProUGUI usedStaminaValueText;
     public TextMeshProUGUI baseDamageValue;
+
+    public void SetNameCharacter(string nameCharacter)
+    {
+        characterName.text = nameCharacter;
+    }
 
     public void SetHealth(float current, float max)
     {

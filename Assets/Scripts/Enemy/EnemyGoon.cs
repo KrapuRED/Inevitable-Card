@@ -30,6 +30,7 @@ public class EnemyGoon : Enemy
 
         HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
         HUDManager.instance.UpdateEnemyBaseDamage(baseDamage);
+        HUDManager.instance.UpdateEnemyName(enemyData.enemyName);
         SetCurrentEnemy();
     }
 

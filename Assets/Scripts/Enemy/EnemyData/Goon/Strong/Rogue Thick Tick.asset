@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyName: Rogue Thick Tick
   enemyType: 0
   enemyStatus: 1
-  baseDamage: 2
+  baseDamage: 4
   maxHealth: 75
   hiddenCard: 3
-  isElimination: 0
+  isElimination: 1

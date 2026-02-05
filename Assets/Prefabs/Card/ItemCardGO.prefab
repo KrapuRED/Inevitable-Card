@@ -269,7 +269,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: 2587491994676590062, guid: 41588526f4ee5084c860331a3832ee94, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -313,8 +313,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Hand Granade
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 41588526f4ee5084c860331a3832ee94, type: 2}
+  m_sharedMaterial: {fileID: 2587491994676590062, guid: 41588526f4ee5084c860331a3832ee94, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -548,6 +548,7 @@ MonoBehaviour:
   EndPosition: -3.5
   StartPosition: -5.23
   itemcardUI: {fileID: 6799014001952885780}
+  onHideItemCard: {fileID: 0}
 --- !u!114 &6799014001952885780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardNameText: {fileID: 8899579969042377103}
   cardRenderer: {fileID: 5112736006768221229}
-  healStatus: {fileID: 3606889568692410258}
+  healStatus: {fileID: 514166068062879137}
   healValue: {fileID: 2882956283761252687}
   damageStatus: {fileID: 5449816951616841215}
   damageValue: {fileID: 1971057692284267959}
@@ -753,7 +754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.1386, y: 0.0067}
+  m_AnchoredPosition: {x: 0.1386, y: 0.04190012}
   m_SizeDelta: {x: 0.3456, y: 0.3626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5356363602980210664
@@ -921,7 +922,7 @@ Transform:
   m_GameObject: {fileID: 7952512583305783056}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1709, y: -0.0062, z: 0}
+  m_LocalPosition: {x: -0.1709, y: 0.029, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -971,7 +972,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -7868275561322272713, guid: 840d1222b9eee93438e687cf18c11296, type: 3}
+  m_Sprite: {fileID: -4027803704605868421, guid: 8e598c97aab7a54429805c8d70495eda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

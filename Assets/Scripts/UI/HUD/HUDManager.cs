@@ -35,6 +35,7 @@ public class HUDManager : MonoBehaviour
     [Header("Reference Script")]
     public HUDBorderCard playerCard;
     public HUDBorderCard enemyCard;
+    public HUDBattleStageUI battleStageUI;
     public ObtainCardControllerUI obtainCardController;
 
     [SerializeField]private bool isPanelOpened;
@@ -82,6 +83,11 @@ public class HUDManager : MonoBehaviour
     public void UpdateEnemyBaseDamage(float baseDamage)
     {
         enemyCard.SetBaseDamage(baseDamage);
+    }
+
+    public void UpdateEnemyName(string name)
+    {
+        enemyCard.SetNameCharacter(name);
     }
     #endregion
 
@@ -141,6 +147,11 @@ public class HUDManager : MonoBehaviour
         InitiateMoveButton.SetActive(show);
     }
     #endregion
+
+    public void UpdateBattleStageUI(int battleStage)
+    {
+        battleStageUI.NextBattleStageUI(battleStage);
+    }
 
     public void UpdateObtainCard(List<CardSO> obtainCard)
     {

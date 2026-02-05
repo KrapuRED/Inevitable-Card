@@ -1,13 +1,20 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+
+[System.Serializable]
+public class GachaPool
+{
+    [Range(0, 100)] public int weight;
+    public CardSO cardData;
+}
 
 public class GachaManager : MonoBehaviour
 {
     public static GachaManager instance;
 
     [Header("Gacha Config")]
-    public List<CardSO> cards;
-    public List<int> weights;
+    public List<GachaPool> pools;
     private List<CardSO> obtainCard;
 
     private void Awake()
@@ -26,11 +33,13 @@ public class GachaManager : MonoBehaviour
 
         int dropCount = enemyStatus == EnemyStatus.Strong ? 6 : 3;
 
+        Debug.Log("drop count : " + dropCount);
+
         // Calculate total weight ONCE
         int totalWeights = 0;
-        for (int i = 0; i < dropCount; i++)
+        for (int i = 0; i < pools.Count; i++)
         {
-            totalWeights += weights[i];
+            totalWeights += pools[i].weight;
         }
 
         if (totalWeights > 100)
@@ -47,10 +56,10 @@ public class GachaManager : MonoBehaviour
 
             for (int i = 0; i < dropCount; i++)
             {
-                current += weights[i];
+                current += pools[i].weight;
                 if (roll < current)
                 {
-                    obtainCard.Add(cards[i]);
+                    obtainCard.Add(pools[i].cardData);
                     break;
                 }
             }
