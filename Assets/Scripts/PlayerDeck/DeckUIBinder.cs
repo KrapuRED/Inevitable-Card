@@ -107,5 +107,7 @@ public class DeckUIBinder : MonoBehaviour
         OnAddCardEvent.Unregister(HandelAddedItemCard);
         OnRemoveCardEvent.Unregister(HandleRemovedItemCard);
         OnHideItemCardEvent.Unregister(HandleHideItemCard);
+        OnRepositioningCardEvent.Unregister(HandleRepositioningActionCard);
+        OnRegisterCardEvent.Unregister(RegisterCardView);
     }
 }
