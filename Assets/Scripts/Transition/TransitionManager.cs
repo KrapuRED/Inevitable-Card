@@ -29,7 +29,7 @@ public class TransitionManager : MonoBehaviour
             transitions = transitionContainer.GetComponentsInChildren<SceneTransition>(true);
     }
 
-    public void LoadSceneTransition(string sceneName, string transitionName)
+    public void LoadSceneTransition(string sceneName, string transitionName = "CrossFade")
     {
         StartCoroutine(LoadScenbeAsync(sceneName, transitionName));
     }

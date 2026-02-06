@@ -52,16 +52,17 @@ public class GameManager : MonoBehaviour
 
     public void PlayerLose()
     {
+        MusicManager.instance.StopMusic();
         HUDManager.instance.OpenPanel(PanelName.GameOverPanel);
     }
 
     public void RestartGame()
     {
-        SceneManagement.instance.ChangeScene("StartScene");
+        TransitionManager.instance.LoadSceneTransition("BattleArena");
     }
 
     public void BackToMainMenu()
     {
-        SceneManagement.instance.ChangeScene("MainMenu");
+        TransitionManager.instance.LoadSceneTransition("MainMenu");
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e83d96d5d9bf064e91349abda8afff0, type: 3}
   m_Name: Construction Unit Normal
   m_EditorClassIdentifier: 
-  enemyName: Construction Unit Normal
+  enemyName: 'Construction Unit '
   enemyType: 0
   enemyStatus: 0
   baseDamage: 8

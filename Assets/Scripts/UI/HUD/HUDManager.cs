@@ -158,5 +158,10 @@ public class HUDManager : MonoBehaviour
         obtainCardController.SetObtainCards(obtainCard);
     }
 
+    public void SetPanelIsOpen()
+    {
+        isPanelOpened = true ;
+    }
+
     public bool IsPanelOpened { get { return isPanelOpened; } }
 }
