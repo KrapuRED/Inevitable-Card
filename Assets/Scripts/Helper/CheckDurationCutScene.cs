@@ -5,6 +5,7 @@ public class CheckDurationCutScene : MonoBehaviour
 {
     [SerializeField] private PlayableDirector _director;
     public string nextScene;
+    public string transitionName;
 
     private void OnEnable()
     {
@@ -21,6 +22,6 @@ public class CheckDurationCutScene : MonoBehaviour
     private void CutSceneEnd(PlayableDirector director)
     {
         Debug.Log("Cutscene Ended!");
-        SceneManagement.instance.ChangeScene(nextScene);
+        TransitionManager.instance.LoadSceneTransition(nextScene, transitionName);
     }
 }

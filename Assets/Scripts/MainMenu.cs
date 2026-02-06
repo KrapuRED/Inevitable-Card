@@ -3,10 +3,11 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     public string nextScene;
+    public string transitoinScene;
 
     public void PlayGame()
     {
-        SceneManagement.instance.ChangeScene(nextScene);
+        TransitionManager.instance.LoadSceneTransition(nextScene, transitoinScene);
     }
 
     public void OpenCredit()
