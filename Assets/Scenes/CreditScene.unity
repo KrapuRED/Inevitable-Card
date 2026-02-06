@@ -211,7 +211,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -136}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1044, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &243403594
@@ -324,6 +324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _director: {fileID: 600842480}
   nextScene: MainMenu
+  transitionName: CrossFade
 --- !u!1 &371310036
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +461,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371310036}
   m_CullTransparentMesh: 1
+--- !u!1001 &456261683
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.379241
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.575077
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.95892054
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588231755641872663, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609179365633421639, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
+      propertyPath: m_Name
+      value: Transition
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0002dc9b6aaef4a4a945dd69b43f174b, type: 3}
 --- !u!1 &486102742
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +552,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2012}
+  m_AnchoredPosition: {x: 0, y: -2173}
   m_SizeDelta: {x: 1295.32, y: 609.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486102744
@@ -517,22 +575,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Battle Arena\r\nInvasion (Aggressive Powerful Sci-Fi Cinematic Futuristic
-    War Music)AUDIOREZOUT\r\n\r\nBattle Boss\r\nUltramech Brigade (Aggressive Hybrid
-    Action Trailer)VasilYatsevich\r\n\r\nDodge Successfull\r\nwoosh RibhavAgrawal
-    Pixabay\r\n\r\nParry  Successfull\r\nshield guard freesound_community  Pixabay\r\n\r\nHeavy
-    Attack\r\nPowerful Cinematic HitUniversfield Pixabay\r\n\r\nLight Attack \r\n080884_Bullet
-    Hitfreesound_community Pixabay\r\n\r\nPlayer Hurt\r\nHit Flesh 01u_xjrmmgxfru
-    Pixabay\r\nmale_hurt7freesound_community Pixabay\r\n\r\nEnemy Hurt\r\nBullet
-    Hit Metal freesound_community Pixabay\r\nerror freesound_community Pixabay\r\n\r\nGuard
-    \r\ndamagefreesound_community Pixabay\r\n\r\nHeal\r\nHeal Up freesound_community
-    Pixabay\r\n\r\nHand Grenade\r\nMedium Explosionfreesound_community Pixabay\r\n\r\nHE
-    Grenade\r\nEpic Cinematic ExplosionUniversfield Pixabay\r\n\r\nCard in Deck Hover\r\ntake-it
-    freesound_community Pixabay\r\n\r\nCard Place\r\nPlace Something freesound_community
-    Pixabay\r\n\r\nButton UI Klick\r\nUI Button Heavy Button Press MetallicEpic_Stock_Media
-    Pixabay\r\n\r\nTEXT Button UI Klick\r\nscifi_artifactfreesound_community Pixabay\r\n\r\nTitle
-    Reveal End Scene\r\nEpic Trailer Logo RevealBreakzStudios Pixabay\r\n\r\nDefeat\r\ndefeat
-    u_7fupvvf5ym Pixabay"
+  m_text: "Game Design\nVladimir Eddo Hansudy\n\nGame Art\nDanzel Ferdinand\n\nGame
+    Programmer\nAndhika Dwi Atmaja R\n\nMain Menu BGM\nDark Sci-Fi Suspense Trailer
+    Sound4Stock PixiBay\n\nBattle Arena BGM\r\nInvasion (Aggressive Powerful Sci-Fi
+    Cinematic Futuristic War Music)AUDIOREZOUT PixiiBay\r\n\r\nBattle Boss BGM\r\nUltramech
+    Brigade (Aggressive Hybrid Action Trailer)VasilYatsevich\r\n\r\nDodge Successfull\r\nwoosh
+    RibhavAgrawal Pixabay\r\n\r\nParry  Successfull\r\nshield guard freesound_community 
+    Pixabay\r\n\r\nHeavy Attack\r\nPowerful Cinematic HitUniversfield Pixabay\r\n\r\nLight
+    Attack \r\n080884_Bullet Hitfreesound_community Pixabay\r\n\r\nPlayer Hurt\r\nHit
+    Flesh 01u_xjrmmgxfru Pixabay\r\nmale_hurt7freesound_community Pixabay\r\n\r\nEnemy
+    Hurt\r\nBullet Hit Metal freesound_community Pixabay\r\nerror freesound_community
+    Pixabay\r\n\r\nGuard \r\ndamagefreesound_community Pixabay\r\n\r\nHeal\r\nHeal
+    Up freesound_community Pixabay\r\n\r\nHand Grenade\r\nMedium Explosionfreesound_community
+    Pixabay\r\n\r\nHE Grenade\r\nEpic Cinematic ExplosionUniversfield Pixabay\r\n\r\nCard
+    in Deck Hover\r\ntake-it freesound_community Pixabay\r\n\r\nCard Place\r\nPlace
+    Something freesound_community Pixabay\r\n\r\nButton UI Klick\r\nUI Button Heavy
+    Button Press MetallicEpic_Stock_Media Pixabay\r\n\r\nTEXT Button UI Klick\r\nscifi_artifactfreesound_community
+    Pixabay\r\n\r\nTitle Reveal End Scene\r\nEpic Trailer Logo RevealBreakzStudios
+    Pixabay\r\n\r\nDefeat\r\ndefeat u_7fupvvf5ym Pixabay\n\nDogica\_\xE0\_\u20AC\_by\_Roberto
+    Mocci\_\nin\_Bitmap\_(8 px)\_[help]\n\nPixelmax\_\xE0\_\u20AC\_by\_Fitrah Type\_"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aff2a92070b779246906e070583d8254, type: 2}
   m_sharedMaterial: {fileID: -1403665817794444560, guid: aff2a92070b779246906e070583d8254, type: 2}
@@ -751,7 +812,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 136}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!320 &600842480
@@ -1004,8 +1065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -136}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -68}
+  m_SizeDelta: {x: 0, y: 136}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &940919382
 Animator:
@@ -1039,7 +1100,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &952631716
 GameObject:
@@ -1295,3 +1356,4 @@ SceneRoots:
   - {fileID: 952631719}
   - {fileID: 229345285}
   - {fileID: 1057139535}
+  - {fileID: 456261683}

@@ -51,6 +51,8 @@ MonoBehaviour:
     musicAudioClip: {fileID: 8300000, guid: 0ac8b8fbe61ef7748921f7f297c69443, type: 3}
   - nameTrack: Boss Battle
     musicAudioClip: {fileID: 8300000, guid: 82c82a12707164f4092359f807236975, type: 3}
+  - nameTrack: MainMenu
+    musicAudioClip: {fileID: 8300000, guid: cab69dd777fb28b4598c675addc08366, type: 3}
 --- !u!114 &8886623825991270384
 MonoBehaviour:
   m_ObjectHideFlags: 0
