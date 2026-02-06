@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2901db10cc2f1b84f9b406c84d51ee54
+guid: ab9f74890fa5ba54dbfe1b8a57398b1e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1761297369800804995
-    second: UI_Object_Eye of the Spoiler_0
+      213: -5735467431209215021
+    second: UI_Object_Eye Of Spoiler_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,56 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UI_Object_Eye of the Spoiler_0
+      name: UI_Object_Eye Of Spoiler_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 5
-        width: 290
-        height: 167
+        x: 44
+        y: 2
+        width: 296
+        height: 173
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 38a8ec640a2617810800000000000000
-      internalID: 1761297369800804995
+      spriteID: 3dbd3f552c68760b0800000000000000
+      internalID: -5735467431209215021
       vertices: []
       indices: 
       edges: []
@@ -174,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UI_Object_Eye of the Spoiler_0: 1761297369800804995
+      UI_Object_Eye Of Spoiler_0: -5735467431209215021
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
