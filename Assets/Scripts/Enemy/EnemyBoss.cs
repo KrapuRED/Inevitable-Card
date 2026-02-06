@@ -26,14 +26,13 @@ public class EnemyBoss : Enemy
     {
         if (enemyData != null)
         {
-            
             nameCharacter = enemyData.enemyName;
             maxHealtPoint = enemyData.maxHealth;
             healtPoints = enemyData.maxHealth;
             baseDamage = enemyData.baseDamage;
         }
 
-
+        HUDManager.instance.UpdateEnemyName(nameCharacter);
         HUDManager.instance.UpdateEnemyHealth(healtPoints, maxHealtPoint);
         HUDManager.instance.UpdateEnemyBaseDamage(baseDamage);
         SetCurrentEnemy();

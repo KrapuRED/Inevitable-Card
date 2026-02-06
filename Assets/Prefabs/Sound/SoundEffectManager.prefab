@@ -215,6 +215,9 @@ MonoBehaviour:
   - groupID: EnemyHurt
     clipSoundEffects:
     - {fileID: 8300000, guid: dea0d7f2d0c9c504ca8e190a57a473f4, type: 3}
+  - groupID: Reveal
+    clipSoundEffects:
+    - {fileID: 8300000, guid: b54592579607f1e42aac709a1547f186, type: 3}
 --- !u!114 &5609239536414250410
 MonoBehaviour:
   m_ObjectHideFlags: 0
